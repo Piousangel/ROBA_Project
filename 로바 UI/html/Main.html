@@ -18,30 +18,32 @@
                 width: 1920px;
                 height: 1080px;
                 margin: auto;
+                padding: 0px;
                 border: 1px solid black;
                 background-color: rgb(246, 243,238);
-            }
-
-            #header
-            {
-                margin-top: 358px;
-                margin-bottom: 130px;
+                position: relative;
                 text-align: center;
                 
             }
 
-            #line
+            #state
             {
-                margin: 0px;
-                padding: 0px;
+                position: relative;
                 text-align: center;
+                top: 358px;
+                margin: 0px;
+                border: 1px solid black;
+                font-family: 'GongGothicLight' , sans-serif;
+                font-size: 50px;
+                color :rgb(116, 72, 33);
             }
 
-            p
+            #robaimg
             {
-                font-family: 'GongGothicLight' , sans-serif;
-                font-size: 30px;
-                color :rgb(116, 72, 33);
+                top: 463px;
+                position: relative;
+                text-align: center;
+                
             }
 
 
@@ -71,14 +73,13 @@
     <body>
         <div id="wrap">
 
-            <div id="header">
-                 <p>로바는 지금 주문 가능한 상태 입니다 :)</p> 
-                <img src="/로바 UI/imgs/roba_Logo.svg" alt="aaa" width="550px" height="106px"/> 
-            </div>
-
-            <div id = "line">
-                <img src="/로바 UI/imgs/err_line.gif" alt="aaa" width="900px" height="40px"/> 
-            </div>
+            
+            <p id="state">로바는 지금 주문 가능한 상태 입니다 :)</p> 
+            
+            <img src="/로바 UI/imgs/roba_Logo.svg" alt="aaa" width="550px" height="463px"/> 
+            
+            <img src="/로바 UI/imgs/err_line.gif" alt="aaa" width="900px" height="40px"/> 
+            
 
             <div id="order_button">
                 <input type="submit" value="주문하기" id="order_confrim" name="order" onclick="changepage()" class="button-add" >
