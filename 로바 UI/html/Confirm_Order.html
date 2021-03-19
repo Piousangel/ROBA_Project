@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML CSS Left Right Split</title>
+
+    <style>
+        div {
+            width: 100%;
+            height: 90%;
+            
+            position: relative;
+        }
+        div.left {
+            width: 30%;
+            height: 100%;
+            float: left;
+            box-sizing: border-box;
+            text-align: center;
+
+            
+        }
+      div.right {
+        width: 70%;
+        height: 100%;
+        float: right;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      /*테이크 아웃 시간 표시 칸*/
+      #time_info
+      {
+          
+          font-size: 50px;
+      }
+
+      /* &&&&&&&&&&&&&&&&&   div.left    &&&&&&&&&&&&&&&&&&&&&&&& */
+      /* &&&&&&&&&&&&&&&&&   div.left    &&&&&&&&&&&&&&&&&&&&&&&& */
+
+      /* 원두종류 선택 */
+      h1{
+          
+          font-size: 50px;
+          font-family:'Courier New', Courier, monospace;
+      }
+
+      /* 주문확인 박스 */
+      #ab
+      {
+          
+          padding: 50px;
+          border : 1px solid black;
+      }
+
+      p{
+          
+          font-family: 'Courier New', Courier, monospace;
+      }
+      
+      
+      /* &&&&&&&&&&&&&&&&&   div.left end  &&&&&&&&&&&&&&&&&&&&&&&& */
+      /* &&&&&&&&&&&&&&&&&   div.left end  &&&&&&&&&&&&&&&&&&&&&&&&& */
+
+      /* &&&&&&&&&&&&&&&&&   div.right start &&&&&&&&&&&&&&&&&&&&&&&&& */
+      /* &&&&&&&&&&&&&&&&&   div.right start &&&&&&&&&&&&&&&&&&&&&&&&& */
+
+      #confirm_order
+      {
+          width: 100%;
+          height: 50%;
+      }
+
+      /* 아메리카노 밑에 있는 것들 뜨거운음료 hot 등등...*/
+      .percent1
+      {
+        float: left;
+        width: 40%;
+        border: 1px solid black;
+      }
+      .percent2
+      {
+          border: 1px solid black;
+      }
+
+      table
+      {
+          width: 50%;
+          
+          padding-right: 100px;
+      }
+
+      th, td{
+          text-align: center;
+          font-size: 30px;
+          font-family: 'Courier New', Courier, monospace;
+          padding: 40px 10px;
+          
+      }
+
+      #select_button
+      {
+          font-size: 50px;
+          margin-top: 50px;
+          margin-left: 0;
+          border: 4px solid black;
+      }
+
+      /* &&&&&&&&&&&&&&&&&   div.right end &&&&&&&&&&&&&&&&&&&&&&&&& */
+      /* &&&&&&&&&&&&&&&&&   div.right end &&&&&&&&&&&&&&&&&&&&&&&&& */
+      
+        
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="left">
+        <h1 id = "ab"> 주문 확인 </h1>
+       
+        <div id= "time_info">
+            <p>예상 테이크아웃 시간은</p>
+            <p>00:00</p>
+            <p>후 입니다.</p>
+        </div>
+        
+      </div>
+        
+        <div class="right">
+            <h1> 아메리카노<br> Americano </h1>
+
+            <!-- 뽑을 커피정보와 커피 확인하는 코드-->
+            <div id= "confirm_order">
+                <div class="percent1">
+                    <h3>뽑을 커피의 정보</h3>
+                </div>
+                <div class="percent2">
+                    <table >
+                        <tr>
+                            <th>뜨거운 음료</th>
+                            <th>Hot</th>
+                        </tr>
+                        <tr>
+                            <td>커피콩1</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>커피콩2</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>커피콩3</td>
+                            <td>20%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <form action="/Select_Blending" method="POST">
+                <input type="submit" value="주문" id="select_button" name="choice">
+            </form>
+        </div>    
+    </div>
+  </body>
+</html>
