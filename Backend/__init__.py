@@ -23,6 +23,15 @@ def main():
         return render_template('Main.html')
 
 
+@app.route("/Order_Timeout")
+def order_timeout():
+    return render_template("Order_Timeout.html")
+
+@app.route("/Can't_Order")
+def cant_order():
+    return render_template("Can't_Order.html")
+
+
 @app.route("/Menu_Select_Blending", methods=["GET", "POST"])
 def menu_select_blending():
     if request.method == 'POST':

@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>제목</title>
+        <meta charset="utf-8" />
+        
+        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/>  css파일 불러올때 -->
+    
+    <style>
+            @font-face {
+                font-family: 'GongGothicLight';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            #wrap
+            {
+                width: 1920px;
+                height: 1080px;
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(246, 243,238);
+                position: absolute;
+            }
+
+            body
+            {
+                margin: 0px;
+            }
+
+            #state
+            {
+                position: absolute;
+                top: 358px;
+                left: 578px;
+                font-family: 'GongGothicLight' , sans-serif;
+                font-size: 37pt;                  
+                color :rgb(116, 72, 33);
+                
+                margin: 0px;
+            }
+
+            #roba_Logo
+            {
+                
+                position: absolute;
+                top: 463px;
+                left: 685px;
+                width: 550px;
+                margin: 0px;
+            }
+
+            #line_Animation
+            {
+                position: absolute;
+                top: 700px;
+                left: 155px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #order_stop
+            {
+                position: absolute;
+                top: 753px;
+                left: 729px;
+                background-image: url(/static/imgs/ROBA_1-2_Main_Cant_Order_button.png);
+                background-color: rgb(246, 243,238);
+                background-size: 460px 200px;
+                background-repeat: no-repeat;
+                border: none;
+                background-position: 0px 0px;
+                height: 200px;
+                width: 460px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+        
+
+
+           
+
+           
+
+           
+            
+
+    </style>
+
+    </head>
+
+    <body>
+        <div id="wrap">
+
+            
+            <p id="state">로바는 지금 캔이 없는 상태입니다 :'(</p> 
+            
+            <img src="/static/imgs/roba_Logo.svg" alt="logo"  id="roba_Logo" /> 
+            
+            <img src="/static/imgs/err_line.gif" alt="line" id="line_Animation"/> 
+            
+            <form  action= "Select_Blending" method="POST">
+                <input type="submit" value = "" id="order_stop" name="order" >
+            </form>
+            
+            
+
+        </div>
+
+        <script type="text/javascript">
+        
+        /*function changepage()
+        {
+            location.href = "Select_Blending.html"
+        } */
+        
+        
+        </script>
+
+    </body>
+</html>
