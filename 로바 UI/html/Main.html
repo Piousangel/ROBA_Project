@@ -17,49 +17,49 @@
             {
                 width: 1920px;
                 height: 1080px;
-                margin: auto;
+                margin: 0px;
                 padding: 0px;
-                border: 1px solid black;
                 background-color: rgb(246, 243,238);
-                position: relative;
-                text-align: center;
-                
+                position: absolute;
             }
 
             #state
             {
-                position: relative;
-                text-align: center;
+                position: absolute;
                 top: 358px;
-                margin: 0px;
-                border: 1px solid black;
+                left: 560px;
                 font-family: 'GongGothicLight' , sans-serif;
-                font-size: 50px;
+                font-size: 34pt;                  /* 이거 다시 수정해야 할듯. */
                 color :rgb(116, 72, 33);
             }
 
-            #robaimg
+            #roba_Logo
             {
+                
+                position: absolute;
                 top: 463px;
-                position: relative;
-                text-align: center;
-                
+                left: 658px;
+                width: 550px;
+                height: 106px;
             }
 
-
-            #order_button
+            #line_Animation
             {
-                
-                border: 1px solid black;
-                margin: 50px 750px;
-                padding: 50px 50px;
-                text-align: center;
+                position: absolute;
+                top: 700px;
+                left: 155px;
             }
 
-            input.button-add
+            #order_confrim
             {
-                background-image: url(/imgs/ROBA_1_Main_button.png);
+                position: absolute;
+                top: 752px;
+                left: 729px;
+                background-image: url(/Users/yyh7654/Documents/GitHub/ROBA_Project/로바 UI/imgs/ROBA_1_Main_button.png);
             }
+
+
+           
 
            
 
@@ -76,14 +76,14 @@
             
             <p id="state">로바는 지금 주문 가능한 상태 입니다 :)</p> 
             
-            <img src="/로바 UI/imgs/roba_Logo.svg" alt="aaa" width="550px" height="463px"/> 
+            <img src="/imgs/roba_Logo.svg" alt="logo"  id="roba_Logo" /> 
             
-            <img src="/로바 UI/imgs/err_line.gif" alt="aaa" width="900px" height="40px"/> 
+            <img src="/imgs/err_line.gif" alt="line" id="line_Animation"/> 
             
-
-            <div id="order_button">
-                <input type="submit" value="주문하기" id="order_confrim" name="order" onclick="changepage()" class="button-add" >
-            </div>
+            <form  method="POST">
+                <input type="submit" value="주문하기" id="order_confrim" name="order" onclick="changepage()" >
+            </form>
+            
             
 
         </div>
@@ -94,6 +94,7 @@
         {
             location.href = "Select_Blending.html"
         }
+        
         
         </script>
 
