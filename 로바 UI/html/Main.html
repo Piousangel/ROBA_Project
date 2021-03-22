@@ -109,24 +109,30 @@
         <script type="text/javascript">
         
         var timeT = document.getElementById("runningtime");
+
+        window.onload = function()
+        {
+            cnt = 10;
+            countdown();
+        }
         
         function Timer()
         {
             setTimeout("locateKap()", 10000);
         }
 
+        document.onclick = function(){cnt = 10;};
+
         function locateKap()
         {
-            location.replace("http://www.naver.com");
+           
         }
-
-        cnt = 5;
 
         function countdown()
         {
             if(cnt == 0)
             {
-                locateKap();
+                sendPost('/Order_Timeout' , {'a':'b'});
             }
             else{
                 timeT.innerText = cnt;
@@ -137,9 +143,23 @@
         }
 
 
+        function sendPost(action, params) {
+        var form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', action);
+        document.charset = "utf-8";
 
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', key);
+        hiddenField.setAttribute('value', params[key]);
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
+        }
 
         
+
         </script>
 
     </body>
