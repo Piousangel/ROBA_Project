@@ -26,6 +26,7 @@
             body
             {
                 margin: 0px;
+                padding: 0px;
             }
 
             #state
@@ -100,22 +101,42 @@
             
             <img src="/static/imgs/err_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "Select_Blending" method="POST">
-                <input type="submit" value = "" id="order_stop" name="order" >
-            </form>
+            <div id="order_stop">
             
-            
-
         </div>
 
         <script type="text/javascript">
         
-        /*function changepage()
+        window.onload = function()
         {
-            location.href = "Select_Blending.html"
-        } */
-        
-        
+            cnt = 5;
+            countdown();
+        }
+
+        function countdown()
+        {
+            if(cnt == 0)
+            {
+                sendGet('/Main');
+            }
+            else{
+                setTimeout("countdown()", 1000);
+                cnt--;
+            }
+        }
+
+        function sendGet(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
+            
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            document.body.appendChild(form);
+            form.submit();
+        }
         </script>
 
     </body>

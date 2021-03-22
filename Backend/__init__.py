@@ -17,15 +17,20 @@ option = [0]
 @app.route("/")
 @app.route("/Main", methods=["GET", "POST"])
 def main():
-    if request.method == 'POST':
-        return redirect(url_for('menu_select_blending'))
+    rs_return = run_sync_client_CanCheck()
+    if rs_return == True:
+        if request.method == 'POST':
+            return redirect(url_for('menu_select_blending'))
+        else:
+            return render_template('Main.html')
     else:
-        return render_template('Main.html')
+        return redirect(url_for('cant_order'))
 
 
 @app.route("/Order_Timeout")
 def order_timeout():
     return render_template("Order_Timeout.html")
+
 
 @app.route("/Can't_Order")
 def cant_order():
@@ -80,10 +85,10 @@ def run_sync_client():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
     log.debug("***************Send Blending****************")
-    rq = client.write_registers(200, [int(blender[0]), int(blender[1]), int(blender[2])])
+    rq = client.write_registers(200, [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
     log.debug("***************Read Blending****************")
-    rr = client.read_holding_registers(200, 3)
-    log.debug(rr)
+    rr = client.read_holding_registers(200, 3, unit=0x00)
+    print("Bl_1 : " + str(rr.registers[0]) + " Bl_2 : " + str(rr.registers[1]) + " Bl_3 : " + str(rr.registers[2]))
 
     hot_selector = [1,0]
     if option == '1':
@@ -92,14 +97,24 @@ def run_sync_client():
         hot_selector = [0,1]
 
     log.debug("******************Send HOT*******************")
-    rq = client.write_coils(1005, hot_selector)
+    rq = client.write_coils(1005, hot_selector, unit=0x00)
     log.debug("******************Read HOT*******************")
-    rr = client.read_coils(1005, 2)
-    log.debug(rr)
+    rr = client.read_coils(1005, 2, unit=0x00)
+    print("Hot:" + str(rr.bits[0]) + " Ice: " + str(rr.bits[1]))
     log.debug("******************Send Start*******************")
-    rq = client.write_coils(1007, 1)
+    rq = client.write_coils(1007, True, unit=0x00)
     log.debug("******************Read Start*******************")
-    rr = client.read_coils(1007, 1)
-    log.debug(rr)
-
+    rr = client.read_coils(1007, 1, unit=0x00)
+    if rr.bits[0] :
+        print("Start Bit Send!")
     client.close()
+
+
+def run_sync_client_CanCheck():
+    client = ModbusClient('127.0.0.1', port=2004)
+    client.connect()
+    rr = client.read_coils(1007, 1, unit=0x00) #임의의 코일(캔의 유무)
+    print(rr.bits[0])
+    CanChecker = rr.bits[0]
+    client.close()
+    return CanChecker

@@ -74,16 +74,6 @@
 
             }
 
-
-
-
-           
-
-           
-
-           
-            
-
     </style>
 
     </head>
@@ -99,7 +89,7 @@
             
             <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "/Menu_Select_Blending" method="GET">
+            <form  action= "/Main" method="Post">
                 <input type="submit" value = "" id="order_confrim" name="order" >
             </form>
         </div>
@@ -114,13 +104,13 @@
             countdown();
         }
         
-        document.onclick = function(){cnt = 10;};
+        document.onclick = function(){sendGet('/Main');};
 
         function countdown()
         {
             if(cnt == 0)
             {
-                sendGet('/Order_Timeout');
+                sendGet('/Main');
             }
             else{
                 timeT.innerText = cnt;
