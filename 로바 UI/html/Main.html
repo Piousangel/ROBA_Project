@@ -61,7 +61,7 @@
                 position: absolute;
                 top: 752px;
                 left: 729px;
-                background-image: url(/imgs/ROBA_1_Main_button.png);
+                background-image: url(/static/imgs/ROBA_1_Main_button.png);
                 background-color: rgb(246, 243,238);
                 background-repeat: no-repeat;
                 border: none;
@@ -94,9 +94,9 @@
 
             <p id="state">로바는 지금 주문 가능한 상태 입니다 :)</p> 
             
-            <img src="/imgs/roba_Logo.svg" alt="logo"  id="roba_Logo" /> 
+            <img src="/static/imgs/roba_Logo.svg" alt="logo"  id="roba_Logo" /> 
             
-            <img src="/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
+            <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
             
             <form  action= "/Menu_Select_Blending" method="POST">
                 <input type="submit" value = "" id="order_confrim" name="order" >
@@ -116,28 +116,17 @@
             countdown();
         }
         
-        function Timer()
-        {
-            setTimeout("locateKap()", 10000);
-        }
-
         document.onclick = function(){cnt = 10;};
-
-        function locateKap()
-        {
-           
-        }
 
         function countdown()
         {
             if(cnt == 0)
             {
-                sendPost('/Order_Timeout' , {'a':'b'});
+                sendPost('/Order_Timeout');
             }
             else{
                 timeT.innerText = cnt;
                 setTimeout("countdown()", 1000);
-
                 cnt--;
             }
         }
@@ -151,8 +140,6 @@
 
         var hiddenField = document.createElement('input');
         hiddenField.setAttribute('type', 'hidden');
-        hiddenField.setAttribute('name', key);
-        hiddenField.setAttribute('value', params[key]);
         form.appendChild(hiddenField);
         document.body.appendChild(form);
         form.submit();
