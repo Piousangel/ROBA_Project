@@ -1,149 +1,102 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>HTML CSS Left Right Split</title>
-
+    <head>
+        <title>제목</title>
+        <meta charset="utf-8" />
+        
+        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/>  css파일 불러올때 -->
+    
     <style>
-        div {
-            width: 100%;
-            height: 100%;
-            border: 1px solid #003458;
-            position: relative;
-        }
-        div.left {
-            width: 30%;
-            float: left;
-            border: 1px solid black;
-            border-top-right-radius: 30px;
-            box-sizing: border-box;
+            @font-face {
+                font-family: 'GongGothicLight';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body
+            {
+                padding: 0px;
+                margin: 0px;
+            }
+            #wrap
+            {
+                width: 1920px;
+                height: 1080px;
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(246, 243,238);
+                position: absolute;
+            }
+
+           
+
+
+
+           
+
+           
+
+           
             
-        }
-      div.right {
-        width: 70%;
-        float: right;
-        box-sizing: border-box;
-        text-align: center;
-      }
 
-      /* &&&&&&&&&&&&&&&&&   div.left    &&&&&&&&&&&&&&&&&&&&&&&& */
-      /* &&&&&&&&&&&&&&&&&   div.left    &&&&&&&&&&&&&&&&&&&&&&&& */
-
-      /* 원두종류 선택 */
-      h1{
-          margin-top: 150px;
-          margin-bottom: 100px;
-          font-size: 50px;
-          text-align: center;
-          font-family:'Courier New', Courier, monospace;
-      }
-      
-      /* 단맛 바디감 산미 */
-      #taste
-      {
-        display: inline-block;
-        width: 85%;
-        text-align: center;
-
-      }
-
-      .taste_c
-      {
-        margin-left: 40px;
-        margin-bottom: 100px;
-        float: left;
-        font-family: 'Courier New', Courier, monospace;
-        font-size:  50px; 
-      }
-
-      /*radio button position*/
-      .radio_size
-      {
-        display: inline-block;
-        margin-top: 100px;
-        margin-left: 20px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 40px;
-      }
-
-      input[type=radio]
-      {
-        border: 1px solid black;
-        width: 30px;
-        height: 30px;
-        
-      }
-      /******** radio button position end ********/
-      /* &&&&&&&&&&&&&&&&&   div.left end  &&&&&&&&&&&&&&&&&&&&&&&& */
-      /* &&&&&&&&&&&&&&&&&   div.left end  &&&&&&&&&&&&&&&&&&&&&&&&& */
-
-      /* &&&&&&&&&&&&&&&&&   div.right start &&&&&&&&&&&&&&&&&&&&&&&&& */
-      /* &&&&&&&&&&&&&&&&&   div.right start &&&&&&&&&&&&&&&&&&&&&&&&& */
-
-
-
-      #select_button
-      {
-
-          font-size: 50px;
-          margin-top: 50px;
-          border: 1px solid black;
-      }
-
-      .ab{
-        width: 410px;
-        height: 650px;
-        display: inline-block;
-        border: 1px soid black;
-        
-      }
-      
-      
     </style>
-  </head>
 
-  <body>
-    <div>
-      <div class="left">
-        <h1> 원두 종류 선택 </h1>
-        <ul = id="taste">
-          <li class="taste_c"><a href="/Main.html"><span></span></a>단맛 </il>
-          <li class="taste_c">바디감 </il>
-          <li class="taste_c">산미</il>
-        </ul>
-        
-          <form action="/Select_Blending" method="POST" >
-            <span class="radio_size">
-              <input type="radio" id="lostaric" name="los" value="cofffe1">
-              <label for="lostaric">로스타릭 코스타리카 하니</label><br>
-            </span>
-            <span class="radio_size">
-              <input type="radio" id="teralosa" name="los" value="cofffe1">
-              <label for="teralosa">테라로사 에티오피아</label><br>
-            </span>
-            <span class="radio_size">
-              <input type="radio" id="manteling" name="los" value="cofffe1">
-              <label for="manteling">인도네시아 만탤링</label><br>
-            </span>
-          </form>
-      </div>
-        
-      <div class="right">
-        <h1> 아메리카노<br> Americano </h1>
-        
-        <div class="ab">
-          <h2>a</h2>
-        </div>
-        <div class="ab">
-          <h2>b</h2>
-        </div>
-        <div class="ab"> 
-          <h2>c</h2>
+    </head>
+
+    <body>
+        <div id="wrap">
+
+            <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
+
+            
+            
+            
+
         </div>
 
-        <form action="/Select_Blending" method="POST">
-        <input type="submit" value="선택완료" id="select_button" name="choice">
-        </form>
-      </div>
-    </div>
-  </body>
+        <script type="text/javascript">
+        
+        var timeT = document.getElementById("runningtime");
+
+        window.onload = function()
+        {
+            cnt = 10;
+            countdown();
+        }
+        
+        document.onclick = function(){cnt = 10;};
+
+        /*function countdown()
+        {
+            if(cnt == 0)
+            {
+                sendPost('/Order_Timeout');
+            }
+            else{
+                timeT.innerText = cnt;
+                setTimeout("countdown()", 1000);
+                cnt--;
+            }
+        }
+        */
+
+
+        function sendPost(action) {
+        var form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', action);
+        document.charset = "utf-8";
+
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
+        }
+
+        
+
+        </script>
+
+    </body>
 </html>
