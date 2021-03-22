@@ -99,12 +99,9 @@
             
             <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "/Menu_Select_Blending" method="POST">
+            <form  action= "/Menu_Select_Blending" method="GET">
                 <input type="submit" value = "" id="order_confrim" name="order" >
             </form>
-            
-            
-
         </div>
 
         <script type="text/javascript">
@@ -123,7 +120,7 @@
         {
             if(cnt == 0)
             {
-                sendPost('/Order_Timeout');
+                sendGet('/Order_Timeout');
             }
             else{
                 timeT.innerText = cnt;
@@ -133,21 +130,19 @@
         }
 
 
-        function sendPost(action) {
-        var form = document.createElement('form');
-        form.setAttribute('method', 'post');
-        form.setAttribute('action', action);
-        document.charset = "utf-8";
+        function sendGet(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
 
-        var hiddenField = document.createElement('input');
-        hiddenField.setAttribute('type', 'hidden');
-        form.appendChild(hiddenField);
-        document.body.appendChild(form);
-        form.submit();
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            document.body.appendChild(form);
+            form.submit();
+
         }
-
-        
-
         </script>
 
     </body>

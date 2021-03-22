@@ -89,15 +89,6 @@
                 padding: 0px;
 
             }
-
-
-           
-
-           
-
-           
-            
-
     </style>
 
     </head>
@@ -112,9 +103,9 @@
             
             <img src="/static/imgs/err_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "Select_Blending" method="POST">    <!-- action에 이전 주소로 보내게 끔 만들어야합니다.-->
-                <input type="submit" value = "" id="order_continue" name="order" >
-            </form>
+            
+            <button onclick="goBack()" id="order_continue" value="">
+            
             
             
 
@@ -122,10 +113,44 @@
 
         <script type="text/javascript">
         
-        function changepage()
+        var timeT = document.getElementById("screen");
+
+        window.onload = function()
         {
-           
-        } 
+            cnt = 5;
+            countdown();
+        }
+
+        function countdown()
+        {
+            if(cnt == 0)
+            {
+                sendGet('/Main');
+            }
+            else{
+                timeT.innerText = "0" + cnt + "초 후 처음 화면으로 돌아갑니다.";
+                setTimeout("countdown()", 1000);
+                cnt--;
+            }
+        }
+
+        function sendGet(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
+            
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function goBack() 
+        {
+            window.history.back();
+        }
         
         
         </script>
