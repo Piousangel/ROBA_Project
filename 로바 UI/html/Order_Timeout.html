@@ -23,6 +23,11 @@
                 position: absolute;
             }
 
+            body
+            {
+                margin: 0px;
+            }
+
             #state
             {
                 position: absolute;
@@ -31,6 +36,7 @@
                 font-family: 'GongGothicLight' , sans-serif;
                 font-size: 60pt;                  /* 이거 다시 수정해야 할듯. */
                 color :rgb(116, 72, 33);
+                margin: 0px;
             }
 
             #timeover
@@ -41,6 +47,7 @@
                 font-size: 80pt;
                 font-family: 'GongGothicLight' , sans-serif;
                 color :rgb(116, 72, 33);
+                margin: 0px;
             }
 
             #screen
@@ -51,6 +58,7 @@
                 font-size: 60pt;
                 font-family: 'GongGothicLight' , sans-serif;
                 color :rgb(116, 72, 33);
+                margin: 0px;
             }
 
             
@@ -60,10 +68,11 @@
                 position: absolute;
                 top: 700px;
                 left: 155px;
+                margin: 0px;
                 
             }
 
-            #order_confrim
+            #order_continue
             {
                 position: absolute;
                 top: 751px;
@@ -74,7 +83,9 @@
                 border: none;
                 background-position: 0px 0px;
                 height: 200px;
-                width: 600px;
+                width: 590px;
+                margin: 0px;
+                padding: 0px;
 
             }
 
@@ -100,8 +111,8 @@
             
             <img src="/imgs/err_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "Select_Blending" method="POST">
-                <input type="submit" value = "" id="order_confrim" name="order" >
+            <form  action= "Select_Blending" method="POST">    <!-- action에 이전 주소로 보내게 끔 만들어야합니다.-->
+                <input type="submit" value = "" id="order_continue" name="order" >
             </form>
             
             

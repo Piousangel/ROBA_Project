@@ -23,13 +23,18 @@
                 position: absolute;
             }
 
+            body
+            {
+                margin: 0px;
+            }
+
             #state
             {
                 position: absolute;
                 top: 358px;
-                left: 560px;
+                left: 578px;
                 font-family: 'GongGothicLight' , sans-serif;
-                font-size: 33pt;                  /* 이거 다시 수정해야 할듯. */
+                font-size: 50pt;                  /* 이거 다시 수정해야 할듯. */
                 color :rgb(116, 72, 33);
                 
                 margin: 0px;
@@ -40,7 +45,7 @@
                 
                 position: absolute;
                 top: 463px;
-                left: 658px;
+                left: 685px;
                 width: 550px;
                 height: 106px;
                 margin: 0px;
@@ -54,18 +59,18 @@
                 margin: 0px;
             }
 
-            #order_confrim
+            #order_stop
             {
                 position: absolute;
-                top: 752px;
-                left: 729px;
-                background-image: url(/imgs/ROBA_1_Main_button.png);
+                top: 753px;
+                left: 654px;
+                background-image: url(/imgs/ROBA_1-2_Main_Cant_Order_button.png);
                 background-color: rgb(246, 243,238);
                 background-repeat: no-repeat;
                 border: none;
                 background-position: 0px 0px;
                 height: 200px;
-                width: 460px;
+                width: 654px;
                 margin: 0px;
                 padding: 0px;
 
@@ -87,14 +92,14 @@
         <div id="wrap">
 
             
-            <p id="state">로바는 지금 주문 가능한 상태 입니다 :)</p> 
+            <p id="state">로바는 지금 캔이 없는 상태입니다 :'(</p> 
             
             <img src="/imgs/roba_Logo.svg" alt="logo"  id="roba_Logo" /> 
             
-            <img src="/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
+            <img src="/imgs/err_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "Menu_Select_Blending" method="POST">
-                <input type="submit" value = "" id="order_confrim" name="order" >
+            <form  action= "Select_Blending" method="POST">
+                <input type="submit" value = "" id="order_stop" name="order" >
             </form>
             
             
