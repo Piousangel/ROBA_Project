@@ -6,59 +6,86 @@
         <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/>  css파일 불러올때 -->
     
     <style>
+            @font-face {
+                font-family: 'GongGothicLight';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
             #wrap
             {
-                width: 100%;
-                height: 100%;
-                margin: auto;
-                border: 1px solid black;
-                
-                
-            }
-
-            div{
-                text-align: center;
-            }
-            p{
+                width: 1920px;
+                height: 1080px;
                 margin: 0px;
-                font-family: 'Courier New', Courier, monospace;
+                padding: 0px;
+                background-color: rgb(246, 243,238);
+                position: absolute;
             }
 
-            #header
+            #state
             {
-
-                color: black;
-                margin-top: 300;
-                margin-bottom: 100px;
-                /*border:  1px solid gray; */
-                font-size: 50px;
-                
+                position: absolute;
+                top: 259px;
+                left: 812px;
+                font-family: 'GongGothicLight' , sans-serif;
+                font-size: 60pt;                  /* 이거 다시 수정해야 할듯. */
+                color :rgb(116, 72, 33);
             }
 
-            #main{
-               
-                padding-bottom: 80px;
-                border-bottom: 8px solid yellow;
-            }
-
-            #clock
+            #timeover
             {
-                font-size: 45px;
+                position: absolute;
+                top: 420px;
+                left: 489px;
+                font-size: 80pt;
+                font-family: 'GongGothicLight' , sans-serif;
+                color :rgb(116, 72, 33);
             }
 
-            #order_button
+            #screen
             {
-                border: 1px solid black;
-                margin: 50px 750px;
-                padding: 50px 50px;
-                text-align: center;
+                position: absolute;
+                top: 700px;
+                left: 155px;
+                font-size: 60pt;
+                font-family: 'GongGothicLight' , sans-serif;
+                color :rgb(116, 72, 33);
             }
 
             
 
-        
+            #line_Animation
+            {
+                position: absolute;
+                top: 751px;
+                left: 666px;
+                
+            }
+
+            #order_confrim
+            {
+                position: absolute;
+                top: 751px;
+                left: 666px;
+                background-image: url(/imgs/ROBA_1_Main_button.png);
+                background-color: rgb(246, 243,238);
+                background-repeat: no-repeat;
+                border: none;
+                background-position: 0px 0px;
+                height: 200px;
+                width: 460px;
+
+            }
+
 
            
+
+           
+
+           
+            
+
     </style>
 
     </head>
@@ -66,61 +93,29 @@
     <body>
         <div id="wrap">
 
-            <div id="header">
-                <p >죄송합니다.</p>           
-            </div>
-            <div id = "main">
-                <p style="font-size: 65px;">주문시간이 초과되었습니다.</p>     
-                <p id="clock" style="color: gray; margin: 5px;"></p>
-            </div>
-
-            <div id="order_button">
-                <input type="button" id="order_confrimvalue" value="계속 주문하기" style="margin-top: 50px;">
-            </div>
+            
+            <p id="state">죄송합니다.</p> 
+            <p id="timeover">주문시간이 초과되었습니다.</p>
+            <p id="screen">00초 후 처음 화면으로 돌아갑니다.</p>
+            
+            <img src="/imgs/err_line.gif" alt="line" id="line_Animation"/> 
+            
+            <form  action= "Select_Blending" method="POST">
+                <input type="submit" value = "" id="order_confrim" name="order" >
+            </form>
+            
+            
 
         </div>
 
-
-
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript">
         
-        
-
-        var clockTarget = document.getElementById("clock");
-
-        function clock() {
-            var date = new Date();
-            
-            var seconds = date.getSeconds();
-
-            /*clockTarget .innerText = `${month+1}월 ${clockDate}일 ${week[day]}요일` +
-            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes }`  : minutes }:${seconds < 10 ? `0${seconds }`  : seconds }`;
-            */
-            clockTarget .innerText = `${seconds < 10 ? `0${seconds }`  : seconds }초 후 처음 화면으로 돌아갑니다.`;
-            
-        }
-
-        function timeCheck()
-        {
-            //4초 동안 동작이 없으면 화면으도 돌아감
-        }
-
-        function changepage()
+        /*function changepage()
         {
             location.href = "Select_Blending.html"
-        }
-
-        function init() {
-        clock();
-        // 최초에 함수를 한번 실행시켜주고 
-        setInterval(clock, 1000);
-
-        }
-        init();
-       
-
+        } */
+        
+        
         </script>
 
     </body>
