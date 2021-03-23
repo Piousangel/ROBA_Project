@@ -1,22 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Menu_Select_Option</title>
-</head>
-<body>
-    <h1>Menu_Select_Option</h1>
-    <div>hello world2</div>
-    <form action="/Menu_Select_Option", method="post">
-        <div class="field">
-            <input type="radio" name="Option_Select" value="1">
-            <label>Hot</label>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu_Select_Option</title>
+        <style>
+        @font-face 
+        {
+                font-family: 'GongGothicLight';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+        }
+    
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+        }
+        
+        .wrap
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            width: 1920px;
+            height: 1080px;
+            background-color: rgb(246, 243,238);
+            position: absolute;
+        }
+
+        .select_tem
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 116px;
+            left: 147px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .backArrow
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 93px;
+            left: 50px;
+        }
+
+        .line
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top : 195px;
+            left: 0px;
+        }
+
+        .btn_hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 326px;
+            left: 203px;
+        }
+
+        .hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 465px;
+            left: 326px;
+        }
+
+        .img_releative
+        {
+            margin: inherit;
+            padding: inherit;
+            position : absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .text_hot_americano
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 803px;
+            left: 218px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .text_hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 862px;
+            left: 362px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 44pt;
+            color : rgb(116, 72,33);
+        }
+
+        .btn_ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 326px;
+            left: 1356px;
+        }
+
+        .ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 439px;
+            left: 1470px;
+        }
+
+        .text_ice_americano
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 803px;
+            left: 1368px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size:37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .text_ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 862px;
+            left: 1522px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 44pt;
+            color : rgb(116, 72,33);
+        }
+
+        .can
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 279px;
+            left: 795px;
+        }
+
+        .btn_order
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 878px;
+            left: 780px;
+        }
+        </style>
+    </head>
+
+    <body onload="init();">
+        <div class="wrap">
+            <p class="select_tem">음료 온도 선택</p>
+            <img src="/Backend/static/imgs/ROBA_2-2_line.png" alt="line" class="line">
+            <img src="/Backend/static/imgs/ROBA_23_backArrow.png" alt="backArrow" class="backArrow" onclick="goBack()" >
+
+            
+            <div class= "btn_hot" name="radio_hot">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_hot_unselect">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_hot_selected">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_hot_clicked">
+            </div>
+            <img src="/Backend/static/imgs/ROBA_2-2_hot.png" class="hot">
+            <p class="text_hot_americano">뜨거운 아메리카노</p>
+            <p class="text_hot">Hot</p>
+
+           
+            <img src="/Backend/static/imgs/ROBA_2-2_can.png" class="can">
+            
+            <div class="btn_ice" name="radio_ice">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_ice_unselect">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_ice_selected">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_ice_clicked">
+            </div>
+            <img src="/Backend/static/imgs/ROBA_2-2_ice.png" class="ice">
+            <p class="text_ice_americano">아이스 아메리카노</p>
+            <p class="text_ice">Ice</p>
+
+            <img src="/Backend/static/imgs/ROBA_2_button.png" class="btn_order">
+
+
+            <form action="/Menu_Select_Option", method="post">
+            <div class="field">
+                <input type="radio" name="Option_Select" value="1">
+                <label>Hot</label>
+            </div>
+            <div class="field">
+                <input type="radio" name="Option_Select" value="0">
+                <label>Ice</label>
+            </div>
+            <input type="submit">
+            </form>
         </div>
-        <div class="field">
-            <input type="radio" name="Option_Select" value="0">
-            <label>Ice</label>
-        </div>
-        <input type="submit">
-    </form>
-</body>
+
+        <script>
+            function init()
+            {
+                var radio_hot = [window.document.img_hot_unselect, window.document.img_hot_selected, window.document.img_hot_clicked];
+                var radio_ice = [window.document.img_ice_unselect, window.document.img_ice_selected, window.document.img_ice_clicked];
+
+                img_alpha_zero(radio_hot);
+                img_alpha_zero(radio_ice);
+                radio_hot[0].style.opacity = "1.0";
+                radio_ice[0].style.opacity = "1.0";
+            }
+            
+            function img_alpha_zero(array)
+            {
+                for(var i = 0; i < 3; i++){
+                    array[i].style.opacity = "0.0"
+                }
+            }
+
+            var selected_value = 0;
+
+            function goBack() 
+            {
+                window.history.back();
+            }
+
+            function select_hot(){
+                selected_value = 1;
+            }
+
+            function select_ice(){
+                selected_value = 1;
+            }
+
+            function order(){
+                sendPost('/Menu_Select_Option', selected_value);
+            }
+            
+            function sendPost(action, value) 
+            {
+                var form = document.createElement('form');
+                form.setAttribute('method', 'post');
+                form.setAttribute('action', action);
+                document.charset = "utf-8";
+                
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', 'option');    
+                hiddenField.setAttribute('value', value);  
+                form.appendChild(hiddenField);
+                
+                document.body.appendChild(form);
+                form.submit();
+            }
+        </script>
+    </body>
 </html>
