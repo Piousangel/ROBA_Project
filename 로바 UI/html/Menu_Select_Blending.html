@@ -67,10 +67,6 @@
             .sweet
             {
               position: absolute;
-              background-image: url('/static/imgs/ROBA_2-1_sort_sweet_unselected.png');
-              border: none;
-              background-color: rgba(246, 243,238,0);
-              background-repeat: no-repeat;
               width: 168px;
               height: 99px;
               top: 277px;
@@ -79,28 +75,11 @@
               padding: 0px;
             }
 
-            .sweet1
-            {
-              position: absolute;
-              background-image: url('/static/imgs/ROBA_2-1_sort_sweet__selected.png');
-              border: none;
-              background-color: rgba(246, 243,238,0);
-              background-repeat: no-repeat;
-              width: 168px;
-              height: 99px;
-              top: 277px;
-              left: 45px;
-              margin: 0px;
-              padding: 0px;
-            }
+    
 
             .bodygam
             {
               position: absolute;
-              background-image: url('/static/imgs/ROBA_2-1_sort_body_unselected.png');
-              border: none;
-              background-color: rgba(246, 243,238,0);
-              background-repeat: no-repeat;
               width: 200px;
               height: 99px;
               top: 277px;
@@ -122,6 +101,14 @@
               left: 420px;
               margin: 0px;
               padding: 0px;
+            }
+
+            .img_releative
+            {
+                position : absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 0;
             }
 
             .lostaric
@@ -276,7 +263,7 @@
 
     </head>
 
-    <body>
+    <body onload="init();">
         <div id="wrap">
 
             <!--<p id="runningtime" style="color: gray; font-size: 40px;">1</p> -->
@@ -286,13 +273,21 @@
               <p id ="choice_bean">원두 종류 선택</p>
               <p id="sorting">정렬</p>
 
-              <div id="select">
-                <input type="button" value="" class=" sweet">
-            
-                <input type="button" value="" class=" bodygam" >
-                <input type="button" value="" class=" sanme" >
+              
+              <div class="sweet" id="radio_sweet">
+                <img src="/static/imgs/ROBA_2-1_sort_sweet__selected.png" class="img_releative" name="img_sweet_selected" >
+                <img src="/static/imgs/ROBA_2-1_sort_sweet_unselected.png" class="img_releative" name="img_sweet_unselected" >
               </div>
-            </div>
+              <div class="bodygam" id="radio_bodygam">
+                <img src="/static/imgs/ROBA_2-1_sort_body__selected.png" class="img_releative" name="img_bodygam_selected" >
+                <img src="/static/imgs/ROBA_2-1_sort_body_unselected.png" class="img_releative" name="img_bodygam_unselected" >
+              </div>
+              <div class="sanme" id="radio_sanme">
+                <img src="/static/imgs/ROBA_2-1_sort_sour__selected.png" class="img_releative" name="img_sanme_selected" >
+                <img src="/static/imgs/ROBA_2-1_sort_sour_unselected.png" class="img_releative" name="img_sanme_unselected" >
+              </div>
+                
+          </div>
 
             <div class="lostaric_1">
               <img src="/static/imgs/lostaric_img.png" alt="logo"  class= "coffee lostaric" />
@@ -304,18 +299,9 @@
               <img src="/static/imgs/indonisia_img.png" alt="logo"  class= "coffee indonasia" />
             </div>
           
-            <!--<img src="/static/imgs/ROBA_2-1_coffee3.png" alt="logo"  id="lostaric" />
-            <p id="losta_1">로스터릭 코스타리카 허니</p>
-            <p id="losta_2">밀크초콜릿 향, 부드러운 질감, 단맛</p>
-            <img src="/static/imgs/ROBA_2-1_coffee2.png" alt="logo"  id="terarosa" />
-            <p id="tera_1">테라로사 에티오피아</p>
-            <p id="tera_2">천도복숭아, 살구, 꿀, 스파이시한 풍미</p>
-            <img src="/static/imgs/ROBA_2-1_coffee1.png" alt="logo"  id="indonasia" />
-            <p id="indo_1">인도네시아 만델링</p>
-            <p id="indo_2">짙은 꽃향기, 단맛</p>
-            -->
+            
 
-            <img src="/static/imgs/ROBA_23_backArrow.png" alt="logo"  id="arrow" /> 
+            <img src="/static/imgs/ROBA_23_backArrow.png" alt="logo"  id="arrow" onclick="goBack()"/> 
             <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo"  id="line" /> 
 
             <p id="amekor">아메리카노</p>
@@ -330,6 +316,20 @@
             <img src="/static/imgs/ROBA_2-1_beaker_gray.png" alt="logo"  id="indo_cup" />
 
 
+            <div class="percentage">
+              <img src="/static/imgs/ROBA_2-1_ratioBG.png" alt="logo"  id= "los_percent" />
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  id= "los_percent" />
+            </div>
+            <div class="percentage">
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  id= "tera_percent" />
+              <img src="/static/imgs/ROBA_2-1_ratioBG.png" alt="logo"  id= "los_percent" />
+            </div>
+            <div class="percentage">
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  id= "indo_percent" />
+              <img src="/static/imgs/ROBA_2-1_ratioBG.png" alt="logo"  id= "indo_percent" />
+            </div>
+
+
             
 
             <form action="/Confirm_Order" method="POST">
@@ -340,6 +340,67 @@
 
         <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
+
+        
+        var sweet = [window.document.img_sweet_unselected, window.document.img_sweet_selected];
+        var bodygam = [window.document.img_bodygam_unselected, window.document.img_bodygam_selected];
+        var sanme = [window.document.img_sanme_unselected, window.document.img_sanme_selected];
+
+        function init()
+          {
+
+              img_alpha_zero(sweet);
+              img_alpha_zero(bodygam);
+              img_alpha_zero(sanme);
+              sweet[0].style.opacity = "1.0";
+              bodygam[0].style.opacity = "1.0";
+              sanme[0].style.opacity = "1.0";
+
+              document.getElementById("radio_sweet").addEventListener("mouseup", function(){mouse_up(0)})
+              document.getElementById("radio_bodygam").addEventListener("mouseup", function(){mouse_up(1)})
+              document.getElementById("radio_sanme").addEventListener("mouseup", function(){mouse_up(2)})
+             
+          }
+          
+          function img_alpha_zero(array)
+          {
+              for(var i = 0; i < array.length; i++){
+                  array[i].style.opacity = "0.0"
+              }
+          }
+
+            
+          function mouse_up(value)
+            {
+                img_alpha_zero(sweet);
+                img_alpha_zero(bodygam);
+                img_alpha_zero(sanme);
+
+                if(value == 0){
+                    sweet[1].style.opacity = "1.0";
+                    bodygam[0].style.opacity = "1.0";
+                    sanme[0].style.opacity = "1.0";
+                }
+                else if(value == 1){
+                    sweet[0].style.opacity = "1.0";
+                    bodygam[1].style.opacity = "1.0";
+                    sanme[0].style.opacity = "1.0";
+                }
+                else{
+                    sweet[0].style.opacity = "1.0";
+                    bodygam[0].style.opacity = "1.0";
+                    sanme[1].style.opacity = "1.0";
+                }
+
+            }
+
+          
+
+          function goBack()
+          {
+            window.history.back();
+          }
+        
 
         $(".sweet").on('click', function(){
               $(".lostaric")
@@ -375,7 +436,7 @@
         
 
 
-        function sweetbutton()
+       /* function sweetbutton()
         {
           document.getElementById("lostaric").src = "/static/imgs/terasosa_img.png";
         }
@@ -389,7 +450,7 @@
         }
         
         document.onclick = function(){cnt = 10;};
-
+*/
         /*function countdown()
         {
             if(cnt == 0)
