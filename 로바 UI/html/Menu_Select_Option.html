@@ -1,61 +1,369 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>HTML CSS Left Right Split</title>
-
-    <style>
-        div {
-            width: 100%;
-            height: 100%;
-            border: 1px solid #003458;
-            position: relative;
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu_Select_Option</title>
+        <style>
+        @font-face 
+        {
+                font-family: 'GongGothicLight';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
         }
-        div.left {
-            width: 33.3%;
-            float: left;
-            box-sizing: border-box;
-            
+    
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
         }
-
-        div.center{
-            width: 33.3%;
-            float: left;
-            box-sizing: border-box;
-
-        }
-        div.right {
-            width: 33.3%;
-            float: left;
-            box-sizing: border-box;
-            
-        }
-        h1{
-            text-align: center;
-        }
-
-      
-      
-    </style>
-  </head>
-
-  <body>
-    <div>
-      <div class="left">
-       <h1>a</h1>
-      </div>
-
-      <div class="center">
-        <h1>b</h1>
-      </div>
         
-      <div class="right">
-        <h1>c</h1>
+        .wrap
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            width: 1920px;
+            height: 1080px;
+            background-color: rgb(246, 243,238);
+            position: absolute;
+        }
+
+        .select_tem
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 116px;
+            left: 147px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .backArrow
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 93px;
+            left: 50px;
+        }
+
+        .line
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top : 195px;
+            left: 0px;
+        }
+
+        .btn_hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 326px;
+            left: 203px;
+        }
+
+        .hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 139px;
+            left: 123px;
+            z-index: 10;
+        }
+
+        .img_releative
+        {
+            margin: inherit;
+            padding: inherit;
+            position : absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 0;
+        }
+
+        .text_hot_americano
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 803px;
+            left: 218px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .text_hot
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 862px;
+            left: 362px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 44pt;
+            color : rgb(116, 72,33);
+        }
+
+        .btn_ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 326px;
+            left: 1356px;
+            z-index: 0;
+        }
+
+        .ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: absolute;
+            top: 113px;
+            left: 114px;
+            z-index: 10;
+        }
+
+        .text_ice_americano
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 803px;
+            left: 1368px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size:37pt;
+            color : rgb(116, 72,33);
+        }
+
+        .text_ice
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 862px;
+            left: 1522px;
+            font-family: 'GongGothicLight', sans-serif;
+            font-size: 44pt;
+            color : rgb(116, 72,33);
+        }
+
+        .can
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 279px;
+            left: 795px;
+        }
+
+        .btn_order
+        {
+            margin: inherit;
+            padding: inherit;
+            position: inherit;
+            top: 878px;
+            left: 780px;
+        }
+        </style>
+    </head>
+
+    <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+        <div class="wrap">
+            <p class="select_tem">음료 온도 선택</p>
+            <img src="/Backend/static/imgs/ROBA_2-2_line.png" alt="line" class="line">
+            <img src="/Backend/static/imgs/ROBA_23_backArrow.png" alt="backArrow" class="backArrow" onclick="goBack()" >
+
+            
+            <div class= "btn_hot" id="radio_hot">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_hot_unselect">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_hot_selected">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_hot_clicked">
+                <img src="/Backend/static/imgs/ROBA_2-2_hot.png" class="hot">   
+            </div>
+            <p class="text_hot_americano">뜨거운 아메리카노</p>
+            <p class="text_hot">Hot</p>
+           
+            <img src="/Backend/static/imgs/ROBA_2-2_can.png" class="can">
+            
+            <div class="btn_ice" id="radio_ice">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_ice_unselect">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_ice_selected">
+                <img src="/Backend/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_ice_clicked">
+                <img src="/Backend/static/imgs/ROBA_2-2_ice.png" class="ice">
+            </div>
+            
+            <p class="text_ice_americano">아이스 아메리카노</p>
+            <p class="text_ice">Ice</p>
+
+            <div class="btn_order" id="btn_order">
+                <img src="/Backend/static/imgs/ROBA_2-2_선택완료_notyet.png" class="img_releative" name="img_not_yet">
+                <img src="/Backend/static/imgs/ROBA_2_button.png" class="img_releative" name="img_yet">
+            </div>
+
+
+            <form action="/Menu_Select_Option", method="post">
+            <div class="field">
+                <input type="radio" name="Option_Select" value="1">
+                <label>Hot</label>
+            </div>
+            <div class="field">
+                <input type="radio" name="Option_Select" value="0">
+                <label>Ice</label>
+            </div>
+            <input type="submit">
+            </form>
         </div>
 
-        <form action="/Select_Blending" method="POST">
-        <input type="submit" value="선택완료" id="select_button" name="choice">
-        </form>
-      </div>
-    </div>
-  </body>
+        <script>
+            
+            var radio_hot = [window.document.img_hot_unselect, window.document.img_hot_selected, window.document.img_hot_clicked];
+            var radio_ice = [window.document.img_ice_unselect, window.document.img_ice_selected, window.document.img_ice_clicked];
+
+            var btn = [window.document.img_yet, window.document.img_not_yet]
+
+            var img_hot_temp = 0;
+            var img_ice_temp = 0;
+            var btn_temp = 0;
+
+            function init()
+            {
+                img_alpha_zero(radio_hot);
+                img_alpha_zero(radio_ice);
+                img_alpha_zero(btn);
+
+                radio_hot[img_hot_temp].style.opacity = "1.0";
+                radio_ice[img_ice_temp].style.opacity = "1.0";
+                btn[btn_temp].style.opacity = "1.0"
+                
+                document.getElementById("radio_hot").addEventListener("mouseup", function(){mouse_up("Hot")})
+                document.getElementById("radio_hot").addEventListener("mousedown", function(){mouse_down("Hot")})
+                document.getElementById("radio_hot").addEventListener("mouseout", function(){mouse_out("Hot")})
+
+                document.getElementById("radio_ice").addEventListener("mouseup", function(){mouse_up("Ice")})
+                document.getElementById("radio_ice").addEventListener("mousedown", function(){mouse_down("Ice")})
+                document.getElementById("radio_ice").addEventListener("mouseout", function(){mouse_out("Ice")})
+
+                document.getElementById('btn_order').addEventListener("mouseup", function(){mouse_up("Btn")})
+                document.getElementById('btn_order').addEventListener("mousedown", function(){mouse_down("Btn")})
+                document.getElementById("btn_order").addEventListener("mouseout", function(){mouse_out("Btn")})
+                
+            }
+            
+
+            function mouse_down(value) //hot : 1, ice : 0
+            {
+                if(value == "Hot"){
+                    img_alpha_zero(radio_hot);
+                    radio_hot[2].style.opacity = "1.0";
+                }
+                else if(value == "Ice")
+                {
+                    img_alpha_zero(radio_ice);
+                    radio_ice[2].style.opacity = "1.0";
+                }
+                else if(value =="Btn")
+                {
+                    img_alpha_zero(btn);
+                    btn[1].style.opacity = "1.0"
+                }
+            }
+
+            function mouse_out(value)
+            {
+                if(value == "Hot")
+                {
+                    img_alpha_zero(radio_hot);
+                    radio_hot[img_hot_temp].style.opacity = "1.0";
+                }
+                else if(value == "Ice")
+                {
+                    img_alpha_zero(radio_ice);
+                    radio_ice[img_ice_temp].style.opacity = "1.0";
+                }
+                else if(value =="Btn")
+                {
+                    img_alpha_zero(btn);
+                    btn[0].style.opacity = "1.0"
+                }
+            }
+            
+            function mouse_up(value)
+            {
+                img_alpha_zero(radio_hot);
+                img_alpha_zero(radio_ice);
+
+                if(value == "Hot")
+                {
+                    img_hot_temp = 1;
+                    img_ice_temp = 0;
+                }
+                else if(value == "Ice")
+                {
+                    img_hot_temp = 0;
+                    img_ice_temp = 1;
+                }
+                else if(value =="Btn")
+                {
+                    sendPost("/Menu_Select_Option", img_hot_temp)
+                }
+                 
+                radio_hot[img_hot_temp].style.opacity = "1.0";
+                radio_ice[img_ice_temp].style.opacity = "1.0";
+
+            }
+
+            function img_alpha_zero(array)
+            {
+                for(var i = 0; i < array.length; i++){
+                    array[i].style.opacity = "0.0"
+                }
+            }
+
+            var selected_value = 0;
+
+            function goBack() 
+            {
+                window.history.back();
+            }
+
+            function select_hot(){
+                selected_value = 1;
+            }
+
+            function select_ice(){
+                selected_value = 1;
+            }
+
+            function order(){
+                sendPost('/Menu_Select_Option', selected_value);
+            }
+            
+            function sendPost(action, value) 
+            {
+                var form = document.createElement('form');
+                form.setAttribute('method', 'post');
+                form.setAttribute('action', action);
+                document.charset = "utf-8";
+                
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', 'option');    
+                hiddenField.setAttribute('value', value);  
+                form.appendChild(hiddenField);
+                
+                document.body.appendChild(form);
+                form.submit();
+            }
+        </script>
+    </body>
 </html>

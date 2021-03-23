@@ -12,7 +12,7 @@ UNIT = 0x1
 
 app = Flask(__name__)
 blender = [0, 0, 0]
-option = [0]
+option = ['none']
 
 @app.route("/")
 @app.route("/Main", methods=["GET", "POST"])
@@ -27,7 +27,7 @@ def main():
         return redirect(url_for('cant_order'))
 
 
-@app.route("/Order_Timeout")
+@app.route("/Order_Timeout", methods=["GET", "POST"])
 def order_timeout():
     return render_template("Order_Timeout.html")
 
@@ -40,11 +40,14 @@ def cant_order():
 @app.route("/Menu_Select_Blending", methods=["GET", "POST"])
 def menu_select_blending():
     if request.method == 'POST':
+        print("H!")
         blender[0] = request.form['Blender_1']
         blender[1] = request.form['Blender_2']
         blender[2] = request.form['Blender_3']
         print(blender[0] + " " + blender[1] + " " + blender[2])
-        return redirect(url_for('menu_select_option'))
+        render_params= {}
+        render_params['option'] = option[0]
+        return render_template('Menu_Select_Option.html', **render_params)
     else:
         return render_template('Menu_Select_Blending.html')
 
@@ -56,7 +59,9 @@ def menu_select_option():
         print(option[0])
         return redirect(url_for('confirm_order'))
     else:
-        return render_template('Menu_Select_Option.html')
+        render_params= {}
+        render_params['option'] = option[0]
+        return render_template('Menu_Select_Option.html', **render_params)
 
 
 @app.route("/Confirm_Order", methods=["GET", "POST"])
@@ -69,7 +74,10 @@ def confirm_order():
         render_params['blender_1'] = blender[0]
         render_params['blender_2'] = blender[1]
         render_params['blender_3'] = blender[2]
-        render_params['option'] = option[0]
+        if option[0] == "1":
+            render_params['option'] = "Hot"
+        else: 
+            render_params['option'] = "Ice"
         return render_template('Confirm_Order.html', **render_params)
 
 
