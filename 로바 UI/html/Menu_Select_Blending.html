@@ -31,7 +31,7 @@
             #left_img
             {
               position: absolute;
-              background-image: url(/static/imgs/ROBA_2-1_bg_figure1.png);
+              background-image: url('/static/imgs/ROBA_2-1_bg_figure1.png');
               background-size: 630px 460px;
               background-repeat: no-repeat;
               width: 630px;
@@ -252,86 +252,164 @@
              margin: 0px;
            }
 
-           #los_background
+           .los_background
            {
              position: absolute;
-             background-image: url('/static/imgs/ROBA_2-1_ratioBG.png');
+             background-image: url(/static/imgs/ROBA_2-1_ratioBG.png);
              background-repeat: no-repeat;
-             border: none;
-             width: 50px;
-             height: 50px;
+             width: 330px;
+             height: 99px;
              top: 712px;
              left: 728px;
              margin: 0px;
+             padding: 0px;
+             z-index: 0;
            }
 
-           #los_arrow
+           .los_arrow
            {
-             position: absolute;
-             top: 750px;
-             left: 770px;
+             position :absolute;
+             top: 39px;
+             left: 39px;
              margin: 0px;
+             z-index: 5;
            }
 
-           #tera_background
+           .tera_background
            {
              position: absolute;
+             background-image: url(/static/imgs/ROBA_2-1_ratioBG.png);
+             background-repeat: no-repeat;
+             width: 330px;
+             height: 99px;
              top: 712px;
              left: 1114px;
              margin: 0px;
+             z-index: 0;
            }
 
-           #tera_arrow
+           .tera_arrow
            {
              position: absolute;
-             top: 750px;
-             left: 1150px;
+             top: 39px;
+             left: 39px;
              margin: 0px;
+             z-index: 5;
            }
 
-           #indo_background
+           .indo_background
            {
              position: absolute;
+             background-image: url(/static/imgs/ROBA_2-1_ratioBG.png);
+             background-repeat: no-repeat;
+             width: 330px;
+             height: 99px;
              top: 712px;
              left: 1500px;
              margin: 0px;
+             z-index: 0;
            }
 
-           #indo_arrow
+           .indo_arrow
            {
              position: absolute;
-             top: 750px;
-             left: 1540px;
+             top: 39px;
+             left: 39px;
              margin: 0px;
+             z-index: 5;
            }
 
            .percent
            {
-            font-size: 30pt;
-            font-family: 'GongGothicLight', sans-serif;
-            color :rgb(116, 72, 33);
-            margin: 0px;
-           }
-
-           .p1{
+              font-family: 'GongGothicLight', sans-serif;
+              font-size: 28pt;
+              color :rgb(116, 72, 33);
               position: absolute;
-              top: 450px;
-              left: 780px;
+              z-index: 5;
            }
 
-           .p2
-           {
-            position: absolute;
-              top: 450px;
-              left: 780px;
+           .los_percent{
+                top: 27px;
+                left: 139px;
+                margin: 0px;
            }
 
-           .p3
-           {
-            position: absolute;
-              top: 450px;
-              left: 780px;
+           .tera_percent{
+                top: 27px;
+                left: 145px;
+                margin: 0px;
            }
+
+           .indo_percent{
+                top: 27px;
+                left: 120px;
+                margin: 0px;
+           }
+
+           #losdown
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 39px;
+             margin: 0px;
+             z-index: 10;
+           }
+           #losup
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 254px;
+             margin: 0px;
+             z-index: 10;
+           }
+           #teradown
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 39px;
+             margin: 0px;
+             z-index: 10;
+           }
+
+           #teraup
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 254px;
+             margin: 0px;
+             z-index: 10;
+           }
+
+           #indodown
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 39px;
+             margin: 0px;
+             z-index: 10;
+           }
+
+           #indoup
+           {
+             position: absolute;
+             width: 30px;
+             height: 30px;
+             top: 39px;
+             left: 254px;
+             margin: 0px;
+             z-index: 10;
+           }
+
         
            
 
@@ -357,17 +435,14 @@
               
               <div class="sweet" id="radio_sweet">
                 <img src="/static/imgs/ROBA_2-1_sort_sweet__selected.png" class="img_releative" name="img_sweet_selected" >
-                <p class="percent p1">40%</p>
                 <img src="/static/imgs/ROBA_2-1_sort_sweet_unselected.png" class="img_releative" name="img_sweet_unselected" >
               </div>
               <div class="bodygam" id="radio_bodygam">
-                <img src="/static/imgs/ROBA_2-1_sort_body__selected.png" class="img_releative" name="img_bodygam_selected" >
-                <p class="percent p2">30%</p>
+                <img src="/static/imgs/ROBA_2-1_sort_body__selected.png" class="img_releative" name="img_bodygam_selected" >    
                 <img src="/static/imgs/ROBA_2-1_sort_body_unselected.png" class="img_releative" name="img_bodygam_unselected" >
               </div>
               <div class="sanme" id="radio_sanme">
                 <img src="/static/imgs/ROBA_2-1_sort_sour__selected.png" class="img_releative" name="img_sanme_selected" >
-                <p class="percent p2">30%</p>
                 <img src="/static/imgs/ROBA_2-1_sort_sour_unselected.png" class="img_releative" name="img_sanme_unselected" >
               </div>
                 
@@ -401,16 +476,26 @@
 
 
             <div class="los_background">
-              
-              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="a"  id= "los_arrow" />
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class= "los_arrow" />
+              <p class="percent los_percent" id="los_per">40</p>
+                <p id="losdown" name="lostaric_percentdown" ></p>
+                <p id="losup" name="lostaric_percentup"></p>
+                
             </div>
-            <div class="percentage">
-              <img src="/static/imgs/ROBA_2-1_ratioBG.png" alt="logo"  id= "tera_percent" />
-              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  id= "tera_arrow" />
-            </div>
-            <div class="percentage">
-              <img src="/static/imgs/ROBA_2-1_ratioBG.png" alt="logo"  id= "indo_percent" />
-              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  id= "indo_arrow" />
+
+            <div class="tera_background">
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  class= "tera_arrow" />
+              <p class="percent tera_percent" id="tera_per">30</p>
+                <p id="teradown" name="tera_percentdown" ></p>
+                <p id="teraup" name="tera_percentup"></p>
+            </div>   
+
+            <div class="indo_background">
+              <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  class= "indo_arrow" />
+              <p class="percent indo_percent" id="indo_per">30</p>
+              <p id="indodown" name="indo_percentdown" ></p>
+              <p id="indoup" name="indo_percentup"></p>
+          </div>   
             </div>
 
 
@@ -430,12 +515,23 @@
         var bodygam = [window.document.img_bodygam_unselected, window.document.img_bodygam_selected];
         var sanme = [window.document.img_sanme_unselected, window.document.img_sanme_selected];
 
+        //var lospercent = [window.document.lostaric_percentdown, window.document.lostaric_percentup];
+        //var terapercent = [window.document.tera_percentdown, window.document.tera_percentup];
+        //var indopercent = [window.document.indo_percentdown, window.document.indo_percentup];
+
+        var losvalue = document.getElementById("los_per").value;
+        var teravalue = document.getElementById("tera_per").value;
+        var indovalue = document.getElementById("indo_per").value;
+
+        var val = 10;
+        
         function init()
           {
 
               img_alpha_zero(sweet);
               img_alpha_zero(bodygam);
               img_alpha_zero(sanme);
+              
               sweet[0].style.opacity = "1.0";
               bodygam[0].style.opacity = "1.0";
               sanme[0].style.opacity = "1.0";
@@ -443,8 +539,33 @@
               document.getElementById("radio_sweet").addEventListener("mouseup", function(){mouse_up(0)})
               document.getElementById("radio_bodygam").addEventListener("mouseup", function(){mouse_up(1)})
               document.getElementById("radio_sanme").addEventListener("mouseup", function(){mouse_up(2)})
-             
+
+              document.getElementById("losdown").addEventListener("mouseup", function(){ratio_down(0)})
+              document.getElementById("losup").addEventListener("mouseup", function(){ratio_up(0)})
+              document.getElementById("teradown").addEventListener("mouseup", function(){ratio_down(1)})
+              document.getElementById("teraup").addEventListener("mouseup", function(){ratio_up(1)})
+              document.getElementById("indodown").addEventListener("mouseup", function(){ratio_down(2)})
+              document.getElementById("indoup").addEventListener("mouseup", function(){ratio_up(2)})
+               
           }
+
+        function ratio_down(value)
+        {
+          if(value == 0)
+          {
+            losvalue 
+            document.getElementById("tera_per").innerText = '10';
+          }
+        }
+
+        function ratio_up(value)
+        {
+          if(value == 0)
+        }
+
+        
+
+
           
           function img_alpha_zero(array)
           {
