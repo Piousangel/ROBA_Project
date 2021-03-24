@@ -492,13 +492,13 @@
 
         function init() {
 
-            img_alpha_zero(sweet);
-            img_alpha_zero(bodygam);
-            img_alpha_zero(sanme);
+            img_hide(sweet);
+            img_hide(bodygam);
+            img_hide(sanme);
 
-            sweet[0].style.opacity = "1.0";
-            bodygam[1].style.opacity = "1.0";
-            sanme[0].style.opacity = "1.0";
+            sweet[0].hidden = false;
+            bodygam[1].hidden = false;
+            sanme[0].hidden = false;
 
             document
                 .getElementById("radio_sweet")
@@ -608,10 +608,10 @@
                 .innerText = indovalue.toString() + "%";
             sum_value = losvalue + teravalue + indovalue;
         }
-
-        function img_alpha_zero(array) {
+        
+        function img_hide(array) {
             for (var i = 0; i < array.length; i++) {
-                array[i].style.opacity = "0.0"
+                array[i].hidden = true;
             }
         }
 

@@ -120,7 +120,7 @@
                 top: 320px;
                 left: 857px;
                 margin: 0;
-                opacity: "0.0";
+                
             }
 
             #ice {
@@ -128,7 +128,6 @@
                 top: 316px;
                 left: 864px;
                 margin: 0;
-                opacity: "0.0";
             }
 
             #can {
@@ -217,8 +216,8 @@
             <p id="amekor">아메리카노</p>
             <p id="americano">Americano</p>
 
-            <img src="/static/imgs/ROBA_3_hot.png" alt="logo" id="hot" name="hot"/>
-            <img src="/static/imgs/ROBA_3_ice.png" alt="logo" id="ice" name="ice"/>
+            <img hidden src="/static/imgs/ROBA_3_hot.png" alt="logo" id="hot" name="hot"/>
+            <img hidden src="/static/imgs/ROBA_3_ice.png" alt="logo" id="ice" name="ice"/>
             <img src="/static/imgs/ROBA_3_filled_can.png" alt="logo" id="can"/>
 
             <p class="name hot_ice">뜨거운 음료</p>
@@ -248,11 +247,11 @@
 
             window.onload = function () {
                 if (option == "Hot") {
-                    tem[0].style.opacity = "1.0"
-                    tem[1].style.opacity = "0.0"
+                    tem[1].hidden = true;
+                    tem[0].hidden = false;
                 } else {
-                    tem[1].style.opacity = "1.0"
-                    tem[0].style.opacity = "0.0"
+                    tem[1].hidden = false;
+                    tem[0].hidden = true;
                 }
 
                 cnt = 10;
@@ -272,6 +271,12 @@
                 }
             }
 
+            
+
+            function goBack() {
+                sendGet("/Menu_Select_Option");
+            }
+
             function sendPost(action) {
                 var form = document.createElement('form');
                 form.setAttribute('method', 'post');
@@ -287,11 +292,7 @@
                     .appendChild(form);
                 form.submit();
             }
-
-            function goBack() {
-                sendGet("/Menu_Select_Option");
-            }
-
+            
             function sendGet(action) {
                 var form = document.createElement('form');
                 form.setAttribute('method', 'get');
