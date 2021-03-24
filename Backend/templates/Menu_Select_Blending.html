@@ -612,7 +612,7 @@
                 .innerText = indovalue.toString() + "%";
             sum_value = losvalue + teravalue + indovalue;
         }
-        
+
         function img_hide(array) {
             for (var i = 0; i < array.length; i++) {
                 array[i].hidden = true;
@@ -620,21 +620,21 @@
         }
 
         function mouse_up(value) {
-            img_alpha_zero(sweet);
-            img_alpha_zero(bodygam);
-            img_alpha_zero(sanme);
+            img_hide(sweet);
+            img_hide(bodygam);
+            img_hide(sanme);
             if (value == 0) {
-                sweet[1].style.opacity = "1.0";
-                bodygam[0].style.opacity = "1.0";
-                sanme[0].style.opacity = "1.0";
+                sweet[1].hidden = false;
+                bodygam[0].hidden = false;
+                sanme[0].hidden = false;
             } else if (value == 1) {
-                sweet[0].style.opacity = "1.0";
-                bodygam[1].style.opacity = "1.0";
-                sanme[0].style.opacity = "1.0";
+                sweet[0].hidden = false;
+                bodygam[1].hidden = false;
+                sanme[0].hidden = false;
             } else {
-                sweet[0].style.opacity = "1.0";
-                bodygam[0].style.opacity = "1.0";
-                sanme[1].style.opacity = "1.0";
+                sweet[0].hidden = false;
+                bodygam[0].hidden = false;
+                sanme[1].hidden = false;
             }
         }
 
