@@ -54,15 +54,16 @@
                 margin: 0;
             }
 
-            .order_confrim {
+            .order_confirm {
                 position: absolute;
                 top: 752px;
                 left: 729px;
+                height: 204px;
+                width: 466px;
                 border: none;
-                height: 200px;
-                width: 460px;
                 margin: 0;
                 padding: 0;
+                z-index: 10;
             }
 
             .img_releative {
@@ -71,9 +72,6 @@
                 left: 0;
                 z-index: 0;
             }
-
-            
-
         </style>
 
     </head>
@@ -93,60 +91,62 @@
 
             <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation"/>
 
-            <div class="order_confrim" id="orderconfrim">
-            <img
-                src="/static/imgs/ROBA_1_Main_button.png"
-                alt="btn"
-                class="img_releative"
-                name="order"
-                onclick='sendPost("/Main")'/>
+            <div class="order_confirm" id="order_confirm">
+                <img
+                    hidden="hidden"
+                    src="/static/imgs/ROBA_1_Main_button.png"
+                    alt="btn"
+                    class="img_releative"
+                    name="order"/>
 
-            <img
-                src="/static/imgs/ROBA_1_clicked copy.png"
-                alt="btn"
-                class="img_releative"
-                name="order_clicked"/>
+                <img
+                    hidden="hidden"
+                    src="/static/imgs/ROBA_1_clicked copy.png"
+                    alt="btn_clicked"
+                    class="img_releative"
+                    name="order_clicked"/>
             </div>
+
         </div>
 
         <script type="text/javascript">
 
             var timeT = document.getElementById("runningtime");
 
-            window.onload = function () {
-                cnt = 10;
-                countdown();
-            }
 
             var order_btn = [window.document.order, window.document.order_clicked];
 
             function init() {
+                console.log("init");
+                img_hide(order_btn);
 
-                img_alpha_zero(order_btn);
-                
-                order_btn[0].style.opacity = "1.0";
-                
-                document.getElementById("orderconfrim")
+                order_btn[0].hidden = false;
+
+                cnt = 10;
+                countdown();
+
+                document
+                    .getElementById("order_confirm")
                     .addEventListener("mousedown", function () {
-                        mouse_down(0)
+                        order_btn[0].hidden = true;
+                        order_btn[1].hidden = false;
+                        
+                        console.log("down");
                     })
-                }
-
-            function mouse_down(value)
-            {
-                if(value == 0)
-                {
-                    order_btn[0].style.opacity = "0.0";
-                    order_btn[1].style.opacity = "1.0";
-                }
-            } 
-
-            function img_alpha_zero(array) {
-                for (var i = 0; i < array.length; i++) {
-                    array[i].style.opacity = "0.0"
-                }
+                document
+                    .getElementById("order_confirm")
+                    .addEventListener("mouseup", function () {
+                        sendPost("/Main");
+                    })
             }
-            
+
+            function img_hide(array) {
+                for (var i = 0; i < array.length; i++) {
+                    array[i].hidden = true;
+                }
+                console.log("hide complete");
+            }
+
             function countdown() {
                 if (cnt == 0) {
                     sendGet('/Main');
