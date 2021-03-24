@@ -73,7 +73,7 @@
             }
             .sanme {
                 position: absolute;
-                
+
                 width: 160px;
                 height: 99px;
                 top: 277px;
@@ -81,7 +81,7 @@
                 margin: 0;
                 padding: 0;
             }
-            .img_releative {
+            .img_relative {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -138,12 +138,13 @@
                 color: rgb(116, 72, 33);
                 margin: 0;
             }
-            #order {
+            .order {
                 position: absolute;
                 top: 881px;
                 left: 1097px;
                 margin: 0;
                 padding: 0;
+                z-index: 10;
             }
             #lostaric_2 {
                 position: absolute;
@@ -228,26 +229,35 @@
                 z-index: 5;
             }
 
-
-            #remain_ratio
-            {
+            #remain_div {
                 position: absolute;
                 top: 275px;
                 left: 1482px;
-                margin: 0px;
-                padding: 0px;
+                margin: 0;
+                padding: 0;
             }
 
-            #remain_font
-            {
-                margin: 0px;
+            #remain_font {
+                margin: 0;
                 position: absolute;
                 top: 33px;
-                left: 10px;        /*top, left, 수정할겁니다 */
+                left: 40px;
                 font-family: 'GongGothicLight', sans-serif;
                 color: rgb(192,104,90);
                 font-size: 24pt;
-                
+
+            }
+
+            #remain_ratio {
+                margin: 0;
+                position: absolute;
+                top: 33px;
+                left: 180px;
+                font-family: 'GongGothicLight', sans-serif;
+                color: rgb(192,104,90);
+                font-size: 24pt;
+                text-align: right;
+                width: 100px;
             }
             .indo_background {
                 position: absolute;
@@ -345,6 +355,15 @@
                 margin: 0;
                 z-index: 10;
             }
+
+            .btn_UD{
+              z-index: 10;
+            }
+
+            .btn_order{
+              z-index: 10;
+            }
+
         </style>
     </head>
     <body
@@ -360,37 +379,37 @@
                 <div class="sweet" id="radio_sweet">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_sweet__selected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_sweet_selected.png"
+                        class="img_relative"
                         name="img_sweet_selected">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_sweet_unselected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_sweet_unselected.png"
+                        class="img_relative"
                         name="img_sweet_unselected">
                 </div>
                 <div class="bodygam" id="radio_bodygam">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_body__selected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_body_selected.png"
+                        class="img_relative"
                         name="img_bodygam_selected">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_body_unselected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_body_unselected.png"
+                        class="img_relative"
                         name="img_bodygam_unselected">
                 </div>
                 <div class="sanme" id="radio_sanme">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_sour__selected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_sour_selected.png"
+                        class="img_relative"
                         name="img_sanme_selected">
                     <img
                         hidden="hidden"
-                        src="/static/imgs/ROBA_2-1_sort_sour_unselected.png"
-                        class="img_releative"
+                        src="/static/imgs/ROBA_2-1_sour_unselected.png"
+                        class="img_relative"
                         name="img_sanme_unselected">
                 </div>
             </div>
@@ -412,10 +431,11 @@
             <p id="amekor">아메리카노</p>
             <p id="americano">Americano</p>
 
-
-            <div id="remain_ratio">
-                <img src="/static/imgs/ROBA_2-1_ratioBG.png" id ="_ratio"alt>
-                <p id="remain_font">남은 비율:{{ratio_1}}%</p> <!--임의로 넣었습니다.-->
+            <div id="remain_div">
+                <img src="/static/imgs/ROBA_2-1_ratioBG.png" id="_ratio" alt="alt">
+                <p id="remain_font" name="remain_font">남은 비율:</p>
+                <p id="remain_ratio" name="remain_ratio">100%</p>
+                <!--임의로 넣었습니다.-->
             </div>
 
             <p id="lostaric_2">로스터릭 코스타리카 허니</p>
@@ -434,49 +454,54 @@
             <div class="los_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="los_arrow"/>
                 <p class="percent los_percent" id="los_per">{{blender_1}}%</p>
-                <p id="losdown" name="lostaric_percentdown"></p>
-                <p id="losup" name="lostaric_percentup"></p>
+                <p class="btn_UD" id="losdown" name="lostaric_percentdown"></p>
+                <p class="btn_UD" id="losup" name="lostaric_percentup"></p>
             </div>
             <div class="tera_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="tera_arrow"/>
                 <p class="percent tera_percent" id="tera_per">{{blender_2}}%</p>
-                <p id="teradown" name="tera_percentdown"></p>
-                <p id="teraup" name="tera_percentup"></p>
+                <p class="btn_UD" id="teradown" name="tera_percentdown"></p>
+                <p class="btn_UD" id="teraup" name="tera_percentup"></p>
             </div>
             <div class="indo_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="indo_arrow"/>
                 <p class="percent indo_percent" id="indo_per">{{blender_3}}%</p>
-                <p id="indodown" name="indo_percentdown"></p>
-                <p id="indoup" name="indo_percentup"></p>
+                <p class="btn_UD" id="indodown" name="indo_percentdown"></p>
+                <p class="btn_UD" id="indoup" name="indo_percentup"></p>
             </div>
         </div>
 
-
-        <img src="/static/imgs/ROBA_2_button.png" id="order" onclick='orderform()'>
+        <img hidden class="order" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
+        <img hidden class="order btn_order" name="img_yet" src="/static/imgs/ROBA_2_button.png" onclick="orderform()">  
+        
 
     </div>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         var sweet = [window.document.img_sweet_unselected, window.document.img_sweet_selected];
         var bodygam = [window.document.img_bodygam_unselected, window.document.img_bodygam_selected];
-        var sanme = [window.document.img_sanme_unselected, window.document.img_sanme_selected]; 
-        // var lospercent = [window.document.lostaric_percentdown,
-        // window.document.lostaric_percentup]; var terapercent =
-        // [window.document.tera_percentdown, window.document.tera_percentup]; var
-        // indopercent = [window.document.indo_percentdown,
-        // window.document.indo_percentup];    var losvalue =
-        // parseInt(document.getElementById("los_per").innerText);
+        var sanme = [window.document.img_sanme_unselected, window.document.img_sanme_selected];
+
+        var losvalue =  parseInt(document.getElementById("los_per").innerText);
         var teravalue = parseInt(document.getElementById("tera_per").innerText);
         var indovalue = parseInt(document.getElementById("indo_per").innerText);
-        var sum_value = losvalue + teravalue + indovalue;
+        var remain_ratio = 100 - losvalue - teravalue - indovalue;
+        
+        var btn = [window.document.img_not_yet, window.document.img_yet]
+
         var val = 10;
         function init() {
             img_hide(sweet);
             img_hide(bodygam);
             img_hide(sanme);
+            img_hide(btn);
+
             sweet[0].hidden = false;
             bodygam[1].hidden = false;
             sanme[0].hidden = false;
+
+            btn[0].hidden = false;
+            
             document
                 .getElementById("radio_sweet")
                 .addEventListener("mouseup", function () {
@@ -492,6 +517,7 @@
                 .addEventListener("mouseup", function () {
                     mouse_up(2)
                 })
+
             document
                 .getElementById("losdown")
                 .addEventListener("mouseup", function () {
@@ -522,20 +548,38 @@
                 .addEventListener("mouseup", function () {
                     ratio_up(2)
                 })
+
+            document
+                .getElementById("remain_ratio")
+                .innerText = remain_ratio.toString() + "%";
+
+            if(remain_ratio == 0){
+                img_hide(btn);
+                btn[1].hidden = false;
+            }
         }
+
         function ratio_down(value) {
             if (value == 0) {
                 if (losvalue != 0) {
                     losvalue -= 10;
+                    remain_ratio += 10;
                 }
             } else if (value == 1) {
                 if (teravalue != 0) {
                     teravalue -= 10;
+                    remain_ratio += 10;
                 }
             } else if (value == 2) {
                 if (indovalue != 0) {
                     indovalue -= 10;
+                    remain_ratio += 10;
                 }
+            }
+
+            if(remain_ratio != 0){
+                img_hide(btn);
+                btn[0].hidden = false;
             }
             document
                 .getElementById("los_per")
@@ -546,23 +590,34 @@
             document
                 .getElementById("indo_per")
                 .innerText = indovalue.toString() + "%";
-            sum_value = losvalue + teravalue + indovalue;
+            document
+                .getElementById("remain_ratio")
+                .innerText = remain_ratio.toString() + "%";
         }
+
         function ratio_up(value) {
-            if (sum_value < 100) {
+            if (remain_ratio !=0) {
                 if (value == 0) {
                     if (losvalue != 100) {
                         losvalue += 10;
+                        remain_ratio -= 10;
                     }
                 } else if (value == 1) {
                     if (teravalue != 100) {
                         teravalue += 10;
+                        remain_ratio -= 10;
                     }
                 } else if (value == 2) {
                     if (indovalue != 100) {
                         indovalue += 10;
+                        remain_ratio -= 10;
                     }
                 }
+            }
+
+            if(remain_ratio == 0){
+                img_hide(btn);
+                btn[1].hidden = false;
             }
             document
                 .getElementById("los_per")
@@ -573,13 +628,18 @@
             document
                 .getElementById("indo_per")
                 .innerText = indovalue.toString() + "%";
-            sum_value = losvalue + teravalue + indovalue;
+                
+            document
+                .getElementById("remain_ratio")
+                .innerText = remain_ratio.toString() + "%";
         }
+
         function img_hide(array) {
             for (var i = 0; i < array.length; i++) {
                 array[i].hidden = true;
             }
         }
+
         function mouse_up(value) {
             img_hide(sweet);
             img_hide(bodygam);

@@ -11,7 +11,7 @@ UNIT = 0x1
 
 
 app = Flask(__name__)
-blender = ["0", "0", "100"]
+blender = ["0", "0", "0"]
 option = ['none']
 
 @app.route("/")
@@ -24,7 +24,7 @@ def main():
         else:
             blender[0] = "0"
             blender[1] = "0"
-            blender[2] = "100"
+            blender[2] = "0"
             option[0] = 'none'
             return render_template('Main.html')
     else:
