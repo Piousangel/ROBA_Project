@@ -29,7 +29,7 @@
 
             #left_img {
                 position: absolute;
-                background-image: url("/static/imgs/ROBA_2-1_bg_figure1.png");
+                background-image: url("/static/imgs/ROBA_2-1_newBG.png");
                 background-size: 630px 460px;
                 background-repeat: no-repeat;
                 width: 630px;
@@ -82,10 +82,7 @@
 
             .sanme {
                 position: absolute;
-                background-image: url("/static/imgs/ROBA_2-1_sort_sour_unselected.png");
-                border: none;
-                background-color: rgba(246, 243,238,0);
-                background-repeat: no-repeat;
+                
                 width: 160px;
                 height: 99px;
                 top: 277px;
@@ -257,6 +254,27 @@
                 left: 39px;
                 margin: 0;
                 z-index: 5;
+            }
+
+            #remain_ratio
+            {
+                position: absolute;
+                top: 275px;
+                left: 1482px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #remain_font
+            {
+                margin: 0px;
+                position: absolute;
+                top: 33px;
+                left: 10px;        /*top, left, 수정할겁니다 */
+                font-family: 'GongGothicLight', sans-serif;
+                color: rgb(192,104,90);
+                font-size: 24pt;
+                
             }
 
             .indo_background {
@@ -435,6 +453,11 @@
             <p id="amekor">아메리카노</p>
             <p id="americano">Americano</p>
 
+            <div id="remain_ratio">
+                <img src="/static/imgs/ROBA_2-1_ratioBG.png" id ="_ratio"alt>
+                <p id="remain_font">남은 비율:{{ratio_1}}%</p> <!--임의로 넣었습니다.-->
+            </div>
+
             <p id="lostaric_2">로스터릭 코스타리카 허니</p>
             <p id="terarosa_2">테라로사 에티오피아</p>
             <p id="indonasia_2">인도네시아 만델링</p>
@@ -446,7 +469,7 @@
                 src="/static/imgs/ROBA_2-1_beaker_filled_brown.png"
                 alt="logo"
                 id="tera_cup"/>
-            <img src="/static/imgs/ROBA_2-1_beaker_gray.png" alt="logo" id="indo_cup"/>
+            <img src="/static/imgs/ROBA_2-1_beaker_3.png" alt="logo" id="indo_cup"/>
 
             <div class="los_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="los_arrow"/>
@@ -470,7 +493,7 @@
             </div>
         </div>
 
-        <img src="/static/imgs/ROBA_2_button.png" id="order" onclick='orderform()'>
+        <img src="/Backend/static/imgs/ROBA_2_button.png" id="order" onclick='orderform()'>
 
     </div>
 
