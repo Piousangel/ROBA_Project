@@ -62,16 +62,11 @@
                 position: absolute;
                 top: 752px;
                 left: 729px;
-                background-image: url(/static/imgs/ROBA_1_Main_button.png);
-                background-color: rgb(246, 243,238);
-                background-repeat: no-repeat;
                 border: none;
-                background-position: 0px 0px;
                 height: 200px;
                 width: 460px;
                 margin: 0px;
                 padding: 0px;
-
             }
 
     </style>
@@ -89,9 +84,7 @@
             
             <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation"/> 
             
-            <form  action= "/Main" method="Post">
-                <input type="submit" value = "" id="order_confrim" name="order" >
-            </form>
+            <img src="/static/imgs/ROBA_1_Main_button.png" alt="btn" id="order_confrim" name="order" onclick='sendPost("/Main")'/>
         </div>
 
         <script type="text/javascript">
@@ -103,8 +96,7 @@
             cnt = 10;
             countdown();
         }
-        
-        document.onclick = function(){sendGet('/Main');};
+    
 
         function countdown()
         {
@@ -117,6 +109,19 @@
                 setTimeout("countdown()", 1000);
                 cnt--;
             }
+        }
+
+        function sendPost(action){
+            var form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
+
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            document.body.appendChild(form);
+            form.submit();
         }
 
         function sendGet(action) {
