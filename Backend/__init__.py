@@ -11,7 +11,7 @@ UNIT = 0x1
 
 
 app = Flask(__name__)
-blender = [0, 0, 0]
+blender = ["0", "0", "100"]
 option = ['none']
 
 @app.route("/")
@@ -22,6 +22,10 @@ def main():
         if request.method == 'POST':
             return redirect(url_for('menu_select_blending'))
         else:
+            blender[0] = "0"
+            blender[1] = "0"
+            blender[2] = "100"
+            option[0] = 'none'
             return render_template('Main.html')
     else:
         return redirect(url_for('cant_order'))
@@ -45,11 +49,14 @@ def menu_select_blending():
         blender[1] = request.form['Blender_2']
         blender[2] = request.form['Blender_3']
         print(blender[0] + " " + blender[1] + " " + blender[2])
-        render_params= {}
-        render_params['option'] = option[0]
-        return render_template('Menu_Select_Option.html', **render_params)
+        return redirect(url_for('menu_select_option'))
     else:
-        return render_template('Menu_Select_Blending.html')
+        print(blender)
+        render_params= {}
+        render_params['blender_1'] = blender[0]
+        render_params['blender_2'] = blender[1]
+        render_params['blender_3'] = blender[2]
+        return render_template('Menu_Select_Blending.html', **render_params)
 
 
 @app.route("/Menu_Select_Option", methods=["GET", "POST"])

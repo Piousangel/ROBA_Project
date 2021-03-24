@@ -334,23 +334,9 @@
                 }
             }
 
-            var selected_value = 0;
-
             function goBack() 
             {
-                window.history.back();
-            }
-
-            function select_hot(){
-                selected_value = 1;
-            }
-
-            function select_ice(){
-                selected_value = 0;
-            }
-
-            function order(){
-                sendPost('/Menu_Select_Option', selected_value);
+                sendGet("/Menu_Select_Blending");
             }
             
             function sendPost(action, value) 

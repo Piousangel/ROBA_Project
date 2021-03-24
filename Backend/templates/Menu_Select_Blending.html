@@ -471,21 +471,21 @@
 
             <div class="los_background">
               <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class= "los_arrow" />
-              <p class="percent los_percent" id="los_per">0%</p>
+              <p class="percent los_percent" id="los_per">{{blender_1}}%</p>
                 <p id="losdown" name="lostaric_percentdown"></p>
                 <p id="losup" name="lostaric_percentup"></p>
             </div>
 
             <div class="tera_background">
               <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  class= "tera_arrow" />
-              <p class="percent tera_percent" id="tera_per">0%</p>
+              <p class="percent tera_percent" id="tera_per">{{blender_2}}%</p>
                 <p id="teradown" name="tera_percentdown"></p>
                 <p id="teraup" name="tera_percentup"></p>
             </div>   
 
             <div class="indo_background">
               <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"  class= "indo_arrow" />
-              <p class="percent indo_percent" id="indo_per">100%</p>
+              <p class="percent indo_percent" id="indo_per">{{blender_3}}%</p>
               <p id="indodown" name="indo_percentdown" ></p>
               <p id="indoup" name="indo_percentup"></p>
           </div>   
@@ -617,8 +617,24 @@
         
         function goBack()
         {
-          window.history.back();
+            sendGet("/Main");
         }
+
+        function sendGet(action) 
+        {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
+            
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            
+            document.body.appendChild(form);
+            form.submit();
+        }
+
         
 
         $(".sweet").on('click', function(){

@@ -133,6 +133,14 @@
                margin: 0px;
            }
 
+           #ice
+           {
+               position: absolute;
+               top: 316px;
+               left: 864px;
+               margin: 0px;
+           }
+
            #can
            {
                position: absolute;
@@ -222,14 +230,15 @@
             <p id="amekor">아메리카노</p>
             <p id="americano">Americano</p>
 
-            <img src="/static/imgs/ROBA_3_hot.png" alt="logo"  id="hot" /> 
+            <img src="/static/imgs/ROBA_3_hot.png" alt="logo" id="hot" name="hot" /> 
+            <img src="/static/imgs/ROBA_3_ice.png" alt="logo" id="ice" name="ice"/>
             <img src="/static/imgs/ROBA_3_filled_can.png" alt="logo"  id="can" /> 
 
             <p class="name hot_ice">뜨거운 음료</p>
             <p class="name tera">테라로사 에티오피아</p>
             <p class="name brazil">브라질 산토스</p>
             <p class="name burunde">커피창고 부룬디</p>
-            <p class="value hot_ice" style="font-size: 30pt;">{{option}}</p>
+            <p class="value hot_ice" style="font-size: 30pt;" id="hot_ice">{{option}}</p>
             <p class="value percent tera">{{blender_1}}%</p>
             <p class="value percent brazil">{{blender_2}}%</p>
             <p class="value percent burunde">{{blender_3}}%</p>
@@ -244,12 +253,23 @@
 
         
         <script type="text/javascript">
-
-        
+        var tem = [window.document.hot, window.document.ice]
+        var option = window.document.getElementById("hot_ice").innerText;
         var timeT = document.getElementById("runningtime");
 
         window.onload = function()
         {
+            if(option == "Hot") 
+            {
+                tem[0].style.opacity = "1.0"
+                tem[1].style.opacity = "0.0"
+            }
+            else
+            {
+                tem[1].style.opacity = "1.0"
+                tem[0].style.opacity = "0.0"
+            }
+
             cnt = 10;
             countdown();
         }
@@ -286,7 +306,22 @@
 
         function goBack() 
         {
-            window.history.back();
+            sendGet("/Menu_Select_Option");
+        }
+
+        function sendGet(action) 
+        {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
+            
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            
+            document.body.appendChild(form);
+            form.submit();
         }
 
         
