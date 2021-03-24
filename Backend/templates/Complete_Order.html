@@ -1,101 +1,84 @@
 <html>
     <head>
         <title>제목</title>
-        <meta charset="utf-8" />
-        
-        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/>  css파일 불러올때 -->
-    
-    <style>
+        <meta charset="utf-8"/>
+
+        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
+        불러올때 -->
+
+        <style>
             @font-face {
                 font-family: 'GongGothicLight';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
                 font-weight: normal;
                 font-style: normal;
             }
 
-            body
-            {
-                padding: 0px;
-                margin: 0px;
+            body {
+                padding: 0;
+                margin: 0;
             }
-            #wrap
-            {
+            #wrap {
                 width: 1920px;
                 height: 1080px;
-                margin: 0px;
-                padding: 0px;
+                margin: 0;
+                padding: 0;
                 background-color: rgb(246, 243,238);
                 position: absolute;
             }
 
-            #line
-            {
+            #line {
                 position: absolute;
                 top: 294px;
                 left: 823px;
-                margin: 0px;
+                margin: 0;
                 width: 220px;
             }
 
-            #thanks
-            {
+            #thanks {
                 position: absolute;
                 top: 311px;
                 left: 861px;
                 font-size: 30px;
                 font-family: 'GongGothicLight' , sans-serif;
-                color :rgb(116, 72, 33);
-                margin: 0px;
+                color: rgb(116, 72, 33);
+                margin: 0;
             }
-            #state
-            {
+            #state {
                 position: absolute;
                 top: 385px;
                 left: 465px;
                 font-family: 'GongGothicLight' , sans-serif;
-                font-size: 74pt;                  /* 이거 다시 수정해야 할듯. */
-                color :rgb(116, 72, 33);
-                margin: 0px;
+                font-size: 74pt;
+                /* 이거 다시 수정해야 할듯. */
+                color: rgb(116, 72, 33);
+                margin: 0;
             }
 
-            #roba_Logo
-            {
+            #roba_Logo {
                 position: absolute;
                 top: 579px;
                 left: 576px;
                 width: 768px;
-               
+
             }
 
-          
-            #order_confrim
-            {
+            #order_confrim {
                 position: absolute;
                 top: 752px;
                 left: 729px;
-                background-image: url(/Backend/static/imgs/ROBA_1_Main_button.png);
+                background-image: url("/Backend/static/imgs/ROBA_1_Main_button.png");
                 background-color: rgb(246, 243,238);
                 background-repeat: no-repeat;
                 border: none;
-                background-position: 0px 0px;
+                background-position: 0 0;
                 height: 200px;
                 width: 460px;
-                margin: 0px;
-                padding: 0px;
+                margin: 0;
+                padding: 0;
 
             }
-
-
-
-
-           
-
-           
-
-           
-            
-
-    </style>
+        </style>
 
     </head>
 
@@ -104,55 +87,51 @@
 
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
-            <img src="/static/imgs/ROBA_2-2_line.png" alt="line" id="line" />
+            <img src="/static/imgs/ROBA_2-2_line.png" alt="line" id="line"/>
             <p id="thanks">감사합니다.</p>
-            <p id="state">주문이 완료되었습니다.</p> 
-            
-            <img src="/static/imgs/ROBA_4_endingLogo.svg" alt="logo"  id="roba_Logo" /> 
-            
+            <p id="state">주문이 완료되었습니다.</p>
+
+            <img src="/static/imgs/ROBA_4_endingLogo.svg" alt="logo" id="roba_Logo"/>
+
         </div>
 
         <script type="text/javascript">
-        
-        var timeT = document.getElementById("runningtime");
 
-        window.onload = function()
-        {
-            cnt = 5;
-            countdown();
-        }
-        
-        document.onclick = function(){cnt = 10;};
+            var timeT = document.getElementById("runningtime");
 
-        function countdown()
-        {
-            if(cnt == 0)
-            {
-                sendGet('/Main');
+            window.onload = function () {
+                cnt = 5;
+                countdown();
             }
-            else{
-                timeT.innerText = cnt;
-                setTimeout("countdown()", 1000);
-                cnt--;
+
+            document.onclick = function () {
+                cnt = 10;
+            };
+
+            function countdown() {
+                if (cnt == 0) {
+                    sendGet('/Main');
+                } else {
+                    timeT.innerText = cnt;
+                    setTimeout("countdown()", 1000);
+                    cnt--;
+                }
             }
-        }
 
+            function sendGet(action) {
+                var form = document.createElement('form');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action', action);
+                document.charset = "utf-8";
 
-        function sendGet(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'get');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-            
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-            document.body.appendChild(form);
-            form.submit();
-        }
-
-        
-
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                form.appendChild(hiddenField);
+                document
+                    .body
+                    .appendChild(form);
+                form.submit();
+            }
         </script>
 
     </body>

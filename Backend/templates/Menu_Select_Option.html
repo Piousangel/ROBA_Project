@@ -4,218 +4,230 @@
         <meta charset="UTF-8">
         <title>Menu_Select_Option</title>
         <style>
-        @font-face 
-        {
+            @font-face {
                 font-family: 'GongGothicLight';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
                 font-weight: normal;
                 font-style: normal;
-        }
-    
-        body
-        {
-            margin: 0px;
-            padding: 0px;
-            position: absolute;
-        }
-        
-        .wrap
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            width: 1920px;
-            height: 1080px;
-            background-color: rgb(246, 243,238);
-            position: absolute;
-        }
+            }
 
-        .select_tem
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 116px;
-            left: 147px;
-            font-family: 'GongGothicLight', sans-serif;
-            font-size: 37pt;
-            color : rgb(116, 72,33);
-        }
+            body {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+            }
 
-        .backArrow
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 93px;
-            left: 50px;
-        }
+            .wrap {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                width: 1920px;
+                height: 1080px;
+                background-color: rgb(246, 243,238);
+                position: absolute;
+            }
 
-        .line
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top : 195px;
-            left: 0px;
-        }
+            .select_tem {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 116px;
+                left: 147px;
+                font-family: 'GongGothicLight', sans-serif;
+                font-size: 37pt;
+                color: rgb(116, 72,33);
+            }
 
-        .btn_hot
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 326px;
-            left: 203px;
-        }
+            .backArrow {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 93px;
+                left: 50px;
+            }
 
-        .hot
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 139px;
-            left: 123px;
-            z-index: 10;
-        }
+            .line {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 195px;
+                left: 0;
+            }
 
-        .img_releative
-        {
-            margin: inherit;
-            padding: inherit;
-            position : absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 0;
-        }
+            .btn_hot {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 326px;
+                left: 203px;
+            }
 
-        .text_hot_americano
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 803px;
-            left: 218px;
-            font-family: 'GongGothicLight', sans-serif;
-            font-size: 37pt;
-            color : rgb(116, 72,33);
-        }
+            .hot {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 139px;
+                left: 123px;
+                z-index: 10;
+            }
 
-        .text_hot
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 862px;
-            left: 362px;
-            font-family: 'GongGothicLight', sans-serif;
-            font-size: 44pt;
-            color : rgb(116, 72,33);
-        }
+            .img_releative {
+                margin: inherit;
+                padding: inherit;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                opacity: "0.0";
+            }
 
-        .btn_ice
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 326px;
-            left: 1356px;
-            z-index: 0;
-        }
+            .text_hot_americano {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 803px;
+                left: 218px;
+                font-family: 'GongGothicLight', sans-serif;
+                font-size: 37pt;
+                color: rgb(116, 72,33);
+            }
 
-        .ice
-        {
-            margin: inherit;
-            padding: inherit;
-            position: absolute;
-            top: 113px;
-            left: 114px;
-            z-index: 10;
-        }
+            .text_hot {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 862px;
+                left: 362px;
+                font-family: 'GongGothicLight', sans-serif;
+                font-size: 44pt;
+                color: rgb(116, 72,33);
+            }
 
-        .text_ice_americano
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 803px;
-            left: 1368px;
-            font-family: 'GongGothicLight', sans-serif;
-            font-size:37pt;
-            color : rgb(116, 72,33);
-        }
+            .btn_ice {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 326px;
+                left: 1356px;
+                z-index: 0;
+            }
 
-        .text_ice
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 862px;
-            left: 1522px;
-            font-family: 'GongGothicLight', sans-serif;
-            font-size: 44pt;
-            color : rgb(116, 72,33);
-        }
+            .ice {
+                margin: inherit;
+                padding: inherit;
+                position: absolute;
+                top: 113px;
+                left: 114px;
+                z-index: 10;
+            }
 
-        .can
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 279px;
-            left: 795px;
-        }
+            .text_ice_americano {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 803px;
+                left: 1368px;
+                font-family: 'GongGothicLight', sans-serif;
+                font-size: 37pt;
+                color: rgb(116, 72,33);
+            }
 
-        .btn_order
-        {
-            margin: inherit;
-            padding: inherit;
-            position: inherit;
-            top: 878px;
-            left: 780px;
-        }
+            .text_ice {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 862px;
+                left: 1522px;
+                font-family: 'GongGothicLight', sans-serif;
+                font-size: 44pt;
+                color: rgb(116, 72,33);
+            }
+
+            .can {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 279px;
+                left: 795px;
+            }
+
+            .btn_order {
+                margin: inherit;
+                padding: inherit;
+                position: inherit;
+                top: 878px;
+                left: 780px;
+            }
         </style>
     </head>
 
-    <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+    <body
+        onload="init();"
+        oncontextmenu='return false'
+        onselectstart='return false'
+        ondragstart='return false'>
         <div id="option" style="display:none">{{option}}</div>
         <div class="wrap">
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
             <p class="select_tem">음료 온도 선택</p>
             <img src="/static/imgs/ROBA_2-2_line.png" alt="line" class="line">
-            <img src="/static/imgs/ROBA_23_backArrow.png" alt="backArrow" class="backArrow" onclick="goBack()" >
+            <img
+                src="/static/imgs/ROBA_23_backArrow.png"
+                alt="backArrow"
+                class="backArrow"
+                onclick="goBack()">
 
-            
-            <div class= "btn_hot" id="radio_hot">
-                <img src="/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_hot_unselect">
-                <img src="/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_hot_selected">
-                <img src="/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_hot_clicked">
-                <img src="/static/imgs/ROBA_2-2_hot.png" class="hot">   
+            <div class="btn_hot" id="radio_hot">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnUnselected.png"
+                    class="img_releative"
+                    name="img_hot_unselect">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnSelected.png"
+                    class="img_releative"
+                    name="img_hot_selected">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnClicked.png"
+                    class="img_releative"
+                    name="img_hot_clicked">
+                <img src="/static/imgs/ROBA_2-2_hot.png" class="hot">
             </div>
             <p class="text_hot_americano">뜨거운 아메리카노</p>
             <p class="text_hot">Hot</p>
-           
+
             <img src="/static/imgs/ROBA_2-2_can.png" class="can">
-            
+
             <div class="btn_ice" id="radio_ice">
-                <img src="/static/imgs/ROBA_2-2_btnUnselected.png" class="img_releative" name="img_ice_unselect">
-                <img src="/static/imgs/ROBA_2-2_btnSelected.png" class="img_releative" name="img_ice_selected">
-                <img src="/static/imgs/ROBA_2-2_btnClicked.png" class="img_releative" name="img_ice_clicked">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnUnselected.png"
+                    class="img_releative"
+                    name="img_ice_unselect">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnSelected.png"
+                    class="img_releative"
+                    name="img_ice_selected">
+                <img
+                    src="/static/imgs/ROBA_2-2_btnClicked.png"
+                    class="img_releative"
+                    name="img_ice_clicked">
                 <img src="/static/imgs/ROBA_2-2_ice.png" class="ice">
             </div>
-            
+
             <p class="text_ice_americano">아이스 아메리카노</p>
             <p class="text_ice">Ice</p>
 
             <div class="btn_order" id="btn_order" onclick='mouse_up("btn")'>
-                <img src="/static/imgs/ROBA_2-2_선택완료_notyet.png" class="img_releative" name="img_not_yet">
+                <img
+                    src="/static/imgs/ROBA_2-2_선택완료_notyet.png"
+                    class="img_releative"
+                    name="img_not_yet">
                 <img src="/static/imgs/ROBA_2_button.png" class="img_releative" name="img_yet">
             </div>
 
         </div>
 
         <script>
-            
+
             var radio_hot = [window.document.img_hot_unselect, window.document.img_hot_selected, window.document.img_hot_clicked];
             var radio_ice = [window.document.img_ice_unselect, window.document.img_ice_selected, window.document.img_ice_clicked];
 
@@ -225,148 +237,167 @@
             var img_ice_temp = 0;
             var btn_temp = 0;
 
-            function init()
-            {
+            function init() {
                 img_alpha_zero(radio_hot);
                 img_alpha_zero(radio_ice);
                 img_alpha_zero(btn);
-                
-                var option_get = document.getElementById("option").innerText;
-                if(option_get == "none"){
+
+                var option_get = document
+                    .getElementById("option")
+                    .innerText;
+                if (option_get == "none") {
                     img_hot_temp = 0;
                     img_ice_temp = 0;
-                }
-                else if(option_get == "0"){
+                } else if (option_get == "0") {
                     img_hot_temp = 0;
                     img_ice_temp = 1;
                     btn_temp = 1;
-                    document.getElementById("btn_order").addEventListener("mouseup", function(){mouse_up("Btn")})
-                }
-                else if(option_get == "1"){
+                    document
+                        .getElementById("btn_order")
+                        .addEventListener("mouseup", function () {
+                            mouse_up("Btn")
+                        })
+                } else if (option_get == "1") {
                     img_hot_temp = 1;
                     img_ice_temp = 0;
                     btn_temp = 1;
-                    document.getElementById("btn_order").addEventListener("mouseup", function(){mouse_up("Btn")})
+                    document
+                        .getElementById("btn_order")
+                        .addEventListener("mouseup", function () {
+                            mouse_up("Btn")
+                        })
                 }
                 radio_hot[img_hot_temp].style.opacity = "1.0";
                 radio_ice[img_ice_temp].style.opacity = "1.0";
                 btn[btn_temp].style.opacity = "1.0"
-                
-                document.getElementById("radio_hot").addEventListener("mouseup", function(){mouse_up("Hot")})
-                document.getElementById("radio_hot").addEventListener("mousedown", function(){mouse_down("Hot")})
-                document.getElementById("radio_hot").addEventListener("mouseout", function(){mouse_out("Hot")})
 
-                document.getElementById("radio_ice").addEventListener("mouseup", function(){mouse_up("Ice")})
-                document.getElementById("radio_ice").addEventListener("mousedown", function(){mouse_down("Ice")})
-                document.getElementById("radio_ice").addEventListener("mouseout", function(){mouse_out("Ice")})
+                document
+                    .getElementById("radio_hot")
+                    .addEventListener("mouseup", function () {
+                        mouse_up("Hot")
+                    })
+                document
+                    .getElementById("radio_hot")
+                    .addEventListener("mousedown", function () {
+                        mouse_down("Hot")
+                    })
+                document
+                    .getElementById("radio_hot")
+                    .addEventListener("mouseout", function () {
+                        mouse_out("Hot")
+                    })
+
+                document
+                    .getElementById("radio_ice")
+                    .addEventListener("mouseup", function () {
+                        mouse_up("Ice")
+                    })
+                document
+                    .getElementById("radio_ice")
+                    .addEventListener("mousedown", function () {
+                        mouse_down("Ice")
+                    })
+                document
+                    .getElementById("radio_ice")
+                    .addEventListener("mouseout", function () {
+                        mouse_out("Ice")
+                    })
                 countdown()
             }
-            
 
-            function mouse_down(value) //hot : 1, ice : 0
-            {
+            function mouse_down(value) { //hot : 1, ice : 0
                 cnt = 10;
-                if(value == "Hot"){
+                if (value == "Hot") {
                     img_alpha_zero(radio_hot);
                     radio_hot[2].style.opacity = "1.0";
-                }
-                else if(value == "Ice")
-                {
+                } else if (value == "Ice") {
                     img_alpha_zero(radio_ice);
                     radio_ice[2].style.opacity = "1.0";
                 }
             }
 
-            function mouse_out(value)
-            {
-                if(value == "Hot")
-                {
+            function mouse_out(value) {
+                if (value == "Hot") {
                     img_alpha_zero(radio_hot);
                     radio_hot[img_hot_temp].style.opacity = "1.0";
-                }
-                else if(value == "Ice")
-                {
+                } else if (value == "Ice") {
                     img_alpha_zero(radio_ice);
                     radio_ice[img_ice_temp].style.opacity = "1.0";
                 }
             }
-            
-            function mouse_up(value)
-            {
+
+            function mouse_up(value) {
                 img_alpha_zero(radio_hot);
                 img_alpha_zero(radio_ice);
-                if(value == "Hot")
-                {
+                if (value == "Hot") {
                     img_hot_temp = 1;
                     img_ice_temp = 0;
-                    
+
                     img_alpha_zero(btn);
                     btn_temp = 1;
-                    document.getElementById("btn_order").addEventListener("mouseup", function(){mouse_up("Btn")})
+                    document
+                        .getElementById("btn_order")
+                        .addEventListener("mouseup", function () {
+                            mouse_up("Btn")
+                        })
                     btn[btn_temp].style.opacity = "1.0"
-                    
-                }
-                else if(value == "Ice")
-                {
+
+                } else if (value == "Ice") {
                     img_hot_temp = 0;
                     img_ice_temp = 1;
-                    
+
                     img_alpha_zero(btn);
                     btn_temp = 1;
-                    document.getElementById("btn_order").addEventListener("mouseup", function(){mouse_up("Btn")})
+                    document
+                        .getElementById("btn_order")
+                        .addEventListener("mouseup", function () {
+                            mouse_up("Btn")
+                        })
                     btn[btn_temp].style.opacity = "1.0"
-                }
-                else if(value =="Btn")
-                {
+                } else if (value == "Btn") {
                     sendPost("/Menu_Select_Option", img_hot_temp)
                 }
-                
 
                 radio_hot[img_hot_temp].style.opacity = "1.0";
                 radio_ice[img_ice_temp].style.opacity = "1.0";
 
             }
 
-            function img_alpha_zero(array)
-            {
-                for(var i = 0; i < array.length; i++){
+            function img_alpha_zero(array) {
+                for (var i = 0; i < array.length; i++) {
                     array[i].style.opacity = "0.0"
                 }
             }
 
-            function goBack() 
-            {
+            function goBack() {
                 sendGet("/Menu_Select_Blending");
             }
-            
-            function sendPost(action, value) 
-            {
+
+            function sendPost(action, value) {
                 var form = document.createElement('form');
                 form.setAttribute('method', 'post');
                 form.setAttribute('action', action);
                 document.charset = "utf-8";
-                
+
                 var hiddenField = document.createElement('input');
                 hiddenField.setAttribute('type', 'hidden');
-                hiddenField.setAttribute('name', 'Option_Select');    
-                hiddenField.setAttribute('value', value);  
+                hiddenField.setAttribute('name', 'Option_Select');
+                hiddenField.setAttribute('value', value);
                 form.appendChild(hiddenField);
-                
-                document.body.appendChild(form);
+
+                document
+                    .body
+                    .appendChild(form);
                 form.submit();
             }
-
 
             var timeT = document.getElementById("runningtime");
 
             var cnt = 10;
-            function countdown()
-            {
-                if(cnt == 0)
-                {
+            function countdown() {
+                if (cnt == 0) {
                     sendGet('/Order_Timeout');
-                }
-                else{
+                } else {
                     timeT.innerText = cnt;
                     setTimeout("countdown()", 1000);
                     cnt--;
@@ -382,7 +413,9 @@
                 var hiddenField = document.createElement('input');
                 hiddenField.setAttribute('type', 'hidden');
                 form.appendChild(hiddenField);
-                document.body.appendChild(form);
+                document
+                    .body
+                    .appendChild(form);
                 form.submit();
             }
         </script>
