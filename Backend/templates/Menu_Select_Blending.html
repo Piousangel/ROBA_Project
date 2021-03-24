@@ -2,367 +2,213 @@
     <head>
         <title>제목</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="/static/css/layout.css" type="text/css">
         <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
         불러올때 -->
         <style>
-            @font-face {
-                font-family: 'GongGothicLight';
-                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            #wrap {
-                width: 1920px;
-                height: 1080px;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(246, 243,238);
-                position: absolute;
-            }
             #left_img {
-                position: absolute;
                 background-image: url("/static/imgs/ROBA_2-1_newBG.png");
                 background-size: 630px 460px;
                 background-repeat: no-repeat;
                 width: 630px;
                 height: 460px;
-                padding: 0;
-                margin: 0;
             }
             #choice_bean {
-                position: absolute;
                 top: 116px;
                 left: 158px;
-                font-size: 37pt;
-                margin: 0;
-                padding: 0;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
             }
             #sorting {
-                position: absolute;
                 top: 227px;
                 left: 275px;
-                margin: 0;
-                padding: 0;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(192,104,90);
             }
             .sweet {
-                position: absolute;
                 width: 168px;
                 height: 99px;
                 top: 277px;
                 left: 45px;
-                margin: 0;
-                padding: 0;
             }
             .bodygam {
-                position: absolute;
                 width: 200px;
                 height: 99px;
                 top: 277px;
                 left: 215px;
-                margin: 0;
-                padding: 0;
             }
             .sanme {
-                position: absolute;
-
                 width: 160px;
                 height: 99px;
                 top: 277px;
                 left: 420px;
-                margin: 0;
-                padding: 0;
             }
             .img_relative {
-                position: absolute;
                 top: 0;
                 left: 0;
-                z-index: 0;
             }
             .lostaric {
-                position: absolute;
                 top: 473px;
                 left: 62px;
-                margin: 0;
                 width: 470px;
             }
             .terarosa {
-                position: absolute;
                 top: 663px;
                 left: 62px;
-                margin: 0;
                 width: 420px;
             }
             .indonasia {
-                position: absolute;
                 top: 852px;
                 left: 62px;
                 width: 360px;
             }
             #arrow {
-                position: absolute;
                 top: 43px;
                 left: 651px;
-                padding: 0;
-                margin: 0;
             }
             #line {
-                position: absolute;
                 top: 420px;
                 left: 626px;
-                margin: 0;
             }
             #amekor {
-                position: absolute;
                 top: 115px;
                 left: 1128px;
-                font-size: 44pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
             }
             #americano {
-                position: absolute;
                 top: 179px;
                 left: 1160px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
             }
             .order {
-                position: absolute;
                 top: 881px;
                 left: 1097px;
-                margin: 0;
-                padding: 0;
-                z-index: 10;
             }
             #lostaric_2 {
-                position: absolute;
                 top: 390px;
                 left: 680px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
             }
             #terarosa_2 {
-                position: absolute;
                 top: 390px;
                 left: 1150px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
             }
             #indonasia_2 {
-                position: absolute;
                 top: 390px;
                 left: 1540px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
             }
             #losta_cup {
-                position: absolute;
                 top: 475px;
                 left: 838px;
-                margin: 0;
             }
             #tera_cup {
-                position: absolute;
                 top: 475px;
                 left: 1224px;
-                margin: 0;
             }
             #indo_cup {
-                position: absolute;
                 top: 475px;
                 left: 1610px;
-                margin: 0;
             }
             .los_background {
-                position: absolute;
                 background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
                 background-repeat: no-repeat;
                 width: 330px;
                 height: 99px;
                 top: 712px;
                 left: 728px;
-                margin: 0;
-                padding: 0;
-                z-index: 0;
             }
             .los_arrow {
-                position: absolute;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 5;
             }
             .tera_background {
-                position: absolute;
                 background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
                 background-repeat: no-repeat;
                 width: 330px;
                 height: 99px;
                 top: 712px;
                 left: 1114px;
-                margin: 0;
-                z-index: 0;
             }
             .tera_arrow {
-                position: absolute;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 5;
             }
 
             #remain_div {
-                position: absolute;
                 top: 275px;
                 left: 1482px;
-                margin: 0;
-                padding: 0;
             }
 
             #remain_font {
-                margin: 0;
-                position: absolute;
                 top: 33px;
                 left: 40px;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(192,104,90);
-                font-size: 24pt;
-
             }
 
             #remain_ratio {
-                margin: 0;
-                position: absolute;
                 top: 33px;
                 left: 180px;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(192,104,90);
-                font-size: 24pt;
                 text-align: right;
                 width: 100px;
             }
             .indo_background {
-                position: absolute;
                 background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
                 background-repeat: no-repeat;
                 width: 330px;
                 height: 99px;
                 top: 712px;
                 left: 1500px;
-                margin: 0;
-                z-index: 0;
             }
             .indo_arrow {
-                position: absolute;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 5;
             }
             .percent {
-                font-family: 'GongGothicLight', sans-serif;
-                font-size: 44pt;
-                color: rgb(116, 72, 33);
-                position: absolute;
-                z-index: 5;
                 text-align: right;
                 width: 152px;
             }
             .los_percent {
                 top: 14px;
                 left: 90px;
-                margin: 0;
             }
             .tera_percent {
                 top: 14px;
                 left: 90px;
-                margin: 0;
             }
             .indo_percent {
                 top: 14px;
                 left: 90px;
-                margin: 0;
             }
             #losdown {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 10;
             }
             #losup {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 254px;
-                margin: 0;
-                z-index: 10;
             }
             #teradown {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 10;
             }
             #teraup {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 254px;
-                margin: 0;
-                z-index: 10;
             }
             #indodown {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 39px;
-                margin: 0;
-                z-index: 10;
             }
             #indoup {
-                position: absolute;
                 width: 30px;
                 height: 30px;
                 top: 39px;
                 left: 254px;
-                margin: 0;
-                z-index: 10;
             }
 
-            .btn_UD{
-              z-index: 10;
-            }
-
-            .btn_order{
-              z-index: 10;
-            }
+            
 
         </style>
     </head>
@@ -472,7 +318,7 @@
         </div>
 
         <img hidden class="order" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
-        <img hidden class="order btn_order" name="img_yet" src="/static/imgs/ROBA_2_button.png" onclick="orderform()">  
+        <img hidden class="order z-top" name="img_yet" src="/static/imgs/ROBA_2_button.png" onclick="orderform()">  
         
 
     </div>
