@@ -27,12 +27,20 @@
                 position: absolute;
             }
 
-            #line {
+            .line {
                 position: absolute;
                 top: 294px;
                 left: 823px;
                 margin: 0;
                 width: 220px;
+                z-index: 10;
+            }
+
+            .img_releative {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
             }
 
             #thanks {
@@ -76,13 +84,16 @@
                 width: 460px;
                 margin: 0;
                 padding: 0;
-
             }
+
+           
+
         </style>
 
     </head>
 
     <body
+        onload="init();"
         oncontextmenu='return false'
         onselectstart='return false'
         ondragstart='return false'>
@@ -90,7 +101,18 @@
 
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
-            <img src="/static/imgs/ROBA_2-2_line.png" alt="line" id="line"/>
+            <div class="line" id="line">
+            <img 
+                src="/static/imgs/ROBA_4_ending copy.gif" 
+                alt="line" class="img_releative"
+                name="loading_line"/>
+            <img 
+                src="/static/imgs/ROBA_2-2_line.png" 
+                alt="line" 
+                class="img_releative"
+                name="complete_line"/>
+            </div>
+
             <p id="thanks">감사합니다.</p>
             <p id="state">주문이 완료되었습니다.</p>
 
@@ -101,6 +123,11 @@
         <script type="text/javascript">
 
             var timeT = document.getElementById("runningtime");
+
+
+            var line_gif = [window.document.loading_line, window.document.complete_line];
+
+
 
             window.onload = function () {
                 cnt = 5;
