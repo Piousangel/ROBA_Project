@@ -135,6 +135,8 @@
             #remain_font {
                 top: 33px;
                 left: 40px;
+                
+                width: 150px;
             }
 
             #remain_ratio {
@@ -218,10 +220,9 @@
         onselectstart='return false'
         ondragstart='return false'>
         <div id="wrap">
-            <!--<p id="runningtime" style="color: gray; font-size: 40px;">1</p> -->
             <div id="left_img">
-                <p id="choice_bean">원두 종류 선택</p>
-                <p id="sorting">정렬</p>
+                <p id="choice_bean" class="font_50">원두 종류 선택</p>
+                <p id="sorting" class="font_40_red">정렬</p>
                 <div class="sweet" id="radio_sweet">
                     <img
                         hidden="hidden"
@@ -274,22 +275,22 @@
                 id="arrow"
                 onclick="goBack()"/>
             <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line"/>
-            <p id="amekor">아메리카노</p>
-            <p id="americano">Americano</p>
+            <p id="amekor" class="font_60">아메리카노</p>
+            <p id="americano" class="font_40">Americano</p>
 
             <div id="remain_div">
                 <img src="/static/imgs/ROBA_2-1_ratioBG.png" id="_ratio" alt="alt">
-                <p id="remain_font" name="remain_font">남은 비율:</p>
-                <p id="remain_ratio" name="remain_ratio">100%</p>
+                <p id="remain_font" class="font_30_red" name="remain_font">남은 비율:</p>
+                <p id="remain_ratio" class="font_30_red" name="remain_ratio">100%</p>
                 <!--임의로 넣었습니다.-->
             </div>
 
-            <p id="lostaric_2">로스터릭 코스타리카 허니</p>
-            <p id="terarosa_2">테라로사 에티오피아</p>
-            <p id="indonasia_2">인도네시아 만델링</p>
+            <p id="lostaric_2" class="font_40">로스터릭 코스타리카 허니</p>
+            <p id="terarosa_2" class="font_40">테라로사 에티오피아</p>
+            <p id="indonasia_2" class="font_40">인도네시아 만델링</p>
             <img
                 src="/static/imgs/ROBA_2-1_beaker_filled_lightBrown.png"
-                alt="logo"
+                alt="logo2"
                 id="losta_cup"/>
             <img
                 src="/static/imgs/ROBA_2-1_beaker_filled_brown.png"
@@ -299,21 +300,21 @@
 
             <div class="los_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="los_arrow"/>
-                <p class="percent los_percent" id="los_per">{{blender_1}}%</p>
-                <p class="btn_UD" id="losdown" name="lostaric_percentdown"></p>
-                <p class="btn_UD" id="losup" name="lostaric_percentup"></p>
+                <p class="percent los_percent font_60" id="los_per">{{blender_1}}%</p>
+                <p class="z-top" id="losdown" name="lostaric_percentdown"></p>
+                <p class="z-top" id="losup" name="lostaric_percentup"></p>
             </div>
             <div class="tera_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="tera_arrow"/>
-                <p class="percent tera_percent" id="tera_per">{{blender_2}}%</p>
-                <p class="btn_UD" id="teradown" name="tera_percentdown"></p>
-                <p class="btn_UD" id="teraup" name="tera_percentup"></p>
+                <p class="percent tera_percent  font_60" id="tera_per">{{blender_2}}%</p>
+                <p class="z-top" id="teradown" name="tera_percentdown"></p>
+                <p class="z-top" id="teraup" name="tera_percentup"></p>
             </div>
             <div class="indo_background">
                 <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="indo_arrow"/>
-                <p class="percent indo_percent" id="indo_per">{{blender_3}}%</p>
-                <p class="btn_UD" id="indodown" name="indo_percentdown"></p>
-                <p class="btn_UD" id="indoup" name="indo_percentup"></p>
+                <p class="percent indo_percent  font_60" id="indo_per">{{blender_3}}%</p>
+                <p class="z-top" id="indodown" name="indo_percentdown"></p>
+                <p class="z-top" id="indoup" name="indo_percentup"></p>
             </div>
         </div>
 

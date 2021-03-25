@@ -1,25 +1,23 @@
-@charset "utf-8";
-
 #state {
     position: absolute;
     top: 358px;
-    left: 560px;
+    left: 570px;
 }
 
 #roba_Logo {
     top: 463px;
-    left: 658px;
+    left: 685px;
     width: 550px;
 }
 
 #line_Animation {
     top: 700px;
-    left: 155px;
+    left: 160px;
 }
 
 #order_confirm {
     top: 752px;
-    left: 729px;
+    left: 731px;
     height: 204px;
     width: 466px;
 }

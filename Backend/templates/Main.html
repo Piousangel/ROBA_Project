@@ -1,9 +1,8 @@
 <html>
     <head>
         <title>제목</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="/static/css/layout.css" type="text/css">
-        <link rel="stylesheet" href="/static/css/Main.css" type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Main.css') }}">
         <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
         불러올때 -->
     </head>
@@ -17,7 +16,7 @@
 
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
-            <p id="state" class="font_37">로바는 지금 주문 가능한 상태 입니다 :)</p>
+            <p id="state" class="font_50">로바는 지금 주문 가능한 상태 입니다 :)</p>
 
             <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo"/>
 
