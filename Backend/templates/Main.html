@@ -2,77 +2,12 @@
     <head>
         <title>제목</title>
         <meta charset="utf-8"/>
-
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/layout.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Main.css') }}">
         <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
         불러올때 -->
-
-        <style>
-            @font-face {
-                font-family: 'GongGothicLight';
-                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            #wrap {
-                width: 1920px;
-                height: 1080px;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(246, 243,238);
-                position: absolute;
-            }
-
-            #state {
-                position: absolute;
-                top: 358px;
-                left: 560px;
-                font-family: 'GongGothicLight' , sans-serif;
-                font-size: 37pt;
-                /* 이거 다시 수정해야 할듯. */
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #roba_Logo {
-
-                position: absolute;
-                top: 463px;
-                left: 658px;
-                width: 550px;
-                margin: 0;
-            }
-
-            #line_Animation {
-                position: absolute;
-                top: 700px;
-                left: 155px;
-                margin: 0;
-            }
-
-            .order_confirm {
-                position: absolute;
-                top: 752px;
-                left: 729px;
-                height: 204px;
-                width: 466px;
-                border: none;
-                margin: 0;
-                padding: 0;
-                z-index: 10;
-            }
-
-            .img_releative {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 0;
-            }
-        </style>
 
     </head>
 
@@ -85,7 +20,7 @@
 
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
-            <p id="state">로바는 지금 주문 가능한 상태 입니다 :)</p>
+            <p id="state" class="font_50">로바는 지금 주문 가능한 상태 입니다 :)</p>
 
             <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo"/>
 
