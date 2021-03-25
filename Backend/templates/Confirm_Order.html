@@ -29,11 +29,11 @@
         <img hidden id="ice" name="ice" alt="logo" src="/static/imgs/ROBA_3_ice.gif" />
         <img id="can" alt="logo" src="/static/imgs/ROBA_3_filled_can.png" />
 
-        <p class="name hot_ice font_40">뜨거운 음료</p>
+        <p class="name hot_ice font_40">선택한 음료</p>
         <p class="name tera font_40">테라로사 에티오피아</p>
         <p class="name brazil font_40">브라질 산토스</p>
         <p class="name burunde font_40">커피창고 부룬디</p>
-        <p id="hot_ice" class="value hot_ice" style="font-size: 30pt;"></p>{{option}}</p>
+        <p id="hot_ice" class="value hot_ice font_40">{{option}}</p>
         <p class="value percent tera font_50">{{blender_1}}%</p>
         <p class="value percent brazil font_50">{{blender_2}}%</p>
         <p class="value percent burunde font_50">{{blender_3}}%</p>
@@ -83,7 +83,7 @@
             sendGet("/Menu_Select_Option");
         }
 
-        function sendPost(action) {
+        /*function sendPost(action) {
             var form = document.createElement('form');
             form.setAttribute('method', 'post');
             form.setAttribute('action', action);
@@ -113,7 +113,7 @@
                 .body
                 .appendChild(form);
             form.submit();
-        }
+        } */
     </script>
 
 </body>
