@@ -1,132 +1,79 @@
 <html>
-    <head>
-        <title>제목</title>
-        <meta charset="utf-8"/>
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/layout.css') }}">
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/Menu_Select_Blending.css') }}">
-    </head>
-    <body
-        onload="init();"
-        oncontextmenu='return false'
-        onselectstart='return false'
-        ondragstart='return false'>
-        <div id="wrap">
-            <div class="menu_select">
-                <p id="choice_bean" class="font_50">원두 종류 선택</p>
-                <p id="sort_text" class="font_40_red">정렬</p>
-                <div class="radio">
-                    <div id="sort_0" class="z-top">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_sweet_selected.png"
-                            class="img_relative"
-                            name="sort_0_selected">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_sweet_unselected.png"
-                            class="img_relative"
-                            name="sort_0_unselected">
-                    </div>
-                    <div id="sort_1" class="z-top">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_body_selected.png"
-                            class="img_relative"
-                            name="sort_1_selected">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_body_unselected.png"
-                            class="img_relative"
-                            name="sort_1_unselected">
-                    </div>
-                    <div id="sort_2" class="z-top">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_sour_selected.png"
-                            class="img_relative"
-                            name="sort_2_selected">
-                        <img
-                            hidden="hidden"
-                            src="/static/imgs/ROBA_2-1_sour_unselected.png"
-                            class="img_relative"
-                            name="sort_2_unselected">
-                    </div>
+<head>
+    <title>제목</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Menu_Select_Blending.css') }}">
+</head>
+
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+    <div id="wrap">
+        <div class="menu_select">
+            <p id="text_choice_bean" class="font_50">원두 종류 선택</p>
+            <p id="text_sort" class="font_40_red">정렬</p>
+            <div class="radio">
+                <div id="sort_0" class="z-top">
+                    <img hidden="hidden" class="img_relative" name="sort_0_selected" src="/static/imgs/ROBA_2-1_sweet_selected.png">
+                    <img hidden="hidden" class="img_relative" name="sort_0_unselected" src="/static/imgs/ROBA_2-1_sweet_unselected.png">
                 </div>
-                
-            </div>
-            <div class="lostaric_1">
-                <img src="/static/imgs/lostaric_img.png" alt="logo" class="coffee lostaric"/>
-            </div>
-            <div>
-                <img src="/static/imgs/terasosa_img.png" alt="logo" class="coffee terarosa"/>
-            </div>
-            <div>
-                <img src="/static/imgs/indonisia_img.png" alt="logo" class="coffee indonasia"/>
-            </div>
-            <img
-                src="/static/imgs/ROBA_23_backArrow.png"
-                alt="logo"
-                id="arrow"
-                onclick="goBack()"/>
-            <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line"/>
-            <p id="amekor" class="font_60">아메리카노</p>
-            <p id="americano" class="font_40">Americano</p>
-
-            <div id="remain_div">
-                <img src="/static/imgs/ROBA_2-1_ratioBG.png" id="_ratio" alt="alt">
-                <p id="remain_font" class="font_30_red" name="remain_font">남은 비율:</p>
-                <p id="remain_ratio" class="font_30_red" name="remain_ratio">100%</p>
-                <!--임의로 넣었습니다.-->
-            </div>
-
-            <p id="lostaric_2" class="font_40">로스터릭 코스타리카 허니</p>
-            <p id="terarosa_2" class="font_40">테라로사 에티오피아</p>
-            <p id="indonasia_2" class="font_40">인도네시아 만델링</p>
-            <img
-                src="/static/imgs/ROBA_2-1_beaker_filled_lightBrown.png"
-                alt="logo2"
-                id="losta_cup"/>
-            <img
-                src="/static/imgs/ROBA_2-1_beaker_filled_brown.png"
-                alt="logo3"
-                id="tera_cup"/>
-            <img src="/static/imgs/ROBA_2-1_beaker_3.png" alt="logo" id="indo_cup"/>
-
-            <div class="los_background">
-                <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="los_arrow"/>
-                <p class="percent los_percent font_60" id="los_per">{{blender_1}}%</p>
-                <p id="blender_0_down" name="lostaric_percentdown"></p>
-                <p id="blender_0_up" name="lostaric_percentup"></p>
-            </div>
-            <div class="tera_background">
-                <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="tera_arrow"/>
-                <p class="percent tera_percent  font_60" id="tera_per">{{blender_2}}%</p>
-                <p id="blender_1_down" name="tera_percentdown"></p>
-                <p id="blender_1_up" name="tera_percentup"></p>
-            </div>
-            <div class="indo_background">
-                <img src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" class="indo_arrow"/>
-                <p class="percent indo_percent  font_60" id="indo_per">{{blender_3}}%</p>
-                <p id="blender_2_down" name="indo_percentdown"></p>
-                <p id="blender_2_up" name="indo_percentup"></p>
+                <div id="sort_1" class="z-top">
+                    <img hidden="hidden" class="img_relative" name="sort_1_selected" src="/static/imgs/ROBA_2-1_body_selected.png">
+                    <img hidden="hidden" class="img_relative" name="sort_1_unselected" src="/static/imgs/ROBA_2-1_body_unselected.png">
+                </div>
+                <div id="sort_2" class="z-top">
+                    <img hidden="hidden" class="img_relative" name="sort_2_selected" src="/static/imgs/ROBA_2-1_sour_selected.png">
+                    <img hidden="hidden" class="img_relative" name="sort_2_unselected" src="/static/imgs/ROBA_2-1_sour_unselected.png">
+                </div>
             </div>
         </div>
 
-        <img
-            hidden="hidden"
-            class="order"
-            name="img_not_yet"
-            src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
-        <img
-            hidden="hidden"
-            class="order z-top"
-            name="img_yet"
-            src="/static/imgs/ROBA_2_button.png"
-            onclick="orderform()">
+
+        <img id="img_description_0" class="description" src="/static/imgs/lostaric_img.png"  alt="description_0" />
+        <img id="img_description_1" class="description" src="/static/imgs/terasosa_img.png"  alt="description_1" />
+        <img id="img_description_2" class="description" src="/static/imgs/indonisia_img.png" alt="description_2" />
+
+        <img id="img_backarrow" onclick="goBack()" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
+        <img id="img_line" src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo"/>
+
+        <p id="text_americano_kor" class="font_60">아메리카노</p>
+        <p id="text_americano_eng" class="font_40">Americano</p>
+
+        <div id="div_remain_box">
+            <img src="/static/imgs/ROBA_2-1_ratioBG.png" id="_ratio" alt="alt">
+            <p id="text_remain_text" class="font_30_red" name="remain_font">남은 비율:</p>
+            <p id="text_remain_ratio" class="font_30_red" name="remain_ratio">100%</p>
+        </div>
+
+        <p id="text_blender_0" class="font_40">로스터릭 코스타리카 허니</p>
+        <p id="text_blender_1" class="font_40">테라로사 에티오피아</p>
+        <p id="text_blender_2" class="font_40">인도네시아 만델링</p>
+
+        <img id="img_blender_0_cup" src="/static/imgs/ROBA_2-1_beaker_filled_lightBrown.png" alt="logo0" />
+        <img id="img_blender_1_cup" src="/static/imgs/ROBA_2-1_beaker_filled_brown.png" alt="logo1"/>
+        <img id="img_blender_2_cup" src="/static/imgs/ROBA_2-1_beaker_3.png" alt="logo2"/>
+
+        <div class="img_blender_0_bg">
+            <img id="img_blender_0_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
+            <p id="text_blender_0_percent" class="percent font_60">{{blender_1}}%</p>
+            <p id="blender_0_down" class="btn_down"></p>
+            <p id="blender_0_up"   class="btn_up"  ></p>
+        </div>
+        <div class="img_blender_1_bg">
+            <img id="img_blender_1_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
+            <p id="text_blender_1_percent" class="percent font_60">{{blender_2}}%</p>
+            <p id="blender_1_down" class="btn_down"></p>
+            <p id="blender_1_up"   class="btn_up"  ></p>
+        </div>
+        <div class="img_blender_2_bg">
+            <img id="img_blender_2_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
+            <p id="text_blender_2_percent" class="percent font_60">{{blender_3}}%</p>
+            <p id="blender_2_down" class="btn_down"></p>
+            <p id="blender_2_up"   class="btn_up"  ></p>
+        </div>
+    </div>
+
+    <img hidden="hidden" class="order" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
+    <img hidden="hidden" class="order" name="img_yet" src="/static/imgs/ROBA_2_button.png" onclick="orderform()">
 
     </div>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -135,14 +82,13 @@
         var sort_1 = [window.document.sort_1_unselected, window.document.sort_1_selected];
         var sort_2 = [window.document.sort_2_unselected, window.document.sort_2_selected];
 
-        var losvalue = parseInt(document.getElementById("los_per").innerText);
-        var teravalue = parseInt(document.getElementById("tera_per").innerText);
-        var indovalue = parseInt(document.getElementById("indo_per").innerText);
+        var losvalue  = parseInt(document.getElementById("text_blender_0_percent").innerText);
+        var teravalue = parseInt(document.getElementById("text_blender_1_percent").innerText);
+        var indovalue = parseInt(document.getElementById("text_blender_2_percent").innerText);
         var remain_ratio = 100 - losvalue - teravalue - indovalue;
 
         var btn = [window.document.img_not_yet, window.document.img_yet]
 
-        var val = 10;
         function init() {
             img_hide(sort_0);
             img_hide(sort_1);
@@ -156,30 +102,26 @@
             btn[0].hidden = false;
 
             var radio = [document.getElementById("sort_0"), document.getElementById("sort_1"), document.getElementById("sort_2")];
-            for (var i = 0; i < radio.length; i++) {
-                radio[i].addEventListener("mouseup", function () {
+
+            for (let i = 0; i < radio.length; i++) {
+                radio[i].addEventListener("mousedown", function () {
                     sort_change(i)
                 })
-
             }
 
+            var ratio = [[document.getElementById("blender_0_up"), document.getElementById("blender_0_down")],
+            [document.getElementById("blender_1_up"), document.getElementById("blender_1_down")],
+            [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]]
 
-            var ratio = [
-                [document.getElementById("blender_0_up"), document.getElementById("blender_0_down")],
-                [document.getElementById("blender_1_up"), document.getElementById("blender_1_down")],
-                [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]
-            ]
-            for (var blender = 0; blender < ratio.length; blender++) {
-                for (var btn_ud = 0; btn_ud < ratio[0].length; btn_ud++) {
-                    ratio[blender][btn_ud].addEventListener("mouseup", function () {
+            for (let blender = 0; blender < ratio.length; blender++) {
+                for (let btn_ud = 0; btn_ud < ratio[0].length; btn_ud++) {
+                    ratio[blender][btn_ud].addEventListener("mousedown", function () {
                         ratio_change(blender, btn_ud)
-                    })
+                    });
                 }
             }
 
-            document
-                .getElementById("remain_ratio")
-                .innerText = remain_ratio.toString() + "%";
+            document.getElementById("text_remain_ratio").innerText = remain_ratio.toString() + "%";
 
             if (remain_ratio == 0) {
                 img_hide(btn);
@@ -187,27 +129,26 @@
             }
         }
 
-        function ratio_change(blender, btn_ud){
-            if(btn_ud == 0){
+        function ratio_change(blender, btn_ud) {
+            if (btn_ud == 0) {
                 ratio_up(blender);
-            }
-            else{
+            } else {
                 ratio_down(blender);
             }
         }
 
         function ratio_down(value) {
             if (value == 0) {
-                if (losvalue != 0) {
+                if (losvalue != '0') {
                     losvalue -= 10;
                     remain_ratio += 10;
                 }
-            } else if (value == 1) {
+            } else if (value == '1') {
                 if (teravalue != 0) {
                     teravalue -= 10;
                     remain_ratio += 10;
                 }
-            } else if (value == 2) {
+            } else if (value == '2') {
                 if (indovalue != 0) {
                     indovalue -= 10;
                     remain_ratio += 10;
@@ -218,33 +159,25 @@
                 img_hide(btn);
                 btn[0].hidden = false;
             }
-            document
-                .getElementById("los_per")
-                .innerText = losvalue.toString() + "%";
-            document
-                .getElementById("tera_per")
-                .innerText = teravalue.toString() + "%";
-            document
-                .getElementById("indo_per")
-                .innerText = indovalue.toString() + "%";
-            document
-                .getElementById("remain_ratio")
-                .innerText = remain_ratio.toString() + "%";
+            document.getElementById("text_blender_0_percent").innerText = losvalue.toString() + "%";
+            document.getElementById("text_blender_1_percent").innerText = teravalue.toString() + "%";
+            document.getElementById("text_blender_2_percent").innerText = indovalue.toString() + "%";
+            document.getElementById("text_remain_ratio").innerText = remain_ratio.toString() + "%";
         }
 
         function ratio_up(value) {
             if (remain_ratio != 0) {
-                if (value == 0) {
+                if (value == '0') {
                     if (losvalue != 100) {
                         losvalue += 10;
                         remain_ratio -= 10;
                     }
-                } else if (value == 1) {
+                } else if (value == '1') {
                     if (teravalue != 100) {
                         teravalue += 10;
                         remain_ratio -= 10;
                     }
-                } else if (value == 2) {
+                } else if (value == '2') {
                     if (indovalue != 100) {
                         indovalue += 10;
                         remain_ratio -= 10;
@@ -256,19 +189,10 @@
                 img_hide(btn);
                 btn[1].hidden = false;
             }
-            document
-                .getElementById("los_per")
-                .innerText = losvalue.toString() + "%";
-            document
-                .getElementById("tera_per")
-                .innerText = teravalue.toString() + "%";
-            document
-                .getElementById("indo_per")
-                .innerText = indovalue.toString() + "%";
-
-            document
-                .getElementById("remain_ratio")
-                .innerText = remain_ratio.toString() + "%";
+            document.getElementById("text_blender_0_percent").innerText = losvalue.toString() + "%";
+            document.getElementById("text_blender_1_percent").innerText = teravalue.toString() + "%";
+            document.getElementById("text_blender_2_percent").innerText = indovalue.toString() + "%";
+            document.getElementById("text_remain_ratio").innerText = remain_ratio.toString() + "%";
         }
 
         function img_hide(array) {
@@ -278,26 +202,38 @@
         }
 
         function sort_change(value) {
+            console.log(value)
             img_hide(sort_0);
             img_hide(sort_1);
             img_hide(sort_2);
-            if (value == 0) {
+            if (value == '0') {
                 sort_0[1].hidden = false;
                 sort_1[0].hidden = false;
                 sort_2[0].hidden = false;
-            } else if (value == 1) {
+                $("#img_description_0").animate({top: 660}, 1000);
+                $("#img_description_1").animate({top: 850}, 1000);
+                $("#img_description_2").animate({top: 480}, 1000);
+            } else if (value == '1') {
                 sort_0[0].hidden = false;
                 sort_1[1].hidden = false;
                 sort_2[0].hidden = false;
+                $("#img_description_0").animate({top: 480}, 1000);
+                $("#img_description_1").animate({top: 660}, 1000);
+                $("#img_description_2").animate({top: 850}, 1000);
             } else {
                 sort_0[0].hidden = false;
                 sort_1[0].hidden = false;
                 sort_2[1].hidden = false;
+                $("#img_description_0").animate({top: 840}, 1000);
+                $("#img_description_1").animate({top: 480}, 1000);
+                $("#img_description_2").animate({top: 660}, 1000);
             }
         }
+
         function goBack() {
             sendGet("/Main");
         }
+
         function sendGet(action) {
             var form = document.createElement('form');
             form.setAttribute('method', 'get');
@@ -311,39 +247,7 @@
                 .appendChild(form);
             form.submit();
         }
-        $(".sweet").on('click', function () {
-            $(".lostaric").animate({
-                top: 660
-            }, 1000);
-            $(".terarosa").animate({
-                top: 850
-            }, 1000);
-            $(".indonasia").animate({
-                top: 480
-            }, 1000);
-        })
-        $(".bodygam").on('click', function () {
-            $(".lostaric").animate({
-                top: 480
-            }, 1000);
-            $(".terarosa").animate({
-                top: 660
-            }, 1000);
-            $(".indonasia").animate({
-                top: 850
-            }, 1000);
-        })
-        $(".sanme").on('click', function () {
-            $(".lostaric").animate({
-                top: 840
-            }, 1000);
-            $(".terarosa").animate({
-                top: 480
-            }, 1000);
-            $(".indonasia").animate({
-                top: 660
-            }, 1000);
-        })
+
         var timeT = document.getElementById("runningtime");/*window.onload = function()
 {
 cnt = 10;
