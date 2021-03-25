@@ -1,0 +1,23 @@
+#state {
+    position: absolute;
+    top: 358px;
+    left: 570px;
+}
+
+#roba_Logo {
+    top: 463px;
+    left: 685px;
+    width: 550px;
+}
+
+#line_Animation {
+    top: 700px;
+    left: 160px;
+}
+
+#order_confirm {
+    top: 752px;
+    left: 731px;
+    height: 204px;
+    width: 466px;
+}

@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'GongGothicLight';
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html *{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#wrap {
+    width: 1920px;
+    height: 1080px;
+    background-color: rgb(246, 243, 238);
+}
+
+.img_releative {
+    top: 0;
+    left: 0;
+}
+
+.z_top{
+    z-index: 10;
+}
+
+.z_back{
+    z-index: 0;
+}
+
+
+.font_60{
+    font-size: 44pt;
+    font-family: 'GongGothicLight', sans-serif;
+    color: rgb(116, 72, 33);
+}
+.font_50{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 37pt;
+    color: rgb(116, 72, 33);
+}
+
+.font_40{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 30pt;
+    color: rgb(116, 72, 33);
+}
+
+.font_40_red{
+    font-family: 'GongGothicLight', sans-serif;
+    font-size: 30pt;
+    color: rgb(192,104,90);
+}
+
+.font_30_red{
+    font-family: 'GongGothicLight', sans-serif;
+    color: rgb(192,104,90);
+    font-size: 24pt;
+}
