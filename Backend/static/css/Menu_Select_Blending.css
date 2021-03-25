@@ -122,8 +122,23 @@
     top: 475px;
     left: 1610px;
 }
+.img_blender_fill{
+    width: 100px;
+    left: 5px;
+    top: 132px;
+}
+.fill_normal{
+    background-color: rgb(192,147,117);
+}
+.fill_dark{
+    background-color: rgb(97,59,23);
+}
+.fill_light{
+    background-color: rgb(153,118,84);
+}
 
 
+/*하단 비율 버튼*/
 .img_blender_bg{
     background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
     background-repeat: no-repeat;
@@ -138,7 +153,6 @@
     top: 39px;
     left: 39px;
 }
-
 .blender_1_bg {
     top: 712px;
     left: 1114px;
@@ -151,7 +165,6 @@
     top: 712px;
     left: 1500px;
 }
-
 #img_blender_2_arrow {
     top: 39px;
     left: 39px;
