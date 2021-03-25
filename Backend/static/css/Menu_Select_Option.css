@@ -1,0 +1,72 @@
+.select_tem {
+    top: 116px;
+    left: 147px;
+}
+
+.backArrow {
+    top: 93px;
+    left: 50px;
+}
+
+.line {
+    top: 195px;
+    left: 0;
+}
+
+.btn_hot {
+    top: 326px;
+    left: 203px;
+}
+
+.hot {
+    top: 139px;
+    left: 123px;
+    z-index: 10;
+}
+
+.img_relative {
+    opacity: "0.0";
+}
+
+.text_hot_americano {
+    top: 803px;
+    left: 218px;
+}
+
+.text_hot {
+    top: 862px;
+    left: 362px;
+}
+
+.btn_ice {
+    top: 326px;
+    left: 1356px;
+    z-index: 0;
+}
+
+.ice {
+    top: 113px;
+    left: 114px;
+    z-index: 10;
+}
+
+.text_ice_americano {
+    top: 803px;
+    left: 1368px;
+}
+
+.text_ice {
+    top: 862px;
+    left: 1522px;
+}
+
+.can {
+    top: 279px;
+    left: 795px;
+}
+
+.btn_order {
+    top: 878px;
+    left: 780px;
+}
+    
