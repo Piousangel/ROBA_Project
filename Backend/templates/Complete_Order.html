@@ -32,8 +32,19 @@
                 top: 294px;
                 left: 823px;
                 margin: 0;
-                width: 220px;
+                padding: 0;
                 z-index: 10;
+            }
+
+            #line_change
+            {
+                position: absolute;
+                margin: 0px;
+                padding: 0px;
+                width: 275px;
+                height: 18px;
+                top : -5px;
+                
             }
 
             .img_releative {
@@ -47,7 +58,7 @@
                 position: absolute;
                 top: 311px;
                 left: 861px;
-                font-size: 30px;
+                font-size: 30pt;
                 font-family: 'GongGothicLight' , sans-serif;
                 color: rgb(116, 72, 33);
                 margin: 0;
@@ -102,13 +113,16 @@
             <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
             <div class="line" id="line">
-            <img 
-                src="/static/imgs/ROBA_4_ending copy.gif" 
+            <img
+                hidden="hidden"
+                src="/static/imgs/ROBA_4_ending.gif" 
                 alt="line" class="img_releative"
                 name="loading_line"/>
-            <img 
+            <img
+                hidden="hidden"
                 src="/static/imgs/ROBA_2-2_line.png" 
-                alt="line" 
+                alt="line"
+                id = "line_change"
                 class="img_releative"
                 name="complete_line"/>
             </div>
@@ -127,16 +141,30 @@
 
             var line_gif = [window.document.loading_line, window.document.complete_line];
 
+            function init() {
+               
+                img_hide(line_gif);
+                line_gif[0].hidden = false;
 
-
-            window.onload = function () {
                 cnt = 5;
-                countdown();
+                //countdown();
+                setTimeout("changegif()",2000);
             }
 
-            document.onclick = function () {
-                cnt = 10;
-            };
+            function changegif()
+            {
+                line_gif[0].hidden = true;
+                line_gif[1].hidden = false;
+            }
+
+            function img_hide(array) {
+                for (var i = 0; i < array.length; i++) {
+                    array[i].hidden = true;
+                }
+                console.log("hide complete");
+            }
+
+            
 
             function countdown() {
                 if (cnt == 0) {
