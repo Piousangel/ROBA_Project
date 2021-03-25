@@ -16,21 +16,25 @@
         <img alt="line" class="line" src="/static/imgs/ROBA_2-2_line.png" >
         <img alt="backArrow" class="backArrow" src="/static/imgs/ROBA_23_backArrow.png" onclick="goBack()">
 
-        <div class="btn_hot" id="radio_hot">
-            <img class="img_relative" name="img_hot_unselect" src="/static/imgs/ROBA_2-2_btnUnselected.png">
-            <img class="img_relative" name="img_hot_selected" src="/static/imgs/ROBA_2-2_btnSelected.png">
-            <img class="img_relative" name="img_hot_clicked" src="/static/imgs/ROBA_2-2_btnClicked.png">
+        <div id="radio_hot" class="btn_hot" >
+            <img hidden="hidden" class="img_relative" name="img_hot_unselect" src="/static/imgs/ROBA_2-2_btnUnselected.png">
+            <img hidden="hidden" class="img_relative" name="img_hot_selected" src="/static/imgs/ROBA_2-2_btnSelected.png">
+            <img hidden="hidden" class="img_relative" name="img_hot_clicked" src="/static/imgs/ROBA_2-2_btnClicked.png">
             <img class="hot" src="/static/imgs/ROBA_2-2_hot.png">
         </div>
         <p class="text_hot_americano font_50">뜨거운 아메리카노</p>
         <p class="text_hot font_60">Hot</p>
 
-        <img class="can" src="/static/imgs/ROBA_2-2_can.png">
+        <div  id="radio_can" class="can">
+            <img hidden="hidden" class="img_relative" name="img_can_unselected" src="/static/imgs/ROBA_2-2_can.png">
+            <img hidden="hidden" class="img_relative" name="img_hotcan_selected" src="/static/imgs/ROBA_2-2_can_hot.gif">
+            <img hidden="hidden" class="img_relative" name="img_icecan_selected" src="/static/imgs/ROBA_2-2_can_ice.gif">
+        </div>
 
         <div id="radio_ice" class="btn_ice">
-            <img class="img_relative" name="img_ice_unselect" src="/static/imgs/ROBA_2-2_btnUnselected.png">
-            <img class="img_relative" name="img_ice_selected" src="/static/imgs/ROBA_2-2_btnSelected.png">
-            <img class="img_relative" name="img_ice_clicked" src="/static/imgs/ROBA_2-2_btnClicked.png">
+            <img hidden="hidden" class="img_relative" name="img_ice_unselect" src="/static/imgs/ROBA_2-2_btnUnselected.png">
+            <img hidden="hidden" class="img_relative" name="img_ice_selected" src="/static/imgs/ROBA_2-2_btnSelected.png">
+            <img hidden="hidden" class="img_relative" name="img_ice_clicked" src="/static/imgs/ROBA_2-2_btnClicked.png">
             <img class="ice" src="/static/imgs/ROBA_2-2_ice.png">
         </div>
 
@@ -38,8 +42,8 @@
         <p class="text_ice font_60">Ice</p>
 
         <div id="btn_order" class="btn_order" onclick='mouse_up("btn")'>
-            <img class="img_relative" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
-            <img class="img_relative" name="img_yet" src="/static/imgs/ROBA_2_button.png">
+            <img hidden="hidden" class="img_relative" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
+            <img hidden="hidden" class="img_relative" name="img_yet" src="/static/imgs/ROBA_2_button.png">
         </div>
 
     </div>
@@ -49,16 +53,20 @@
         var radio_hot = [window.document.img_hot_unselect, window.document.img_hot_selected, window.document.img_hot_clicked];
         var radio_ice = [window.document.img_ice_unselect, window.document.img_ice_selected, window.document.img_ice_clicked];
 
+        var radio_can = [window.document.img_can_unselected, window.document.img_hotcan_selected, window.document.img_icecan_selected];
+
         var btn = [window.document.img_not_yet, window.document.img_yet]
 
         var img_hot_temp = 0;
         var img_ice_temp = 0;
         var btn_temp = 0;
+        var can_temp = 0;
 
         function init() {
             img_alpha_zero(radio_hot);
             img_alpha_zero(radio_ice);
             img_alpha_zero(btn);
+            img_alpha_zero(radio_can);
 
             var option_get = document
                 .getElementById("option")
@@ -66,10 +74,12 @@
             if (option_get == "none") {
                 img_hot_temp = 0;
                 img_ice_temp = 0;
+                can_temp = 0;
             } else if (option_get == "0") {
                 img_hot_temp = 0;
                 img_ice_temp = 1;
                 btn_temp = 1;
+                can_temp = 2;
                 document
                     .getElementById("btn_order")
                     .addEventListener("mouseup", function () {
@@ -79,15 +89,17 @@
                 img_hot_temp = 1;
                 img_ice_temp = 0;
                 btn_temp = 1;
+                can_temp = 1;
                 document
                     .getElementById("btn_order")
                     .addEventListener("mouseup", function () {
                         mouse_up("Btn")
                     })
             }
-            radio_hot[img_hot_temp].style.opacity = "1.0";
-            radio_ice[img_ice_temp].style.opacity = "1.0";
-            btn[btn_temp].style.opacity = "1.0"
+            radio_hot[img_hot_temp].hidden = false;
+            radio_ice[img_ice_temp].hidden = false;
+            btn[btn_temp].hidden = false;
+            radio_can[can_temp].hidden = false;
 
             document
                 .getElementById("radio_hot")
@@ -127,26 +139,27 @@
             cnt = 10;
             if (value == "Hot") {
                 img_alpha_zero(radio_hot);
-                radio_hot[2].style.opacity = "1.0";
+                radio_hot[2].hidden = false;
             } else if (value == "Ice") {
                 img_alpha_zero(radio_ice);
-                radio_ice[2].style.opacity = "1.0";
+                radio_ice[2].hidden = false;
             }
         }
 
         function mouse_out(value) {
             if (value == "Hot") {
                 img_alpha_zero(radio_hot);
-                radio_hot[img_hot_temp].style.opacity = "1.0";
+                radio_hot[img_hot_temp].hidden = false;
             } else if (value == "Ice") {
                 img_alpha_zero(radio_ice);
-                radio_ice[img_ice_temp].style.opacity = "1.0";
+                radio_ice[img_ice_temp].hidden = false;
             }
         }
 
         function mouse_up(value) {
             img_alpha_zero(radio_hot);
             img_alpha_zero(radio_ice);
+            img_alpha_zero(radio_can);
             if (value == "Hot") {
                 img_hot_temp = 1;
                 img_ice_temp = 0;
@@ -158,7 +171,8 @@
                     .addEventListener("mouseup", function () {
                         mouse_up("Btn")
                     })
-                btn[btn_temp].style.opacity = "1.0"
+                btn[btn_temp].hidden = false
+                radio_can[1].hidden = false
 
             } else if (value == "Ice") {
                 img_hot_temp = 0;
@@ -171,19 +185,20 @@
                     .addEventListener("mouseup", function () {
                         mouse_up("Btn")
                     })
-                btn[btn_temp].style.opacity = "1.0"
+                btn[btn_temp].hidden = false
+                radio_can[2].hidden = false
             } else if (value == "Btn") {
                 sendPost("/Menu_Select_Option", img_hot_temp)
             }
 
-            radio_hot[img_hot_temp].style.opacity = "1.0";
-            radio_ice[img_ice_temp].style.opacity = "1.0";
+            radio_hot[img_hot_temp].hidden = false;
+            radio_ice[img_ice_temp].hidden = false;
 
         }
 
         function img_alpha_zero(array) {
             for (var i = 0; i < array.length; i++) {
-                array[i].style.opacity = "0.0"
+                array[i].hidden = true
             }
         }
 
@@ -191,7 +206,7 @@
             sendGet("/Menu_Select_Blending");
         }
 
-        function sendPost(action, value) {
+        /*function sendPost(action, value) {
             var form = document.createElement('form');
             form.setAttribute('method', 'post');
             form.setAttribute('action', action);
@@ -220,7 +235,7 @@
                 setTimeout("countdown()", 1000);
                 cnt--;
             }
-        }
+        } */
 
         function sendGet(action) {
             var form = document.createElement('form');
