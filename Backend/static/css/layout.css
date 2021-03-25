@@ -77,6 +77,24 @@ html *{
     color: rgb(116, 72, 33);
 }
 
+.font_30{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 24pt;
+    color: rgb(116, 72, 33);
+}
+
+.font_25_yellow{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 18.5pt;
+    color: rgb(223, 180, 142);
+}
+
+.font_50_red{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 37pt;
+    color: rgb(192,104,90);
+}
+
 .font_40_red{
     font-family: 'GongGothicLight', sans-serif;
     font-size: 30pt;

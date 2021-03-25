@@ -9,8 +9,8 @@
 <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
     <div id="wrap">
         <div class="menu_select">
-            <p id="text_choice_bean" class="font_50">원두 종류 선택</p>
-            <p id="text_sort" class="font_40_red">정렬</p>
+            <p id="text_choice_bean" class="font_50">원두 조합 선택</p>
+            <!--
             <div class="radio">
                 <div id="sort_0" class="z-top">
                     <img hidden="hidden" class="img_relative" name="sort_0_selected" src="/static/imgs/ROBA_2-1_sweet_selected.png">
@@ -25,12 +25,32 @@
                     <img hidden="hidden" class="img_relative" name="sort_2_unselected" src="/static/imgs/ROBA_2-1_sour_unselected.png">
                 </div>
             </div>
+            -->
         </div>
-
 
         <img id="img_description_0" class="description" src="/static/imgs/lostaric_img.png"  alt="description_0" />
         <img id="img_description_1" class="description" src="/static/imgs/terasosa_img.png"  alt="description_1" />
         <img id="img_description_2" class="description" src="/static/imgs/indonisia_img.png" alt="description_2" />
+
+        <P id="text_recommend_ratio" class="font_40_red">추천 비율</P>
+        <div class="img_recommend_btn">
+            <div id="img_recommend_btn_0">
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_newBtnBG.png">
+                <P class="text_recommend_btn font_40_red">산미<br>블렌드</P>
+                <P class="text_recommend_btn_ratio font_25_yellow">50/20/30</P>
+            </div>
+            <div id="img_recommend_btn_1">
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_newBtnBG.png">
+                <P class="text_recommend_btn font_40_red">바디감<br>블렌드</P>
+                <P class="text_recommend_btn_ratio font_25_yellow">30/40/30</P>
+            </div>
+            <div id="img_recommend_btn_2">
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_newBtnBG.png">
+                <P class="text_recommend_btn font_40_red">단맛<br>블렌드</P>
+                <P class="text_recommend_btn_ratio font_25_yellow">40/20/40</P>
+            </div>
+        </div>
+
 
         <img id="img_backarrow" onclick="goBack()" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
         <img id="img_line" src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo"/>
@@ -52,19 +72,19 @@
         <img id="img_blender_1_cup" src="/static/imgs/ROBA_2-1_beaker_filled_brown.png" alt="logo1"/>
         <img id="img_blender_2_cup" src="/static/imgs/ROBA_2-1_beaker_3.png" alt="logo2"/>
 
-        <div class="img_blender_0_bg">
+        <div class="img_blender_bg blender_0_bg">
             <img id="img_blender_0_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
             <p id="text_blender_0_percent" class="percent font_60">{{blender_1}}%</p>
             <p id="blender_0_down" class="btn_down"></p>
             <p id="blender_0_up"   class="btn_up"  ></p>
         </div>
-        <div class="img_blender_1_bg">
+        <div class="img_blender_bg blender_1_bg">
             <img id="img_blender_1_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
             <p id="text_blender_1_percent" class="percent font_60">{{blender_2}}%</p>
             <p id="blender_1_down" class="btn_down"></p>
             <p id="blender_1_up"   class="btn_up"  ></p>
         </div>
-        <div class="img_blender_2_bg">
+        <div class="img_blender_bg blender_2_bg">
             <img id="img_blender_2_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo"/>
             <p id="text_blender_2_percent" class="percent font_60">{{blender_3}}%</p>
             <p id="blender_2_down" class="btn_down"></p>
@@ -90,17 +110,17 @@
         var btn = [window.document.img_not_yet, window.document.img_yet]
 
         function init() {
+            /* Not Used! For sorting animation sort_change()
             img_hide(sort_0);
             img_hide(sort_1);
             img_hide(sort_2);
-            img_hide(btn);
+            
 
             sort_0[0].hidden = false;
             sort_1[1].hidden = false;
             sort_2[0].hidden = false;
 
-            btn[0].hidden = false;
-
+            
             var radio = [document.getElementById("sort_0"), document.getElementById("sort_1"), document.getElementById("sort_2")];
 
             for (let i = 0; i < radio.length; i++) {
@@ -108,10 +128,23 @@
                     sort_change(i)
                 })
             }
+            */
+            img_hide(btn);
+            btn[0].hidden = false;
 
+            var btn_recommend = [document.getElementById("img_recommend_btn_0"),
+                                 document.getElementById("img_recommend_btn_1"),
+                                 document.getElementById("img_recommend_btn_2")];
+            
+            for (let i = 0; i < btn_recommend.length; i++) {
+                btn_recommend[i].addEventListener("mousedown", function () {
+                    recommend_change(i)
+                });
+            }
+            
             var ratio = [[document.getElementById("blender_0_up"), document.getElementById("blender_0_down")],
             [document.getElementById("blender_1_up"), document.getElementById("blender_1_down")],
-            [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]]
+            [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]];
 
             for (let blender = 0; blender < ratio.length; blender++) {
                 for (let btn_ud = 0; btn_ud < ratio[0].length; btn_ud++) {
@@ -127,6 +160,33 @@
                 img_hide(btn);
                 btn[1].hidden = false;
             }
+        }
+
+        function recommend_change(value){
+            if (value == 0) {
+                losvalue = 50;
+                teravalue = 20;
+                indovalue = 30;
+                remain_ratio = 0;
+            } else if (value == '1') {
+                losvalue = 30;
+                teravalue = 40;
+                indovalue = 30;
+                remain_ratio = 0;
+            } else if (value == '2') {
+                losvalue = 40;
+                teravalue = 20;
+                indovalue = 40;
+                remain_ratio = 0;
+            }
+
+            img_hide(btn);
+            btn[1].hidden = false;
+            
+            document.getElementById("text_blender_0_percent").innerText = losvalue.toString() + "%";
+            document.getElementById("text_blender_1_percent").innerText = teravalue.toString() + "%";
+            document.getElementById("text_blender_2_percent").innerText = indovalue.toString() + "%";
+            document.getElementById("text_remain_ratio").innerText = remain_ratio.toString() + "%";
         }
 
         function ratio_change(blender, btn_ud) {
@@ -201,6 +261,7 @@
             }
         }
 
+        /*
         function sort_change(value) {
             console.log(value)
             img_hide(sort_0);
@@ -229,6 +290,7 @@
                 $("#img_description_2").animate({top: 660}, 1000);
             }
         }
+        */
 
         function goBack() {
             sendGet("/Main");

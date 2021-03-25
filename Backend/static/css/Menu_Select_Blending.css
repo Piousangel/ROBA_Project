@@ -2,44 +2,60 @@
     top: 116px;
     left: 158px;
 }
-#text_sort {
-    top: 227px;
-    left: 275px;
-}
-/*좌 상단 정렬 버튼*/
-.radio{
-    top: 277px;
-    height: 95px;
-}
-#sort_0 {
-    left: 45px;
-    width: 164px;
-}
-#sort_1 {
-    left: 215px;
-    width: 197px;
-}
-#sort_2 {
-    left: 420px;
-    width: 159px;
-}
 
-/*좌 하단 설명부*/
+
+/*좌단 설명부*/
 .description{
     left: 62px;
 }
 #img_description_0 {
-    top: 473px;
+    top: 259px;
     width: 470px;
 }
 #img_description_1 {
-    top: 663px;
+    top: 392px;
     width: 420px;
 }
 #img_description_2 {
-    top: 852px;
+    top: 525px;
     width: 360px;
 }
+/* 좌하단 추천 비율*/
+#text_recommend_ratio{
+    top: 657px;
+    left: 232px;
+}
+.img_recommend_btn{
+    top:718px;
+    left:46px;
+}
+.img_recommend_btn > *{
+    width: 168px;
+    height: 277px;
+}
+#img_recommend_btn_0{
+    left: 0px;
+}
+#img_recommend_btn_1{
+    left: 182px;
+}
+#img_recommend_btn_2{
+    left: 364px;
+}
+.text_recommend_btn{
+    top : 82px;
+    left: 0px;
+    text-align: center;
+    width: 168px;
+}
+.text_recommend_btn_ratio{
+    top: 191px;
+    left: 0px;
+    text-align: center;
+    width: 168px;
+}
+
+
 
 /*중앙 백버튼과 선*/
 #img_backarrow {
@@ -79,11 +95,6 @@
 }
 
 
-.order {
-    top: 881px;
-    left: 1097px;
-}
-
 /*중단 원두 이름*/
 #text_blender_0 {
     top: 390px;
@@ -113,11 +124,13 @@
 }
 
 
-.img_blender_0_bg {
+.img_blender_bg{
     background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
     background-repeat: no-repeat;
     width: 330px;
     height: 99px;
+}
+.blender_0_bg {
     top: 712px;
     left: 728px;
 }
@@ -126,11 +139,7 @@
     left: 39px;
 }
 
-.img_blender_1_bg {
-    background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
-    background-repeat: no-repeat;
-    width: 330px;
-    height: 99px;
+.blender_1_bg {
     top: 712px;
     left: 1114px;
 }
@@ -138,15 +147,11 @@
     top: 39px;
     left: 39px;
 }
-
-.img_blender_2_bg {
-    background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
-    background-repeat: no-repeat;
-    width: 330px;
-    height: 99px;
+.blender_2_bg {
     top: 712px;
     left: 1500px;
 }
+
 #img_blender_2_arrow {
     top: 39px;
     left: 39px;
@@ -171,3 +176,29 @@
     top: 39px;
     left: 254px;
 }
+
+.order {
+    top: 881px;
+    left: 1097px;
+}
+
+
+/* Not Used! */
+/*좌 상단 정렬 버튼
+.radio{
+    top: 277px;
+    height: 95px;
+}
+#sort_0 {
+    left: 45px;
+    width: 164px;
+}
+#sort_1 {
+    left: 215px;
+    width: 197px;
+}
+#sort_2 {
+    left: 420px;
+    width: 159px;
+}
+*/
