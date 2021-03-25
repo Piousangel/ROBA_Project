@@ -1,0 +1,28 @@
+#state {
+    top: 358px;
+    left: 578px;
+}
+
+#roba_Logo {
+    top: 463px;
+    left: 685px;
+    width: 550px;
+}
+
+#line_Animation {  
+    top: 700px;
+    left: 155px;   
+}
+
+#order_stop {
+    top: 753px;
+    left: 729px;
+    background-image: url("/static/imgs/ROBA_1-2_Main_Cant_Order_button.png");
+    background-color: rgb(246, 243,238);
+    background-size: 460px 200px;
+    background-repeat: no-repeat;
+    border: none;
+    background-position: 0 0;
+    height: 200px;
+    width: 460px;
+}

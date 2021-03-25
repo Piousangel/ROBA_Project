@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'GongGothicLight';
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#state {
+    top: 259px;
+    left: 812px;    
+}
+
+#timeover {
+   
+    top: 420px;
+    left: 489px;
+}
+
+#screen {
+    
+    top: 540px;
+    left: 534px;
+}
+
+#line_Animation {
+    top: 700px;
+    left: 155px;
+}
+
+#order_continue {
+    
+    top: 751px;
+    left: 666px;
+    background-image: url("/static/imgs/ROBA_0_Order_Timeout_button.png");
+    background-color: rgb(246, 243,238);
+    background-repeat: no-repeat;
+    border: none;
+    background-position: 0 0;
+    height: 200px;
+    width: 590px;
+}

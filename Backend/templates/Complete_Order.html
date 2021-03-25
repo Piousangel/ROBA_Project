@@ -1,196 +1,86 @@
 <html>
-    <head>
-        <title>제목</title>
-        <meta charset="utf-8"/>
 
-        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
-        불러올때 -->
+<head>
+    <title>제목</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Complete_Order.css') }}">
+</head>
 
-        <style>
-            @font-face {
-                font-family: 'GongGothicLight';
-                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+    <div id="wrap">
 
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            #wrap {
-                width: 1920px;
-                height: 1080px;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(246, 243,238);
-                position: absolute;
-            }
+        <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
 
-            .line {
-                position: absolute;
-                top: 294px;
-                left: 823px;
-                margin: 0;
-                padding: 0;
-                z-index: 10;
-            }
-
-            #line_change
-            {
-                position: absolute;
-                margin: 0px;
-                padding: 0px;
-                width: 275px;
-                height: 18px;
-                top : -5px;
-                
-            }
-
-            .img_releative {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 0;
-            }
-
-            #thanks {
-                position: absolute;
-                top: 311px;
-                left: 861px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight' , sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-            #state {
-                position: absolute;
-                top: 385px;
-                left: 465px;
-                font-family: 'GongGothicLight' , sans-serif;
-                font-size: 74pt;
-                /* 이거 다시 수정해야 할듯. */
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #roba_Logo {
-                position: absolute;
-                top: 579px;
-                left: 576px;
-                width: 768px;
-
-            }
-
-            #order_confrim {
-                position: absolute;
-                top: 752px;
-                left: 729px;
-                background-image: url("/Backend/static/imgs/ROBA_1_Main_button.png");
-                background-color: rgb(246, 243,238);
-                background-repeat: no-repeat;
-                border: none;
-                background-position: 0 0;
-                height: 200px;
-                width: 460px;
-                margin: 0;
-                padding: 0;
-            }
-
-           
-
-        </style>
-
-    </head>
-
-    <body
-        onload="init();"
-        oncontextmenu='return false'
-        onselectstart='return false'
-        ondragstart='return false'>
-        <div id="wrap">
-
-            <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
-
-            <div class="line" id="line">
-            <img
-                hidden="hidden"
-                src="/static/imgs/ROBA_4_ending.gif" 
-                alt="line" class="img_releative"
-                name="loading_line"/>
-            <img
-                hidden="hidden"
-                src="/static/imgs/ROBA_2-2_line.png" 
-                alt="line"
-                id = "line_change"
-                class="img_releative"
-                name="complete_line"/>
-            </div>
-
-            <p id="thanks">감사합니다.</p>
-            <p id="state">주문이 완료되었습니다.</p>
-
-            <img src="/static/imgs/ROBA_4_endingLogo.svg" alt="logo" id="roba_Logo"/>
-
+        <div id="line" class="line z-top">
+            <img hidden="hidden" class="img_releative" name="loading_line" alt="line"
+                src="/static/imgs/ROBA_4_ending.gif" />
+            <img hidden="hidden" id="line_change" class="img_releative" name="complete_line" alt="line"
+                src="/static/imgs/ROBA_2-2_line.png" />
         </div>
 
-        <script type="text/javascript">
+        <p id="thanks" class="font_40">감사합니다.</p>
+        <p id="state" class="font_100">주문이 완료되었습니다.</p>
 
-            var timeT = document.getElementById("runningtime");
+        <img alt="logo" id="roba_Logo" src="/static/imgs/ROBA_4_endingLogo.svg" />
 
+    </div>
 
-            var line_gif = [window.document.loading_line, window.document.complete_line];
+    <script type="text/javascript">
 
-            function init() {
-               
-                img_hide(line_gif);
-                line_gif[0].hidden = false;
+        var timeT = document.getElementById("runningtime");
+        var line_gif = [window.document.loading_line, window.document.complete_line];
 
-                cnt = 5;
-                //countdown();
-                setTimeout("changegif()",2000);
+        function init() {
+
+            img_hide(line_gif);
+            line_gif[0].hidden = false;
+
+            cnt = 5;
+            //countdown();
+            setTimeout("changegif()", 1000);
+        }
+
+        function changegif() {
+            line_gif[0].hidden = true;
+            line_gif[1].hidden = false;
+        }
+
+        function img_hide(array) {
+            for (var i = 0; i < array.length; i++) {
+                array[i].hidden = true;
             }
+            console.log("hide complete");
+        }
 
-            function changegif()
-            {
-                line_gif[0].hidden = true;
-                line_gif[1].hidden = false;
+
+
+        function countdown() {
+            if (cnt == 0) {
+                sendGet('/Main');
+            } else {
+                timeT.innerText = cnt;
+                setTimeout("countdown()", 900);
+                cnt--;
             }
+        }
 
-            function img_hide(array) {
-                for (var i = 0; i < array.length; i++) {
-                    array[i].hidden = true;
-                }
-                console.log("hide complete");
-            }
+        function sendGet(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
 
-            
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+            document
+                .body
+                .appendChild(form);
+            form.submit();
+        }
+    </script>
 
-            function countdown() {
-                if (cnt == 0) {
-                    sendGet('/Main');
-                } else {
-                    timeT.innerText = cnt;
-                    setTimeout("countdown()", 1000);
-                    cnt--;
-                }
-            }
+</body>
 
-            function sendGet(action) {
-                var form = document.createElement('form');
-                form.setAttribute('method', 'get');
-                form.setAttribute('action', action);
-                document.charset = "utf-8";
-
-                var hiddenField = document.createElement('input');
-                hiddenField.setAttribute('type', 'hidden');
-                form.appendChild(hiddenField);
-                document
-                    .body
-                    .appendChild(form);
-                form.submit();
-            }
-        </script>
-
-    </body>
 </html>

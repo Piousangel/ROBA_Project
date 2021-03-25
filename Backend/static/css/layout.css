@@ -21,7 +21,7 @@ html *{
     background-color: rgb(246, 243, 238);
 }
 
-.img_releative {
+.img_relative{
     top: 0;
     left: 0;
 }
@@ -42,6 +42,23 @@ html *{
     z-index: 0;
 }
 
+.font_100{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 74pt;
+    color: rgb(116, 72, 33);
+}
+
+.font_80{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 59pt;
+    color: rgb(116, 72, 33);
+}
+
+.font_70{
+    font-family: 'GongGothicLight' , sans-serif;
+    font-size: 52pt;
+    color: rgb(116, 72, 33);
+}
 
 .font_60{
     font-size: 44pt;
@@ -71,4 +88,6 @@ html *{
     color: rgb(192,104,90);
     font-size: 24pt;
 }
+
+
 

@@ -1,125 +1,55 @@
 <html>
-    <head>
-        <title>제목</title>
-        <meta charset="utf-8"/>
 
-        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
-        불러올때 -->
+<head>
+    <title>제목</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Cant_Order.css') }}">
+</head>
 
-        <style>
-            @font-face {
-                font-family: 'GongGothicLight';
-                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
-                font-weight: normal;
-                font-style: normal;
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+    <div id="wrap">
+
+        <p id="state" class="font_50">로바는 지금 캔이 없는 상태입니다 :'(</p>
+
+        <img id="roba_Logo" alt="logo" src="/static/imgs/roba_Logo.svg" />
+
+        <img id="line_Animation" alt="line" src="/static/imgs/err_line.gif"/>
+
+        <div id="order_stop"></div>
+
+        <script type="text/javascript">
+
+            window.onload = function () {
+                cnt = 5;
+                countdown();
             }
 
-            #wrap {
-                width: 1920px;
-                height: 1080px;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(246, 243,238);
-                position: absolute;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            #state {
-                position: absolute;
-                top: 358px;
-                left: 578px;
-                font-family: 'GongGothicLight' , sans-serif;
-                font-size: 37pt;
-                color: rgb(116, 72, 33);
-
-                margin: 0;
-            }
-
-            #roba_Logo {
-
-                position: absolute;
-                top: 463px;
-                left: 685px;
-                width: 550px;
-                margin: 0;
-            }
-
-            #line_Animation {
-                position: absolute;
-                top: 700px;
-                left: 155px;
-                margin: 0;
-                padding: 0;
-            }
-
-            #order_stop {
-                position: absolute;
-                top: 753px;
-                left: 729px;
-                background-image: url("/static/imgs/ROBA_1-2_Main_Cant_Order_button.png");
-                background-color: rgb(246, 243,238);
-                background-size: 460px 200px;
-                background-repeat: no-repeat;
-                border: none;
-                background-position: 0 0;
-                height: 200px;
-                width: 460px;
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-
-    </head>
-
-    <body
-        oncontextmenu='return false'
-        onselectstart='return false'
-        ondragstart='return false'>
-        <div id="wrap">
-
-            <p id="state">로바는 지금 캔이 없는 상태입니다 :'(</p>
-
-            <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo"/>
-
-            <img src="/static/imgs/err_line.gif" alt="line" id="line_Animation"/>
-
-            <div id="order_stop"></div>
-
-            <script type="text/javascript">
-
-                window.onload = function () {
-                    cnt = 5;
-                    countdown();
+            function countdown() {
+                if (cnt == 0) {
+                    sendGet('/Main');
+                } else {
+                    setTimeout("countdown()", 1000);
+                    cnt--;
                 }
+            }
 
-                function countdown() {
-                    if (cnt == 0) {
-                        sendGet('/Main');
-                    } else {
-                        setTimeout("countdown()", 1000);
-                        cnt--;
-                    }
-                }
+            function sendGet(action) {
+                var form = document.createElement('form');
+                form.setAttribute('method', 'get');
+                form.setAttribute('action', action);
+                document.charset = "utf-8";
 
-                function sendGet(action) {
-                    var form = document.createElement('form');
-                    form.setAttribute('method', 'get');
-                    form.setAttribute('action', action);
-                    document.charset = "utf-8";
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                form.appendChild(hiddenField);
+                document
+                    .body
+                    .appendChild(form);
+                form.submit();
+            }
+        </script>
 
-                    var hiddenField = document.createElement('input');
-                    hiddenField.setAttribute('type', 'hidden');
-                    form.appendChild(hiddenField);
-                    document
-                        .body
-                        .appendChild(form);
-                    form.submit();
-                }
-            </script>
+</body>
 
-        </body>
-    </html>
+</html>

@@ -1,317 +1,121 @@
 <html>
-    <head>
-        <title>제목</title>
-        <meta charset="utf-8"/>
 
-        <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
-        불러올때 -->
+<head>
+    <title>제목</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Confirm_Order.css') }}">
+</head>
 
-        <style>
-            @font-face {
-                font-family: 'GongGothicLight';
-                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+    <div id="wrap">
 
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            #wrap {
-                width: 1920px;
-                height: 1080px;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(246, 243,238);
-                position: absolute;
-            }
-
-            #left_img {
-                position: absolute;
-                background-image: url("/Backend/static/imgs/ROBA_2-1_newBG.png");
-                background-size: 630px 460px;
-                background-repeat: no-repeat;
-                width: 630px;
-                height: 460px;
-                padding: 0;
-                margin: 0;
-            }
-
-            #order_confrim {
-                position: absolute;
-                top: 124px;
-                left: 168px;
-                font-size: 52pt;
-                margin: 0;
-                padding: 0;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-            }
-
-            #take_out1 {
-                position: absolute;
-                top: 481px;
-                left: 137px;
-                font-size: 37pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #take_out2 {
-                position: absolute;
-                top: 676px;
-                left: 208px;
-                font-size: 52pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-
-            }
-
-            #take_out3 {
-                position: absolute;
-                top: 838px;
-                left: 201px;
-                font-size: 37pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #arrow {
-                position: absolute;
-                top: 43px;
-                left: 651px;
-                padding: 0;
-                margin: 0;
-            }
-
-            #line {
-                position: absolute;
-                top: 420px;
-                left: 626px;
-                margin: 0;
-            }
-
-            #amekor {
-                position: absolute;
-                top: 115px;
-                left: 1128px;
-                font-size: 44pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #americano {
-                position: absolute;
-                top: 179px;
-                left: 1160px;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                margin: 0;
-            }
-
-            #hot {
-                position: absolute;
-                top: 320px;
-                left: 857px;
-                margin: 0;
-                
-            }
-
-            #ice {
-                position: absolute;
-                top: 316px;
-                left: 864px;
-                margin: 0;
-            }
-
-            #can {
-                position: absolute;
-                top: 451px;
-                left: 716px;
-                margin: 0;
-            }
-
-            .name {
-                position: absolute;
-                font-size: 30pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                left: 1169px;
-                margin: 0;
-            }
-
-            .hot_ice {
-                top: 368px;
-            }
-
-            .tera {
-                top: 475px;
-            }
-            .brazil {
-                top: 608px;
-            }
-
-            .burunde {
-                top: 741px;
-            }
-
-            .value {
-                position: absolute;
-                font-size: 37pt;
-                font-family: 'GongGothicLight', sans-serif;
-                color: rgb(116, 72, 33);
-                left: 1564px;
-                margin: 0;
-            }
-
-            .btn {
-                position: absolute;
-                top: 881px;
-                left: 1097px;
-            }
-            #order {
-                position: absolute;
-                top: 881px;
-                left: 1097px;
-                background-image: url("/static/imgs/ROBA_3_button.png");
-                background-color: rgb(246, 243,238);
-                background-repeat: no-repeat;
-                border: none;
-                background-position: 0 0;
-                height: 200px;
-                width: 460px;
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-
-    </head>
-
-    <body
-        oncontextmenu='return false'
-        onselectstart='return false'
-        ondragstart='return false'>
-        <div id="wrap">
-
-            <div id="left_img">
-                <p id="order_confrim">주문 확인</p>
-            </div>
-
-            <p id="take_out1">예상 테이크 아웃<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간은</p>
-
-            <p id="take_out2">4'30"</p>
-
-            <p id="take_out3">후 입니다.</p>
-
-            <img
-                src="/static/imgs/ROBA_23_backArrow.png"
-                alt="logo"
-                id="arrow"
-                onclick='goBack()'/>
-            <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line"/>
-
-            <p id="amekor">아메리카노</p>
-            <p id="americano">Americano</p>
-
-            <img hidden src="/static/imgs/ROBA_3_hot.png" alt="logo" id="hot" name="hot"/>
-            <img hidden src="/static/imgs/ROBA_3_ice.png" alt="logo" id="ice" name="ice"/>
-            <img src="/static/imgs/ROBA_3_filled_can.png" alt="logo" id="can"/>
-
-            <p class="name hot_ice">뜨거운 음료</p>
-            <p class="name tera">테라로사 에티오피아</p>
-            <p class="name brazil">브라질 산토스</p>
-            <p class="name burunde">커피창고 부룬디</p>
-            <p class="value hot_ice" style="font-size: 30pt;" id="hot_ice">{{option}}</p>
-            <p class="value percent tera">{{blender_1}}%</p>
-            <p class="value percent brazil">{{blender_2}}%</p>
-            <p class="value percent burunde">{{blender_3}}%</p>
-
-            <img
-                src="/static/imgs/ROBA_3_button.png"
-                alt="btn"
-                onclick='sendPost("/Confirm_Order")'
-                class="btn">
-
+        <div id="left_img">
+            <p id="order_confrim" class="font_70">주문 확인</p>
         </div>
 
-        <script type="text/javascript">
-            var tem = [window.document.hot, window.document.ice]
-            var option = window
-                .document
-                .getElementById("hot_ice")
-                .innerText;
-            var timeT = document.getElementById("runningtime");
+        <p id="take_out1" class="font_50">예상 테이크 아웃<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간은</p>
 
-            window.onload = function () {
-                if (option == "Hot") {
-                    tem[1].hidden = true;
-                    tem[0].hidden = false;
-                } else {
-                    tem[1].hidden = false;
-                    tem[0].hidden = true;
-                }
+        <p id="take_out2" class="font_70">4'30"</p>
 
-                cnt = 10;
-                countdown();
+        <p id="take_out3" class="font_50">후 입니다.</p>
+
+        <img src="/static/imgs/ROBA_23_backArrow.png" alt="logo" id="arrow" onclick='goBack()' />
+        <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line" />
+
+        <p id="amekor" class="font_60">아메리카노</p>
+        <p id="americano" class="font_40">Americano</p>
+
+        <img hidden id="hot" name="hot" alt="logo" src="/static/imgs/ROBA_3_hot.png" />
+        <img hidden id="ice" name="ice" alt="logo" src="/static/imgs/ROBA_3_ice.png" />
+        <img id="can" alt="logo" src="/static/imgs/ROBA_3_filled_can.png"/>
+
+        <p class="name hot_ice font_40">뜨거운 음료</p>
+        <p class="name tera font_40">테라로사 에티오피아</p>
+        <p class="name brazil font_40">브라질 산토스</p>
+        <p class="name burunde font_40">커피창고 부룬디</p>
+        <p id="hot_ice" class="value hot_ice" style="font-size: 30pt;" ></p>{{option}}</p>
+        <p class="value percent tera">{{blender_1}}%</p>
+        <p class="value percent brazil">{{blender_2}}%</p>
+        <p class="value percent burunde">{{blender_3}}%</p>
+
+        <img class="btn" alt="btn" src="/static/imgs/ROBA_3_button.png" onclick='sendPost("/Confirm_Order")' />
+
+    </div>
+
+    <script type="text/javascript">
+        var tem = [window.document.hot, window.document.ice]
+        var option = window
+            .document
+            .getElementById("hot_ice")
+            .innerText;
+        var timeT = document.getElementById("runningtime");
+
+        /*window.onload = function () {
+            if (option == "Hot") {
+                tem[1].hidden = true;
+                tem[0].hidden = false;
+            } else {
+                tem[1].hidden = false;
+                tem[0].hidden = true;
             }
 
-            document.onclick = function () {
-                cnt = 10;
-            };
+            cnt = 10;
+            countdown();
+        }
 
-            function countdown() {
-                if (cnt == 0) {
-                    sendPost('/Order_Timeout');
-                } else {
-                    setTimeout("countdown()", 1000);
-                    cnt--;
-                }
+        document.onclick = function () {
+            cnt = 10;
+        };
+
+        function countdown() {
+            if (cnt == 0) {
+                sendPost('/Order_Timeout');
+            } else {
+                setTimeout("countdown()", 1000);
+                cnt--;
             }
+        }*/
 
-            
 
-            function goBack() {
-                sendGet("/Menu_Select_Option");
-            }
 
-            function sendPost(action) {
-                var form = document.createElement('form');
-                form.setAttribute('method', 'post');
-                form.setAttribute('action', action);
-                document.charset = "utf-8";
+        function goBack() {
+            sendGet("/Menu_Select_Option");
+        }
 
-                var hiddenField = document.createElement('input');
-                hiddenField.setAttribute('type', 'hidden');
-                form.appendChild(hiddenField);
+        function sendPost(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
 
-                document
-                    .body
-                    .appendChild(form);
-                form.submit();
-            }
-            
-            function sendGet(action) {
-                var form = document.createElement('form');
-                form.setAttribute('method', 'get');
-                form.setAttribute('action', action);
-                document.charset = "utf-8";
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
 
-                var hiddenField = document.createElement('input');
-                hiddenField.setAttribute('type', 'hidden');
-                form.appendChild(hiddenField);
+            document
+                .body
+                .appendChild(form);
+            form.submit();
+        }
 
-                document
-                    .body
-                    .appendChild(form);
-                form.submit();
-            }
-        </script>
+        function sendGet(action) {
+            var form = document.createElement('form');
+            form.setAttribute('method', 'get');
+            form.setAttribute('action', action);
+            document.charset = "utf-8";
 
-    </body>
+            var hiddenField = document.createElement('input');
+            hiddenField.setAttribute('type', 'hidden');
+            form.appendChild(hiddenField);
+
+            document
+                .body
+                .appendChild(form);
+            form.submit();
+        }
+    </script>
+
+</body>
+
 </html>
