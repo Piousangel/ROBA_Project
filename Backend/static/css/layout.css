@@ -26,6 +26,14 @@ html *{
     left: 0;
 }
 
+.menu_select {
+    background-image: url("/static/imgs/ROBA_2-1_newBG.png");
+    background-size: 630px 460px;
+    background-repeat: no-repeat;
+    width: 630px;
+    height: 460px;
+}
+
 .z_top{
     z-index: 10;
 }
@@ -63,3 +71,4 @@ html *{
     color: rgb(192,104,90);
     font-size: 24pt;
 }
+

@@ -1,0 +1,195 @@
+#choice_bean {
+    top: 116px;
+    left: 158px;
+}
+#sort_text {
+    top: 227px;
+    left: 275px;
+}
+
+.radio {
+    top: 277px;
+}
+
+#sort_0 {
+    left: 45px;
+}
+
+#sort_1 {
+    left: 215px;
+}
+
+#sort_2 {
+    left: 420px;
+}
+
+.img_relative {
+    top: 0;
+    left: 0;
+}
+.lostaric {
+    top: 473px;
+    left: 62px;
+    width: 470px;
+}
+.terarosa {
+    top: 663px;
+    left: 62px;
+    width: 420px;
+}
+.indonasia {
+    top: 852px;
+    left: 62px;
+    width: 360px;
+}
+#arrow {
+    top: 43px;
+    left: 651px;
+}
+#line {
+    top: 420px;
+    left: 626px;
+}
+#amekor {
+    top: 115px;
+    left: 1128px;
+}
+#americano {
+    top: 179px;
+    left: 1160px;
+}
+.order {
+    top: 881px;
+    left: 1097px;
+}
+#lostaric_2 {
+    top: 390px;
+    left: 680px;
+}
+#terarosa_2 {
+    top: 390px;
+    left: 1150px;
+}
+#indonasia_2 {
+    top: 390px;
+    left: 1540px;
+}
+#losta_cup {
+    top: 475px;
+    left: 838px;
+}
+#tera_cup {
+    top: 475px;
+    left: 1224px;
+}
+#indo_cup {
+    top: 475px;
+    left: 1610px;
+}
+.los_background {
+    background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 99px;
+    top: 712px;
+    left: 728px;
+}
+.los_arrow {
+    top: 39px;
+    left: 39px;
+}
+.tera_background {
+    background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 99px;
+    top: 712px;
+    left: 1114px;
+}
+.tera_arrow {
+    top: 39px;
+    left: 39px;
+}
+
+#remain_div {
+    top: 275px;
+    left: 1482px;
+}
+
+#remain_font {
+    top: 33px;
+    left: 40px;
+
+    width: 150px;
+}
+
+#remain_ratio {
+    top: 33px;
+    left: 180px;
+    text-align: right;
+    width: 100px;
+}
+.indo_background {
+    background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 99px;
+    top: 712px;
+    left: 1500px;
+}
+.indo_arrow {
+    top: 39px;
+    left: 39px;
+}
+.percent {
+    text-align: right;
+    width: 152px;
+}
+.los_percent {
+    top: 14px;
+    left: 90px;
+}
+.tera_percent {
+    top: 14px;
+    left: 90px;
+}
+.indo_percent {
+    top: 14px;
+    left: 90px;
+}
+#losdown {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 39px;
+}
+#losup {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 254px;
+}
+#teradown {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 39px;
+}
+#teraup {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 254px;
+}
+#indodown {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 39px;
+}
+#indoup {
+    width: 30px;
+    height: 30px;
+    top: 39px;
+    left: 254px;
+}
