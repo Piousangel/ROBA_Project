@@ -20,7 +20,6 @@
 
         <p id="take_out3" class="font_50">후 입니다.</p>
 
-        <img src="/static/imgs/ROBA_23_backArrow.png" alt="logo" id="arrow" onclick='goBack()' />
         <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line" />
 
         <p id="amekor" class="font_60">아메리카노</p>
@@ -39,7 +38,8 @@
         <p class="value percent brazil font_50">{{blender_2}}%</p>
         <p class="value percent burunde font_50">{{blender_3}}%</p>
 
-        <img class="btn" alt="btn" src="/static/imgs/ROBA_3_button.png" onclick='sendPost("/Confirm_Order")' />
+        <img class="back_btn" alt="btn" src="/static/imgs/ROBA_3_button_back.png" onclick='goBack()'/>
+        <img class="btn" alt="btn" src="/static/imgs/ROBA_3_button_order.png" onclick='sendPost("/Confirm_Order")'/>
 
     </div>
 
