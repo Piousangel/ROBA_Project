@@ -80,47 +80,48 @@
 /*우 중단 남은 비율 표시*/
 #div_remain_box {
     top: 275px;
-    left: 1482px;
+    left: 1500px;
 }
 #text_remain_text {
-    top: 33px;
+    top: 18.5px;
     left: 40px;
     width: 150px;
 }
 #text_remain_ratio {
-    top: 33px;
+    top: 18.5px;
     left: 180px;
     text-align: right;
     width: 100px;
 }
 
+/*중단 원두 상자*/
+.div_blender{
+    height: 421px;
+    width: 386px;
+    top: 390px;
+}
+#div_blender_0{
+    left: 700px;
+}
+
+#div_blender_1{
+    left: 1086px;
+}
+
+#div_blender_2{
+    left: 1472px;
+}
 
 /*중단 원두 이름*/
-#text_blender_0 {
-    top: 390px;
-    left: 680px;
+.text_blender {
+    top: 0px;
+    width: 386px;
+    text-align: center;
 }
-#text_blender_1 {
-    top: 390px;
-    left: 1150px;
-}
-#text_blender_2 {
-    top: 390px;
-    left: 1540px;
-}
-
 /*중단 커피 컵 그림*/
-#img_blender_0_cup {
-    top: 475px;
-    left: 838px;
-}
-#img_blender_1_cup {
-    top: 475px;
-    left: 1224px;
-}
-#img_blender_2_cup {
-    top: 475px;
-    left: 1610px;
+.img_blender_cup{
+    top: 85px;
+    left: 138px;
 }
 .img_blender_fill{
     width: 100px;
@@ -136,8 +137,6 @@
 .fill_light{
     background-color: rgb(153,118,84);
 }
-
-
 /*하단 비율 버튼*/
 .img_blender_bg{
     background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
@@ -145,30 +144,15 @@
     width: 330px;
     height: 99px;
 }
-.blender_0_bg {
-    top: 712px;
-    left: 728px;
+.blender_bg{
+    top: 322px;
+    left: 28px;
 }
-#img_blender_0_arrow {
+.img_blender_arrow{
     top: 39px;
     left: 39px;
 }
-.blender_1_bg {
-    top: 712px;
-    left: 1114px;
-}
-#img_blender_1_arrow {
-    top: 39px;
-    left: 39px;
-}
-.blender_2_bg {
-    top: 712px;
-    left: 1500px;
-}
-#img_blender_2_arrow {
-    top: 39px;
-    left: 39px;
-}
+
 
 .percent{
     text-align: right;
@@ -193,25 +177,6 @@
 .order {
     top: 881px;
     left: 1097px;
+    width: 360px;
+    height: 120px;
 }
-
-
-/* Not Used! */
-/*좌 상단 정렬 버튼
-.radio{
-    top: 277px;
-    height: 95px;
-}
-#sort_0 {
-    left: 45px;
-    width: 164px;
-}
-#sort_1 {
-    left: 215px;
-    width: 197px;
-}
-#sort_2 {
-    left: 420px;
-    width: 159px;
-}
-*/

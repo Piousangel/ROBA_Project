@@ -11,22 +11,6 @@
     <div id="wrap">
         <div class="menu_select">
             <p id="text_choice_bean" class="font_50">원두 조합 선택</p>
-            <!--
-            <div class="radio">
-                <div id="sort_0" class="z-top">
-                    <img hidden="hidden" class="img_relative" name="sort_0_selected" src="/static/imgs/ROBA_2-1_sweet_selected.png">
-                    <img hidden="hidden" class="img_relative" name="sort_0_unselected" src="/static/imgs/ROBA_2-1_sweet_unselected.png">
-                </div>
-                <div id="sort_1" class="z-top">
-                    <img hidden="hidden" class="img_relative" name="sort_1_selected" src="/static/imgs/ROBA_2-1_body_selected.png">
-                    <img hidden="hidden" class="img_relative" name="sort_1_unselected" src="/static/imgs/ROBA_2-1_body_unselected.png">
-                </div>
-                <div id="sort_2" class="z-top">
-                    <img hidden="hidden" class="img_relative" name="sort_2_selected" src="/static/imgs/ROBA_2-1_sour_selected.png">
-                    <img hidden="hidden" class="img_relative" name="sort_2_unselected" src="/static/imgs/ROBA_2-1_sour_unselected.png">
-                </div>
-            </div>
-            -->
         </div>
 
         <img id="img_description_0" class="description" src="/static/imgs/lostaric_img.png" alt="description_0" />
@@ -69,57 +53,65 @@
         <p id="text_americano_eng" class="font_40">Americano</p>
 
         <div id="div_remain_box">
-            <img src="/static/imgs/ROBA_2-1_ratioBG.png" id="_ratio" alt="alt">
+            <img src="/static/imgs/ROBA_2-1_leftRatioBG.png" id="_ratio" alt="alt">
             <p id="text_remain_text" class="font_30_red" name="remain_font">남은 비율:</p>
             <p id="text_remain_ratio" class="font_30_red" name="remain_ratio">100%</p>
         </div>
 
-        <p id="text_blender_0" class="font_40">로스터릭 코스타리카 허니</p>
-        <p id="text_blender_1" class="font_40">테라로사 에티오피아</p>
-        <p id="text_blender_2" class="font_40">인도네시아 만델링</p>
 
-        <div id="img_blender_0_cup">
-            <div id="img_blender_0_fill" class="img_blender_fill fill_normal"></div>
-            <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo0" />
+        <div id="div_blender_0" class="div_blender">
+            <p class="text_blender font_40">원두0</p>
+            <div class="img_blender_cup">
+                <div id="img_blender_0_fill" class="img_blender_fill fill_normal"></div>
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo0" />
+            </div>
+            <div class="img_blender_bg blender_bg">
+                <img class="img_blender_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
+                <p id="text_blender_0_percent" class="percent font_60">{{blender_1}}%</p>
+                <p id="blender_0_down" class="btn_down"></p>
+                <p id="blender_0_up" class="btn_up"></p>
+            </div>
         </div>
-        <div id="img_blender_1_cup">
-            <div id="img_blender_1_fill" class="img_blender_fill  fill_dark"></div>
-            <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo1" />
+        
+        <div id="div_blender_1" class="div_blender">
+            <p class="text_blender font_40">원두1</p>
+            <div class="img_blender_cup">
+                <div id="img_blender_1_fill" class="img_blender_fill  fill_dark"></div>
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo1" />
+            </div>
+            <div class="img_blender_bg blender_bg">
+                <img class="img_blender_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
+                <p id="text_blender_1_percent" class="percent font_60">{{blender_2}}%</p>
+                <p id="blender_1_down" class="btn_down"></p>
+                <p id="blender_1_up" class="btn_up"></p>
+            </div>
         </div>
-        <div id="img_blender_2_cup">
-            <div id="img_blender_2_fill" class="img_blender_fill fill_light"></div>
-            <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo2" />
+        
+        <div id="div_blender_2" class="div_blender">
+            <p class="text_blender font_40">원두2</p>
+            <div class="img_blender_cup">
+                <div id="img_blender_2_fill" class="img_blender_fill fill_light"></div>
+                <img class="img_relative" src="/static/imgs/ROBA_2-1_beaker_empty.png" alt="logo2" />
+            </div>
+            <div class="img_blender_bg blender_bg">
+                <img class="img_blender_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
+                <p id="text_blender_2_percent" class="percent font_60">{{blender_3}}%</p>
+                <p id="blender_2_down" class="btn_down"></p>
+                <p id="blender_2_up" class="btn_up"></p>
+            </div>
         </div>
-
-        <div class="img_blender_bg blender_0_bg">
-            <img id="img_blender_0_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
-            <p id="text_blender_0_percent" class="percent font_60">{{blender_1}}%</p>
-            <p id="blender_0_down" class="btn_down"></p>
-            <p id="blender_0_up" class="btn_up"></p>
-        </div>
-        <div class="img_blender_bg blender_1_bg">
-            <img id="img_blender_1_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
-            <p id="text_blender_1_percent" class="percent font_60">{{blender_2}}%</p>
-            <p id="blender_1_down" class="btn_down"></p>
-            <p id="blender_1_up" class="btn_up"></p>
-        </div>
-        <div class="img_blender_bg blender_2_bg">
-            <img id="img_blender_2_arrow" src="/static/imgs/ROBA_2-1_ratioBtn.png" alt="logo" />
-            <p id="text_blender_2_percent" class="percent font_60">{{blender_3}}%</p>
-            <p id="blender_2_down" class="btn_down"></p>
-            <p id="blender_2_up" class="btn_up"></p>
+        
+        <div id="btn_order" class="order">
+            <img hidden="hidden" class="img_relative" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
+            <img hidden="hidden" class="img_relative" name="img_yet" src="/static/imgs/ROBA_2_button.png">
+            <img hidden="hidden" class="img_relative" name="img_pushed" src="/static/imgs/ROBA_2_button_pushed.png">
         </div>
     </div>
-
-    <img hidden="hidden" class="order" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
-    <img hidden="hidden" class="order" name="img_yet" src="/static/imgs/ROBA_2_button.png">
-    <img hidden="hidden" class="order" name="img_yet" src="/static/imgs/ROBA_2_button_pushed.png">
-
     
     </div>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-        var recommend = [[document.getElementById("img_recommend_btn_0_select"), document.getElementById("img_recommend_btn_0_unselect")],
+        var recommend = [[document.getElementById("img_recommend_btn_0_select"), document.getElementById("img_recommend_btn_0_unselect")], 
                          [document.getElementById("img_recommend_btn_1_select"), document.getElementById("img_recommend_btn_1_unselect")],
                          [document.getElementById("img_recommend_btn_2_select"), document.getElementById("img_recommend_btn_2_unselect")]];
 
@@ -128,7 +120,7 @@
         var indovalue = parseInt(document.getElementById("text_blender_2_percent").innerText);
         var remain_ratio = 100 - losvalue - teravalue - indovalue;
 
-        var btn = [window.document.img_not_yet, window.document.img_yet]
+        var btn = [window.document.img_not_yet, window.document.img_yet, window.document.img_pushed]
 
         function init() {
             img_hide(recommend[0]);
@@ -153,8 +145,8 @@
             }
 
             var ratio = [[document.getElementById("blender_0_up"), document.getElementById("blender_0_down")],
-            [document.getElementById("blender_1_up"), document.getElementById("blender_1_down")],
-            [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]];
+                         [document.getElementById("blender_1_up"), document.getElementById("blender_1_down")],
+                         [document.getElementById("blender_2_up"), document.getElementById("blender_2_down")]];
 
             for (let blender = 0; blender < ratio.length; blender++) {
                 for (let btn_ud = 0; btn_ud < ratio[0].length; btn_ud++) {
@@ -170,6 +162,21 @@
                 img_hide(btn);
                 btn[1].hidden = false;
             }
+            
+            btn_order = document.getElementById("btn_order")
+            btn_order.addEventListener("mousedown", function(){
+                img_hide(btn); 
+                btn[2].hidden=false;
+                console.log("ho");
+            })
+            btn_order.addEventListener("mouseup", function(){
+                orderform();
+            })
+            btn_order.addEventListener("mouseout", function(){
+                img_hide(btn); 
+                btn[1].hidden=false;
+            })
+
             fill_animation("img_blender_0_fill", losvalue);
             fill_animation("img_blender_1_fill", teravalue);
             fill_animation("img_blender_2_fill", indovalue);
