@@ -131,7 +131,8 @@
                 })
 
             document.getElementById("btn_order").addEventListener("mousedown", function(){mouse_up("Btn")}) //추가
-            //countdown()
+            cnt_init();
+            countdown('/Order_Timeout');
         }
 
         function mouse_down(value) { //hot : 1, ice : 0

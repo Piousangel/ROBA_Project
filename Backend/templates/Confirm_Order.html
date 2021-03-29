@@ -86,8 +86,8 @@
                 tem[1].hidden = false;
                 tem[0].hidden = true;
             }
-            cnt = 10;
-            //countdown();
+            cnt_init();
+            countdown('/Order_Timeout');
             
             document.getElementById("back_btn_id").addEventListener("mousedown", function(){mouse_down("1")})
             document.getElementById("btn_id").addEventListener("mousedown", function(){mouse_down("2")})
@@ -101,18 +101,7 @@
             fill_animation("img_round_0_fill", blender_2_value + blender_1_value + blender_0_value);
         }
 
-        /*window.onload = function () {
-            if (option == "Hot") {
-                tem[1].hidden = true;
-                tem[0].hidden = false;
-            } else {
-                tem[1].hidden = false;
-                tem[0].hidden = true;
-            }
-
-            cnt = 10;
-            //countdown();
-        }*/
+       
 
         function mouse_down(value){
             if(value == "1"){
@@ -153,14 +142,7 @@
         }
 
        
-        function countdown() {
-            if (cnt == 0) {
-                postForm('/Order_Timeout', "");
-            } else {
-                setTimeout("countdown()", 1000);
-                cnt--;
-            }
-        } 
+        
 
         function fill_animation(id, ratio) {
             id = '#' + id;

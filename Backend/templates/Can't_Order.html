@@ -22,18 +22,11 @@
         <script type="text/javascript">
 
             window.onload = function () {
-                cnt = 5;
-                countdown();
+                cnt_init();
+                countdown('/Order_Timeout');
             }
 
-            function countdown() {
-                if (cnt == 0) {
-                    sendGet('/Main');
-                } else {
-                    setTimeout("countdown()", 1000);
-                    cnt--;
-                }
-            }
+           
 
             
         </script>

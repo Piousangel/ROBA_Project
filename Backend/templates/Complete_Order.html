@@ -27,8 +27,9 @@
 
     </div>
 
+    <script src="/static/script/Common.js"></script>
     <script type="text/javascript">
-
+    
         var timeT = document.getElementById("runningtime");
         var line_gif = [window.document.loading_line, window.document.complete_line];
 
@@ -37,8 +38,8 @@
             img_hide(line_gif);
             line_gif[0].hidden = false;
 
-            cnt = 5;
-            //countdown();
+            cnt_init();
+            countdown('/Main');
             setTimeout("changegif()", 1000);
         }
 
@@ -56,18 +57,8 @@
 
 
 
-        function countdown() {
-            if (cnt == 0) {
-                sendGet('/Main');
-            } else {
-                timeT.innerText = cnt;
-                setTimeout("countdown()", 900);
-                cnt--;
-            }
-        }
-
     </script>
-    <script src="/static/script/Common.js"></script>
+   
 
 </body>
 
