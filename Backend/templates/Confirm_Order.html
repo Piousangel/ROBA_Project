@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Confirm_Order.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
@@ -75,7 +76,7 @@
                 tem[0].hidden = true;
             }
             cnt = 10;
-            countdown();
+            //countdown();
             
             document.getElementById("back_btn_id").addEventListener("mousedown", function(){mouse_down("1")})
             document.getElementById("btn_id").addEventListener("mousedown", function(){mouse_down("2")})

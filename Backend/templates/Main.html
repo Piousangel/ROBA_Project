@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Main.css') }}">
-
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
         불러올때 -->
 
@@ -54,13 +54,21 @@
                 .addEventListener("mousedown", function () {
                     order_btn[0].hidden = true;
                     order_btn[1].hidden = false;
-
+                    
                     console.log("down");
                 })
             document
                 .getElementById("order_confirm")
                 .addEventListener("mouseup", function () {
                     sendPost("/Main");
+                })
+            document
+                .getElementById("order_confirm")
+                .addEventListener("mouseleave", function () {
+                    order_btn[0].hidden = false;
+                    order_btn[1].hidden = true;
+
+                    console.log("out");
                 })
         }
 

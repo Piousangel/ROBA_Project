@@ -29,7 +29,7 @@ def main():
             return render_template('Main.html')
     else:
         return redirect(url_for('cant_order'))
-
+        
 
 @app.route("/Order_Timeout", methods=["GET", "POST"])
 def order_timeout():
