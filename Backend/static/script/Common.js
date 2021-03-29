@@ -1,4 +1,4 @@
-function sendGet(action){
+function sendGet(action) {
     var form = document.createElement('form');
     form.setAttribute('method', 'get');
     form.setAttribute('action', action);
@@ -32,22 +32,22 @@ function img_hide(array) {
     }
 }
 
-function postForm(action, value){
+function postForm(action, value) {
     var json = "";
-    if(action == "/Menu_Select_Option"){
+    if (action == "/Menu_Select_Option") {
         json = {
             "Option_Select": value
         };
     }
-    else if(action == "/Menu_Select_Blending"){
+    else if (action == "/Menu_Select_Blending") {
         json = {
             "Blender_1": value[0],
             "Blender_2": value[1],
             "Blender_3": value[2]
         };
     }
-    else{
-        json={
+    else {
+        json = {
             "None": value
         };
     }
@@ -56,13 +56,13 @@ function postForm(action, value){
 
 var cnt = 10;
 
-function cnt_init(){
-    cnt = 5;
+function cnt_init() {
+    cnt = 30;
 }
 
 function countdown(action) {
     if (cnt == 0) {
-        sendGet(action); 
+        sendGet(action);
     } else {
         setTimeout(countdown, 1000, action);
         cnt--;
