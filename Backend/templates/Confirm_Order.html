@@ -125,7 +125,8 @@
         
         function mouse_up(value){
             if(value == "1"){
-                goBack();
+                //goBack();
+                sendGet("/Menu_Select_Option");
             }
             else if(value == "2"){
                 sendPost("/Confirm_Order");
@@ -167,11 +168,6 @@
             $(id).animate({ top: top_ratio}, 200);
         }
 
-
-        function goBack() {
-            sendGet("/Menu_Select_Option");
-        }
-
         function sendPost(action) {
             var form = document.createElement('form');
             form.setAttribute('method', 'post');
@@ -188,22 +184,9 @@
             form.submit();
         }
 
-        function sendGet(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'get');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        } 
+        
     </script>
+    <script src="/static/script/Common.js"></script>
 
 </body>
 

@@ -47,7 +47,7 @@
         </div>
 
 
-        <img id="img_backarrow" onclick="goBack()" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
+        <img id="img_backarrow" onclick="sendGet('/Main')" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
         <img id="img_line" src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" />
 
         <p id="text_americano_kor" class="font_60">아메리카노</p>
@@ -110,6 +110,7 @@
     </div>
     
     </div>
+   
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         var recommend = [[document.getElementById("img_recommend_btn_0_select"), document.getElementById("img_recommend_btn_0_unselect")], 
@@ -324,71 +325,16 @@
             console.log(top_ratio);
             $(id).animate({ top: top_ratio, height: height_ratio }, 200);
         }
-        /*
-        function sort_change(value) {
-            console.log(value)
-            img_hide(sort_0);
-            img_hide(sort_1);
-            img_hide(sort_2);
-            if (value == '0') {
-                sort_0[1].hidden = false;
-                sort_1[0].hidden = false;
-                sort_2[0].hidden = false;
-                $("#img_description_0").animate({top: 660}, 1000);
-                $("#img_description_1").animate({top: 850}, 1000);
-                $("#img_description_2").animate({top: 480}, 1000);
-            } else if (value == '1') {
-                sort_0[0].hidden = false;
-                sort_1[1].hidden = false;
-                sort_2[0].hidden = false;
-                $("#img_description_0").animate({top: 480}, 1000);
-                $("#img_description_1").animate({top: 660}, 1000);
-                $("#img_description_2").animate({top: 850}, 1000);
-            } else {
-                sort_0[0].hidden = false;
-                sort_1[0].hidden = false;
-                sort_2[1].hidden = false;
-                $("#img_description_0").animate({top: 840}, 1000);
-                $("#img_description_1").animate({top: 480}, 1000);
-                $("#img_description_2").animate({top: 660}, 1000);
-            }
-        }
-        */
+       
 
-        function goBack() {
+        /*function goBack() {
             sendGet("/Main");
-        }
+        }*/
 
-        function sendGet(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'get');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        }
+       
 
-        var timeT = document.getElementById("runningtime");/*window.onload = function()
-{
-cnt = 10;
-//countdown();
-}    function countdown()
-{
-if(cnt == 0)
-{
-    sendPost('/Order_Timeout');
-}
-else{
-timeT.innerText = cnt;
-setTimeout("countdown()", 1000);
-cnt--;
-}
-}*/
+        var timeT = document.getElementById("runningtime");
+
         function orderform() {
             var json = {
                 "Blender_1": losvalue.toString(),
@@ -415,6 +361,8 @@ cnt--;
             form.submit();
         }
     </script>
+     <script src="/static/script/Common.js"></script>
+
 </body>
 
 </html>
