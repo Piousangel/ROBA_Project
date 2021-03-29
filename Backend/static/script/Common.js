@@ -22,9 +22,7 @@ function sendPost(action, params) {
         hiddenField.setAttribute('value', params[key]);
         form.appendChild(hiddenField);
     }
-    document
-        .body
-        .appendChild(form);
+    document.body.appendChild(form);
     form.submit();
 }
 
@@ -54,4 +52,5 @@ function postForm(action, value){
         };
     }
     sendPost(action, json);
+
 }

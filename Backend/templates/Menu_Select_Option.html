@@ -15,7 +15,7 @@
         <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
         <p class="select_tem font_50">음료 온도 선택</p>
         <img alt="line" class="line" src="/static/imgs/ROBA_2-2_line.png">
-        <img alt="backArrow" class="backArrow" src="/static/imgs/ROBA_23_backArrow.png" onclick="goBack()">
+        <img alt="backArrow" class="backArrow" src="/static/imgs/ROBA_23_backArrow.png" onclick="sendGet('/Menu_Select_Blending')">
 
         <div id="radio_hot" class="btn_hot">
             <img hidden="hidden" class="img_relative" name="img_hot_unselect"
@@ -213,14 +213,15 @@
             }
         }
 
-        function goBack() {
+        /*function goBack() {
             sendGet("/Menu_Select_Blending");
-        }
+        }*/
 
         var timeT = document.getElementById("runningtime");
 
         var cnt = 10;
     </script>
+    <script src="/static/script/Common.js"></script> <!--sendget()-->
 </body>
 
 </html>

@@ -48,7 +48,7 @@
         </div>
 
 
-        <img id="img_backarrow" onclick="goBack()" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
+        <img id="img_backarrow" onclick="sendGet('/Main')" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
         <img id="img_line" src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" />
 
         <p id="text_americano_kor" class="font_60">아메리카노</p>
@@ -322,15 +322,11 @@
             $(id).animate({ top: top_ratio, height: height_ratio }, 200);
         }
 
-
-        function goBack() {
-            sendGet("/Main");
-        }
         
-        var timeT = document.getElementById("runningtime");
 
-        
     </script>
+     <script src="/static/script/Common.js"></script>
+
 </body>
 
 </html>
