@@ -167,12 +167,11 @@
             btn_order.addEventListener("mousedown", function(){
                 img_hide(btn); 
                 btn[2].hidden=false;
-                console.log("ho");
             })
             btn_order.addEventListener("mouseup", function(){
                 orderform();
             })
-            btn_order.addEventListener("mouseout", function(){
+            btn_order.addEventListener("mouseleave", function(){
                 img_hide(btn); 
                 btn[1].hidden=false;
             })
