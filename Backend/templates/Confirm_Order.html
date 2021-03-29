@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Confirm_Order.css') }}">
 </head>
 
-<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
     <div id="wrap">
 
         <div id="left_img">
@@ -38,20 +38,51 @@
         <p class="value percent brazil font_50">{{blender_2}}%</p>
         <p class="value percent burunde font_50">{{blender_3}}%</p>
 
-        <img class="back_btn" alt="btn" src="/static/imgs/ROBA_3_button_back.png" onclick='goBack()'/>
-        <img class="btn" alt="btn" src="/static/imgs/ROBA_3_button_order.png" onclick='sendPost("/Confirm_Order")'/>
+        <div class= "back_btn" id="back_btn_id">
+            <img hidden="hidden" class="img_relative" name="back_btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back.png" />          <!--안눌렸을 때-->
+            <img hidden="hidden" class="img_relative" name="back_btn_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back_pushed.png"/>
+        </div>
+        <div class="btn" id="btn_id">
+            <img hidden="hidden" class="img_relative" name="btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button.png" />  <!--안눌렸을 때-->
+            <img hidden="hidden" class="img_relative" name="btn_clicked" alt="btn" src="/static/imgs/ROBA_3_button_order.png" />
+        </div>
 
     </div>
 
     <script type="text/javascript">
         var tem = [window.document.hot, window.document.ice]
+        var back_btn = [window.document.back_btn_not_clicked ,window.document.back_btn_clicked]
+        var btn = [window.document.btn_not_clicked,window.document.btn_clicked]
         var option = window
             .document
             .getElementById("hot_ice")
             .innerText;
         var timeT = document.getElementById("runningtime");
 
-        window.onload = function () {
+        function init() {
+
+            img_hide(back_btn);
+            img_hide(btn);
+        
+            back_btn[0].hidden = false;
+            btn[0].hidden = false;
+
+            if (option == "Hot") {
+                tem[1].hidden = true;
+                tem[0].hidden = false;
+            } else {
+                tem[1].hidden = false;
+                tem[0].hidden = true;
+            }
+            cnt = 10;
+            countdown();
+            
+            document.getElementById("back_btn_id").addEventListener("mousedown", function(){mouse_down("1")})
+            document.getElementById("btn_id").addEventListener("mousedown", function(){mouse_down("2")})
+            
+            }
+
+        /*window.onload = function () {
             if (option == "Hot") {
                 tem[1].hidden = true;
                 tem[0].hidden = false;
@@ -61,13 +92,31 @@
             }
 
             cnt = 10;
-            countdown();
+            //countdown();
+        }*/
+
+        function mouse_down(value){
+            if(value == "1"){
+                img_hide(back_btn);  
+                back_btn[1].hidden = false;
+                goBack();
+            }
+            else if(value == "2"){
+                img_hide(btn);
+                btn[1].hidden = false;
+                sendPost("/Confirm_Order");
+
+            }
+
         }
 
-        document.onclick = function () {
-            cnt = 10;
-        };
+        function img_hide(array) {
+            for (var i = 0; i < array.length; i++) {
+                array[i].hidden = true;
+            }
+        }
 
+       
         function countdown() {
             if (cnt == 0) {
                 sendPost('/Order_Timeout');
@@ -75,7 +124,7 @@
                 setTimeout("countdown()", 1000);
                 cnt--;
             }
-        }
+        } 
 
 
 
@@ -83,7 +132,7 @@
             sendGet("/Menu_Select_Option");
         }
 
-        /*function sendPost(action) {
+        function sendPost(action) {
             var form = document.createElement('form');
             form.setAttribute('method', 'post');
             form.setAttribute('action', action);
@@ -113,7 +162,7 @@
                 .body
                 .appendChild(form);
             form.submit();
-        } */
+        } 
     </script>
 
 </body>
