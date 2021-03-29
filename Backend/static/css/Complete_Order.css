@@ -5,11 +5,10 @@
 
 #line_change
 {
-    margin: 0px;
-    padding: 0px;
     width: 275px;
     height: 18px;
-    top : -5px;
+    top : -4px;
+    left: -2px;
     
 }
 

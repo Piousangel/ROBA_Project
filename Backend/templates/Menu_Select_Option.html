@@ -188,10 +188,12 @@
                 btn[btn_temp].hidden = false
 
             } else if (value == "Btn") {
-                img_hidden(btn);
-                btn[2].hidden = false;
-                document.getElementById("btn_order").addEventListener("mouseup", function(){sendpost_fun("1")})
-                document.getElementById("btn_order").addEventListener("mouseleave", function(){sendpost_fun("2")})
+                if(img_hot_temp == 1 || img_ice_temp == 1){
+                    img_hidden(btn);
+                    btn[2].hidden = false;
+                    document.getElementById("btn_order").addEventListener("mouseup", function(){sendpost_fun("1")})
+                    document.getElementById("btn_order").addEventListener("mouseleave", function(){sendpost_fun("2")})
+                }
             } 
 
 
