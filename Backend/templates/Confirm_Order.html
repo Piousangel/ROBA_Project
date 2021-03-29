@@ -79,7 +79,10 @@
             
             document.getElementById("back_btn_id").addEventListener("mousedown", function(){mouse_down("1")})
             document.getElementById("btn_id").addEventListener("mousedown", function(){mouse_down("2")})
-            
+            document.getElementById("back_btn_id").addEventListener("mouseup", function(){mouse_up("1")})
+            document.getElementById("btn_id").addEventListener("mouseup", function(){mouse_up("2")})
+            document.getElementById("back_btn_id").addEventListener("mouseleave", function(){mouse_out("1")})
+            document.getElementById("btn_id").addEventListener("mouseleave", function(){mouse_out("2")})
             }
 
         /*window.onload = function () {
@@ -99,17 +102,34 @@
             if(value == "1"){
                 img_hide(back_btn);  
                 back_btn[1].hidden = false;
-                goBack();
             }
             else if(value == "2"){
                 img_hide(btn);
-                btn[1].hidden = false;
-                sendPost("/Confirm_Order");
-
+                btn[1].hidden = false;     
             }
-
+        }
+        
+        function mouse_up(value){
+            if(value == "1"){
+                goBack();
+            }
+            else if(value == "2"){
+                sendPost("/Confirm_Order");
+            }
         }
 
+        function mouse_out(value){
+            if(value == "1"){
+                img_hide(back_btn);  
+                back_btn[0].hidden = false;
+            }
+            else if(value == "2"){
+                img_hide(btn);
+                btn[0].hidden = false;
+            }
+        }
+        
+        
         function img_hide(array) {
             for (var i = 0; i < array.length; i++) {
                 array[i].hidden = true;
