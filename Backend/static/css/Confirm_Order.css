@@ -104,3 +104,33 @@
     height: 200px;
     width: 460px;
 }
+
+.img_round_fill{
+    left: 797px;
+    top: 775px;
+}
+
+#img_round_0_fill{
+    background-image: url("/static/imgs/ROBA_3_coffee1.png");
+    width: 250px;
+    height:355px;
+    top: 775px;
+    z-index: -3;
+}
+
+#img_round_1_fill{
+    background-image: url("/static/imgs/ROBA_3_coffee2.png");
+    width: 250px;
+    height:355px;
+    top: 775px;
+    z-index: -2;
+}
+
+
+#img_round_2_fill{
+    background-image: url("/static/imgs/ROBA_3_coffee3.png");
+    width: 250px;
+    height:355px;
+    top: 775px;
+    z-index: -1;
+}

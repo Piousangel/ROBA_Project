@@ -28,16 +28,21 @@
 
         <img hidden id="hot" name="hot" alt="logo" src="/static/imgs/ROBA_3_hot.gif" />
         <img hidden id="ice" name="ice" alt="logo" src="/static/imgs/ROBA_3_ice.gif" />
-        <img id="can" alt="logo" src="/static/imgs/ROBA_3_filled_can.png" />
+        <div class="img_round_fill">
+            <img id="img_round_0_fill" class="fill" alt="fill_0" src="static/imgs/ROBA_3_coffee1.png"/>
+            <img id="img_round_1_fill" class="fill" alt="fill_1" src="static/imgs/ROBA_3_coffee2.png"/>
+            <img id="img_round_2_fill" class="fill" alt="fill_2" src="static/imgs/ROBA_3_coffee3.png"/>    
+        </div>
+        <img id="can" alt="logo" src="/static/imgs/ROBA_3_can_empty.png" />
 
         <p class="name hot_ice font_40">선택한 음료</p>
         <p class="name tera font_40">테라로사 에티오피아</p>
         <p class="name brazil font_40">브라질 산토스</p>
         <p class="name burunde font_40">커피창고 부룬디</p>
         <p id="hot_ice" class="value hot_ice font_40">{{option}}</p>
-        <p class="value percent tera font_50">{{blender_1}}%</p>
-        <p class="value percent brazil font_50">{{blender_2}}%</p>
-        <p class="value percent burunde font_50">{{blender_3}}%</p>
+        <p id="text_blender_0_percent" class="value percent tera font_50">{{blender_1}}%</p>
+        <p id="text_blender_1_percent" class="value percent brazil font_50">{{blender_2}}%</p>
+        <p id="text_blender_2_percent" class="value percent burunde font_50">{{blender_3}}%</p>
 
         <div class= "back_btn" id="back_btn_id">
             <img hidden="hidden" class="img_relative" name="back_btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back.png" />          <!--안눌렸을 때-->
@@ -49,7 +54,7 @@
         </div>
 
     </div>
-
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         var tem = [window.document.hot, window.document.ice]
         var back_btn = [window.document.back_btn_not_clicked ,window.document.back_btn_clicked]
@@ -59,6 +64,10 @@
             .getElementById("hot_ice")
             .innerText;
         var timeT = document.getElementById("runningtime");
+
+        var blender_0_value = parseInt(document.getElementById("text_blender_0_percent").innerText);
+        var blender_1_value = parseInt(document.getElementById("text_blender_1_percent").innerText);
+        var blender_2_value = parseInt(document.getElementById("text_blender_2_percent").innerText);
 
         function init() {
 
@@ -84,7 +93,11 @@
             document.getElementById("btn_id").addEventListener("mouseup", function(){mouse_up("2")})
             document.getElementById("back_btn_id").addEventListener("mouseleave", function(){mouse_out("1")})
             document.getElementById("btn_id").addEventListener("mouseleave", function(){mouse_out("2")})
-            }
+
+            fill_animation("img_round_0_fill", blender_0_value);
+            fill_animation("img_round_1_fill", blender_0_value + blender_1_value);
+            fill_animation("img_round_2_fill", blender_0_value + blender_1_value + blender_2_value);
+        }
 
         /*window.onload = function () {
             if (option == "Hot") {
@@ -147,6 +160,12 @@
             }
         } 
 
+        function fill_animation(id, ratio) {
+            id = '#' + id;
+            var top_ratio = 775 - 2.25 * ratio;
+            console.log(top_ratio);
+            //$(id).animate({ top: top_ratio}, 200);
+        }
 
 
         function goBack() {

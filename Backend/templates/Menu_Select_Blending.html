@@ -166,15 +166,26 @@
             
             btn_order = document.getElementById("btn_order")
             btn_order.addEventListener("mousedown", function(){
-                img_hide(btn); 
-                btn[2].hidden=false;
+                 
+                if(remain_ratio == 0){ 
+                    img_hide(btn);
+                    btn[2].hidden=false;
+                }
             })
             btn_order.addEventListener("mouseup", function(){
-                orderform();
+                if(remain_ratio == 0){ 
+                    orderform();
+                }
             })
             btn_order.addEventListener("mouseleave", function(){
-                img_hide(btn); 
-                btn[1].hidden=false;
+                 
+                if(remain_ratio == 0){ 
+                    img_hide(btn);
+                    btn[1].hidden=false;
+                }
+                else{
+                    btn[0].hidden=false;
+                }
             })
 
             fill_animation("img_blender_0_fill", losvalue);
