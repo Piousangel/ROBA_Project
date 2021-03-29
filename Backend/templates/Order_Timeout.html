@@ -16,9 +16,11 @@
         <p id="screen" class="font_60">00초 후 처음 화면으로 돌아갑니다.</p>
 
         <img id="line_Animation" alt="line" src="/static/imgs/err_line.gif"/>
-        <button id="order_continue" value="" onclick="goBack()">
+        <button id="order_continue" value="" onclick="window.history.back()">
     </div>
 
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/static/script/Common.js"></script>
     <script type="text/javascript">
 
         var timeT = document.getElementById("screen");
@@ -37,14 +39,7 @@
                 cnt--;
             }
         }
-
-        
-        function goBack() {
-            window.history.back();
-        }
-        
     </script>
-    <script src="/static/script/Common.js"></script>
 
 </body>
 

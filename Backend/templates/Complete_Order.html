@@ -10,14 +10,9 @@
 
 <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
     <div id="wrap">
-
-        <p id="runningtime" style="color: gray; font-size: 40px;">1</p>
-
         <div id="line" class="line z-top">
-            <img hidden="hidden" class="img_releative" name="loading_line" alt="line"
-                src="/static/imgs/ROBA_4_ending.gif" />
-            <img hidden="hidden" id="line_change" class="img_releative" name="complete_line" alt="line"
-                src="/static/imgs/ROBA_2-2_line.png" />
+            <img hidden="hidden" class="img_releative" name="loading_line" alt="line" src="/static/imgs/ROBA_4_ending.gif" />
+            <img hidden="hidden" id="line_change" class="img_releative" name="complete_line" alt="line" src="/static/imgs/ROBA_2-2_line.png" />
         </div>
 
         <p id="thanks" class="font_40">감사합니다.</p>
@@ -27,11 +22,10 @@
 
     </div>
 
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/static/script/Common.js"></script>
     <script type="text/javascript">
-
-        var timeT = document.getElementById("runningtime");
         var line_gif = [window.document.loading_line, window.document.complete_line];
-
         function init() {
 
             img_hide(line_gif);
@@ -47,15 +41,6 @@
             line_gif[1].hidden = false;
         }
 
-        function img_hide(array) {
-            for (var i = 0; i < array.length; i++) {
-                array[i].hidden = true;
-            }
-            console.log("hide complete");
-        }
-
-
-
         function countdown() {
             if (cnt == 0) {
                 sendGet('/Main');
@@ -67,7 +52,6 @@
         }
 
     </script>
-    <script src="/static/script/Common.js"></script>
 
 </body>
 
