@@ -60,6 +60,7 @@
 #can {
     top: 451px;
     left: 716px;
+    z-index: 10;
 }
 
 .name {
@@ -88,6 +89,7 @@
 .back_btn{
     top: 881px;
     left: 858px;
+    z-index: 11;
 }
 .btn {
     top: 881px;
@@ -113,24 +115,24 @@
 #img_round_0_fill{
     background-image: url("/static/imgs/ROBA_3_coffee1.png");
     width: 250px;
-    height:355px;
-    top: 775px;
-    z-index: -3;
+    height:378px;
+    top: 225px;
+    z-index: 1;
 }
 
 #img_round_1_fill{
     background-image: url("/static/imgs/ROBA_3_coffee2.png");
     width: 250px;
-    height:355px;
-    top: 775px;
-    z-index: -2;
+    height:378px;
+    top: 225px;
+    z-index: 2;
 }
 
 
 #img_round_2_fill{
     background-image: url("/static/imgs/ROBA_3_coffee3.png");
     width: 250px;
-    height:355px;
-    top: 775px;
-    z-index: -1;
+    height:378px;
+    top: 225px;
+    z-index: 3;
 }
