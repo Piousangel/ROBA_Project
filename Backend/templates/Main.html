@@ -45,8 +45,8 @@
 
             order_btn[0].hidden = false;
 
-            cnt = 10;
-            countdown();
+            cnt_init();
+            countdown('/Main');
 
             document
                 .getElementById("order_confirm")
@@ -73,15 +73,7 @@
             }
         }
 
-        function countdown() {
-            if (cnt == 0) {
-                sendGet('/Main');
-            } else {
-                timeT.innerText = cnt;
-                setTimeout("countdown()", 1000);
-                cnt--;
-            }
-        }
+        
 
 
     </script>

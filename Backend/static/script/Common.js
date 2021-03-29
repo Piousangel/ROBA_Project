@@ -52,5 +52,19 @@ function postForm(action, value){
         };
     }
     sendPost(action, json);
+}
 
+var cnt = 10;
+
+function cnt_init(){
+    cnt = 5;
+}
+
+function countdown(action) {
+    if (cnt == 0) {
+        sendGet(action); 
+    } else {
+        setTimeout(countdown, 1000, action);
+        cnt--;
+    }
 }
