@@ -47,7 +47,7 @@
         <p class="text_ice_americano font_50">아이스 아메리카노</p>
         <p class="text_ice font_60">Ice</p>
 
-        <div id="btn_order" class="btn_order" onclick='mouse_up("btn")'>
+        <div id="btn_order" class="btn_order">
             <img hidden="hidden" class="img_relative" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
             <img hidden="hidden" class="img_relative" name="img_yet" src="/static/imgs/ROBA_2_button.png">
             <img hidden="hidden" class="img_relative" name="img_clicked" src="/static/imgs/ROBA_2_button_pushed.png">
@@ -70,10 +70,10 @@
         var can_temp = 0;
 
         function init() {
-            img_alpha_zero(radio_hot);
-            img_alpha_zero(radio_ice);
-            img_alpha_zero(btn);
-            img_alpha_zero(radio_can);
+            img_hidden(radio_hot);
+            img_hidden(radio_ice);
+            img_hidden(btn);
+            img_hidden(radio_can);
 
             var option_get = document.getElementById("option").innerText;
             if (option_get == "none") {
@@ -129,39 +129,43 @@
                 .addEventListener("mouseleave", function () {
                     mouse_out("Ice")
                 })
-            countdown()
+
+            document.getElementById("btn_order").addEventListener("mousedown", function(){mouse_up("Btn")}) //추가
+            //countdown()
         }
 
         function mouse_down(value) { //hot : 1, ice : 0
             cnt = 10;
+
             if (value == "Hot") {
-                img_alpha_zero(radio_hot);
+                img_hidden(radio_hot);
                 radio_hot[2].hidden = false;
             } else if (value == "Ice") {
-                img_alpha_zero(radio_ice);
+                img_hidden(radio_ice);
                 radio_ice[2].hidden = false;
             }
+
         }
 
         function mouse_out(value) {
             if (value == "Hot") {
-                img_alpha_zero(radio_hot);
+                img_hidden(radio_hot);
                 radio_hot[img_hot_temp].hidden = false;
             } else if (value == "Ice") {
-                img_alpha_zero(radio_ice);
+                img_hidden(radio_ice);
                 radio_ice[img_ice_temp].hidden = false;
             }
         }
 
         function mouse_up(value) {
-            img_alpha_zero(radio_hot);
-            img_alpha_zero(radio_ice);
-            img_alpha_zero(radio_can);
+            img_hidden(radio_hot);
+            img_hidden(radio_ice);
+            img_hidden(radio_can);
             if (value == "Hot") {
                 img_hot_temp = 1;
                 img_ice_temp = 0;
-
-                img_alpha_zero(btn);
+                can_temp = 1;
+                img_hidden(btn);
                 btn_temp = 1;
                 document
                     .getElementById("btn_order")
@@ -169,13 +173,11 @@
                         mouse_up("Btn")
                     })
                 btn[btn_temp].hidden = false
-                radio_can[1].hidden = false
-
             } else if (value == "Ice") {
                 img_hot_temp = 0;
                 img_ice_temp = 1;
-
-                img_alpha_zero(btn);
+                can_temp = 2;
+                img_hidden(btn);
                 btn_temp = 1;
                 document
                     .getElementById("btn_order")
@@ -183,29 +185,34 @@
                         mouse_up("Btn")
                     })
                 btn[btn_temp].hidden = false
-                radio_can[2].hidden = false
+
             } else if (value == "Btn") {
-                img_alpha_zero(btn);
-                document.getElementById("btn_order").addEventListener("mousedown", function(){btn_down("1")})
-                
-                sendPost("/Menu_Select_Option", img_hot_temp)
-            }
+                img_hidden(btn);
+                btn[2].hidden = false;
+                document.getElementById("btn_order").addEventListener("mouseup", function(){sendpost_fun("1")})
+                document.getElementById("btn_order").addEventListener("mouseleave", function(){sendpost_fun("2")})
+            } 
+
 
             radio_hot[img_hot_temp].hidden = false;
             radio_ice[img_ice_temp].hidden = false;
+            radio_can[can_temp].hidden = false;
 
         }
 
-        function btn_down(value){
-            if(value == 1){
-                img_alpha_zero(btn);
-                btn[2].hidden = false;
-            }
-        }
-        
-        
 
-        function img_alpha_zero(array) {
+        function sendpost_fun(value){
+                if(value == "1" ){
+                sendPost("/Menu_Select_Option", img_hot_temp)
+                }
+                else if(value == "2")
+                {
+                    img_hidden(btn);
+                    btn[1].hidden = false;
+                }
+        }
+
+        function img_hidden(array) {
             for (var i = 0; i < array.length; i++) {
                 array[i].hidden = true
             }
