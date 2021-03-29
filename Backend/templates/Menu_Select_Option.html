@@ -56,13 +56,12 @@
 
     </div>
 
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/static/script/Common.js"></script>
     <script>
-
         var radio_hot = [window.document.img_hot_unselect, window.document.img_hot_selected, window.document.img_hot_clicked];
         var radio_ice = [window.document.img_ice_unselect, window.document.img_ice_selected, window.document.img_ice_clicked];
-
         var radio_can = [window.document.img_can_unselected, window.document.img_hotcan_selected, window.document.img_icecan_selected];
-
         var btn = [window.document.img_not_yet, window.document.img_yet, window.document.img_clicked]
 
         var img_hot_temp = 0;
@@ -191,11 +190,15 @@
                 if(img_hot_temp == 1 || img_ice_temp == 1){
                     img_hidden(btn);
                     btn[2].hidden = false;
-                    document.getElementById("btn_order").addEventListener("mouseup", function(){sendpost_fun("1")})
-                    document.getElementById("btn_order").addEventListener("mouseleave", function(){sendpost_fun("2")})
+                    document.getElementById("btn_order").addEventListener("mouseup", function(){
+                        postForm("/Menu_Select_Option", img_hot_temp)
+                    })
+                    document.getElementById("btn_order").addEventListener("mouseleave", function(){
+                        img_hidden(btn);
+                        btn[1].hidden = false;
+                    })
                 }
             } 
-
 
             radio_hot[img_hot_temp].hidden = false;
             radio_ice[img_ice_temp].hidden = false;
@@ -203,17 +206,6 @@
 
         }
 
-
-        function sendpost_fun(value){
-                if(value == "1" ){
-                sendPost("/Menu_Select_Option", img_hot_temp)
-                }
-                else if(value == "2")
-                {
-                    img_hidden(btn);
-                    btn[1].hidden = false;
-                }
-        }
 
         function img_hidden(array) {
             for (var i = 0; i < array.length; i++) {
@@ -225,52 +217,9 @@
             sendGet("/Menu_Select_Blending");
         }
 
-        function sendPost(action, value) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'post');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            hiddenField.setAttribute('name', 'Option_Select');
-            hiddenField.setAttribute('value', value);
-            form.appendChild(hiddenField);
-
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        }
-
         var timeT = document.getElementById("runningtime");
 
         var cnt = 10;
-        /*function countdown() {
-            if (cnt == 0) {
-                sendGet('/Order_Timeout');
-            } else {
-                timeT.innerText = cnt;
-                setTimeout("countdown()", 1000);
-                cnt--;
-            }
-
-        } */
-
-        function sendGet(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'get');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        }
     </script>
 </body>
 

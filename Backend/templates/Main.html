@@ -33,15 +33,14 @@
 
     </div>
 
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/static/script/Common.js"></script>
     <script type="text/javascript">
 
         var timeT = document.getElementById("runningtime");
-
-
         var order_btn = [window.document.order, window.document.order_clicked];
 
         function init() {
-            console.log("init");
             img_hide(order_btn);
 
             order_btn[0].hidden = false;
@@ -54,21 +53,17 @@
                 .addEventListener("mousedown", function () {
                     order_btn[0].hidden = true;
                     order_btn[1].hidden = false;
-                    
-                    console.log("down");
                 })
             document
                 .getElementById("order_confirm")
                 .addEventListener("mouseup", function () {
-                    sendPost("/Main");
+                    postForm("/Main","");
                 })
             document
                 .getElementById("order_confirm")
                 .addEventListener("mouseleave", function () {
                     order_btn[0].hidden = false;
                     order_btn[1].hidden = true;
-
-                    console.log("out");
                 })
         }
 
@@ -76,7 +71,6 @@
             for (var i = 0; i < array.length; i++) {
                 array[i].hidden = true;
             }
-            console.log("hide complete");
         }
 
         function countdown() {
@@ -89,35 +83,6 @@
             }
         }
 
-        function sendPost(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'post');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        }
-
-        function sendGet(action) {
-            var form = document.createElement('form');
-            form.setAttribute('method', 'get');
-            form.setAttribute('action', action);
-            document.charset = "utf-8";
-
-            var hiddenField = document.createElement('input');
-            hiddenField.setAttribute('type', 'hidden');
-            form.appendChild(hiddenField);
-            document
-                .body
-                .appendChild(form);
-            form.submit();
-        }
     </script>
 
 </body>
