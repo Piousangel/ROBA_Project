@@ -28,14 +28,28 @@
 }
 
 #order_continue {
-    
     top: 751px;
     left: 666px;
     background-image: url("/static/imgs/ROBA_0_Order_Timeout_button.png");
     background-color: rgb(246, 243,238);
     background-repeat: no-repeat;
     border: none;
+    outline: none;
     background-position: 0 0;
     height: 200px;
     width: 590px;
 }
+
+#order_continue:active {
+    top: 751px;
+    left: 666px;
+    background-image: url("/static/imgs/ROBA_0_clicked.png");
+    background-color: rgb(246, 243,238);
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    background-position: 0 0;
+    height: 200px;
+    width: 590px;
+}
+

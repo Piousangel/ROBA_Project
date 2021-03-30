@@ -1,20 +1,22 @@
+/* 로바 주문가능 :) */
 #state {
     position: absolute;
     top: 358px;
     left: 570px;
 }
 
+/* 로고 위치,크기 */
 #roba_Logo {
     top: 463px;
     left: 685px;
     width: 550px;
 }
-
+/* 물결 line 위치,크기 */
 #line_Animation {
     top: 700px;
     left: 160px;
 }
-
+/* 주문버튼 위치,크기 */
 #order_confirm {
     top: 752px;
     left: 731px;

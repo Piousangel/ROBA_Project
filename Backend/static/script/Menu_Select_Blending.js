@@ -11,6 +11,9 @@ var remain_ratio = 100 - blender_0_ratio - blender_1_ratio - blender_2_ratio;
 var btn = [window.document.img_not_yet, window.document.img_yet, window.document.img_pushed]
 
 function init() {
+    cnt_init();
+    countdown('/Order_Timeout');
+
     img_hide(recommend[0]);
     img_hide(recommend[1]);
     img_hide(recommend[2]);
@@ -21,9 +24,6 @@ function init() {
 
     img_hide(btn);
     btn[0].hidden = false;
-
-    cnt_init();
-    countdown('/Order_Timeout');
 
     var btn_recommend = [document.getElementById("img_recommend_btn_0"),
     document.getElementById("img_recommend_btn_1"),

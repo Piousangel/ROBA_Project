@@ -1,3 +1,4 @@
+/* 좌단 */
 #left_img {
     position: absolute;
     background-image: url("/static/imgs/ROBA_2-1_newBG.png");
@@ -27,16 +28,12 @@
     left: 201px;
 }
 
-#arrow {
-    top: 43px;
-    left: 651px;
-}
-
 #line {
     top: 420px;
     left: 626px;
 }
 
+/* 우단 */
 #amekor {
     top: 115px;
     left: 1128px;
@@ -47,6 +44,7 @@
     left: 1160px;
 }
 
+/* hot/ice gif 위치 */
 #hot {
     top: 320px;
     left: 857px;
@@ -63,6 +61,7 @@
     z-index: 10;
 }
 
+/* 커피 종류 수정사항 */
 .name {
     left: 1169px;
 }
@@ -107,6 +106,7 @@
     width: 460px;
 }
 
+/* can에 채워지는 이미지 */
 .img_round_fill{
     left: 797px;
     top: 775px;

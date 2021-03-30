@@ -1,3 +1,4 @@
+/* 음료 온도 선택 */
 .select_tem {
     top: 116px;
     left: 147px;
@@ -8,11 +9,16 @@
     left: 50px;
 }
 
+.img_relative {
+    opacity: "0.0";
+}
+
 .line {
     top: 195px;
     left: 0;
 }
 
+/* hot */
 .btn_hot {
     top: 326px;
     left: 203px;
@@ -24,10 +30,6 @@
     z-index: 10;
 }
 
-.img_relative {
-    opacity: "0.0";
-}
-
 .text_hot_americano {
     top: 803px;
     left: 218px;
@@ -37,7 +39,7 @@
     top: 862px;
     left: 362px;
 }
-
+/* ice */
 .btn_ice {
     top: 326px;
     left: 1356px;
@@ -59,6 +61,7 @@
     top: 862px;
     left: 1522px;
 }
+/*************/
 
 .can {
     top: 279px;

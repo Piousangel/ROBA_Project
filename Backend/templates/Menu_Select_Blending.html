@@ -9,12 +9,14 @@
 
 </head>
 
-<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'> <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
     <div id="wrap">
+        <!-- 좌 단 -->
         <div class="menu_select">
             <p id="text_choice_bean" class="font_50">원두 조합 선택</p>
         </div>
-
+        
+        <!-- 커피 변경시 수정항목 -->
         <img id="img_description_0" class="description" src="/static/imgs/lostaric_img.png" alt="description_0" />
         <img id="img_description_1" class="description" src="/static/imgs/terasosa_img.png" alt="description_1" />
         <img id="img_description_2" class="description" src="/static/imgs/indonisia_img.png" alt="description_2" />
@@ -47,10 +49,11 @@
             </div>
         </div>
 
-
+        <!-- 경계 선 -->
         <img id="img_backarrow" onclick="sendGet('/Main')" src="/static/imgs/ROBA_23_backArrow.png" alt="logo" />
         <img id="img_line" src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" />
 
+        <!-- 우단 -->
         <p id="text_americano_kor" class="font_60">아메리카노</p>
         <p id="text_americano_eng" class="font_40">Americano</p>
 

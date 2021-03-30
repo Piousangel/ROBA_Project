@@ -4,10 +4,11 @@
 }
 
 
-/*좌단 설명부*/
+/* 좌단 설명부 */
 .description{
     left: 62px;
 }
+
 #img_description_0 {
     top: 259px;
     width: 470px;
@@ -20,7 +21,7 @@
     top: 525px;
     width: 360px;
 }
-/* 좌하단 추천 비율*/
+/* 좌하단 추천 비율 */
 #text_recommend_ratio{
     top: 657px;
     left: 232px;
@@ -55,9 +56,17 @@
     width: 168px;
 }
 
+.menu_select {
+    background-image: url("/static/imgs/ROBA_2-1_newBG.png");
+    background-size: 630px 460px;
+    background-repeat: no-repeat;
+    width: 630px;
+    height: 460px;
+}
 
 
-/*중앙 백버튼과 선*/
+
+/* 중앙 백버튼과 선 */
 #img_backarrow {
     top: 43px;
     left: 651px;
@@ -67,7 +76,7 @@
     left: 626px;
 }
 
-/*우상단 아메리카노 텍스트*/
+/* 우상단 아메리카노 텍스트 */
 #text_americano_kor {
     top: 115px;
     left: 1128px;
@@ -77,7 +86,7 @@
     left: 1160px;
 }
 
-/*우 중단 남은 비율 표시*/
+/* 우 중단 남은 비율 표시 */
 #div_remain_box {
     top: 275px;
     left: 1500px;
@@ -94,7 +103,7 @@
     width: 100px;
 }
 
-/*중단 원두 상자*/
+/* 중단 원두 상자 */
 .div_blender{
     height: 421px;
     width: 386px;
@@ -112,13 +121,13 @@
     left: 1472px;
 }
 
-/*중단 원두 이름*/
+/* 중단 원두 이름 */
 .text_blender {
     top: 0px;
     width: 386px;
     text-align: center;
 }
-/*중단 커피 컵 그림*/
+/* 중단 커피 컵 그림 */
 .img_blender_cup{
     top: 85px;
     left: 138px;
@@ -137,7 +146,7 @@
 .fill_light{
     background-color: rgb(153,118,84);
 }
-/*하단 비율 버튼*/
+/* 하단 비율 버튼 */
 .img_blender_bg{
     background-image: url("/static/imgs/ROBA_2-1_ratioBG.png");
     background-repeat: no-repeat;

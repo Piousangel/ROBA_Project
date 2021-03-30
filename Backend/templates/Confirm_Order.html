@@ -8,21 +8,22 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
-<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'> <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
     <div id="wrap">
-
+        <!-- 좌단 -->
         <div id="left_img">
             <p id="order_confirm" class="font_70">주문 확인</p>
         </div>
 
         <p id="take_out1" class="font_50">예상 테이크 아웃<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간은</p>
 
-        <p id="take_out2" class="font_70">4'30"</p>
+        <p id="take_out2" class="font_70">4'30"</p> <!-- 수정 항목 -->
 
         <p id="take_out3" class="font_50">후 입니다.</p>
 
         <img src="/static/imgs/ROBA_2-1_bgLine.png" alt="logo" id="line" />
 
+        <!-- 우단 -->
         <p id="amekor" class="font_60">아메리카노</p>
         <p id="americano" class="font_40">Americano</p>
 
@@ -35,6 +36,7 @@
         </div>
         <img id="can" alt="logo" src="/static/imgs/ROBA_3_can_empty.png" />
 
+        <!-- 커피 변경시 수정항목 -->
         <p class="name hot_ice font_40">선택한 음료</p>
         <p class="name tera font_40">테라로사 에티오피아</p>
         <p class="name brazil font_40">브라질 산토스</p>
@@ -45,11 +47,11 @@
         <p id="text_blender_2_percent" class="value percent burunde font_50">{{blender_3}}%</p>
 
         <div class= "back_btn" id="back_btn_id">
-            <img hidden="hidden" class="img_relative" name="back_btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back.png" />          <!--안눌렸을 때-->
+            <img hidden="hidden" class="img_relative" name="back_btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back.png" />    <!--안눌렸을 때-->
             <img hidden="hidden" class="img_relative" name="back_btn_clicked" alt="btn" src="/static/imgs/ROBA_3_button_back_pushed.png"/>
         </div>
         <div class="btn" id="btn_id">
-            <img hidden="hidden" class="img_relative" name="btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button.png" />  <!--안눌렸을 때-->
+            <img hidden="hidden" class="img_relative" name="btn_not_clicked" alt="btn" src="/static/imgs/ROBA_3_button.png" />              <!--안눌렸을 때-->
             <img hidden="hidden" class="img_relative" name="btn_clicked" alt="btn" src="/static/imgs/ROBA_3_button_order.png" />
         </div>
 

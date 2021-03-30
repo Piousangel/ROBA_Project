@@ -9,13 +9,14 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
-<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>  <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
     <div id="option" hidden="hidden">{{option}}</div>
     <div id="wrap">
         <p class="select_tem font_50">음료 온도 선택</p>
         <img alt="line" class="line" src="/static/imgs/ROBA_2-2_line.png">
         <img alt="backArrow" class="backArrow" src="/static/imgs/ROBA_23_backArrow.png" onclick="sendGet('/Menu_Select_Blending')">
 
+        <!-- 3가지(안눌렀을때, 눌렀을 때, 띄었을 때) 이미지 -->
         <div id="radio_hot" class="btn_hot">
             <img hidden="hidden" class="img_relative" name="img_hot_unselect"
                 src="/static/imgs/ROBA_2-2_btnUnselected.png">
@@ -27,6 +28,7 @@
         <p class="text_hot_americano font_50">뜨거운 아메리카노</p>
         <p class="text_hot font_60">Hot</p>
 
+        <!-- 3가지(기본,ice,hot) 이미지 -->
         <div id="radio_can" class="can">
             <img hidden="hidden" class="img_relative" name="img_can_unselected" src="/static/imgs/ROBA_2-2_can.png">
             <img hidden="hidden" class="img_relative" name="img_hotcan_selected"
@@ -35,6 +37,7 @@
                 src="/static/imgs/ROBA_2-2_can_ice.gif">
         </div>
 
+        <!-- 3가지(안눌렀을때, 눌렀을 때, 띄었을 때) 이미지 -->
         <div id="radio_ice" class="btn_ice">
             <img hidden="hidden" class="img_relative" name="img_ice_unselect"
                 src="/static/imgs/ROBA_2-2_btnUnselected.png">
@@ -47,6 +50,7 @@
         <p class="text_ice_americano font_50">아이스 아메리카노</p>
         <p class="text_ice font_60">Ice</p>
 
+        <!-- 3가지(온도선택하지 않았을 때, 했을 때, 눌렀을 때) 이미지 -->
         <div id="btn_order" class="btn_order">
             <img hidden="hidden" class="img_relative" name="img_not_yet" src="/static/imgs/ROBA_2-2_선택완료_notyet.png">
             <img hidden="hidden" class="img_relative" name="img_yet" src="/static/imgs/ROBA_2_button.png">
