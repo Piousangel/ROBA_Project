@@ -2,12 +2,12 @@ var timeT = document.getElementById("runningtime");
 var order_btn = [window.document.order, window.document.order_clicked];
 
 function init() {
+    cnt = 10;
+    countdown('/Main');
+    
     img_hide(order_btn);
 
     order_btn[0].hidden = false;
-
-    cnt = 10;
-    countdown('/Main');
 
     document
         .getElementById("order_confirm")

@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
-<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'> <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
     <div id="wrap">
 
         <p id="state" class="font_50">{{error_message}} :'(</p>

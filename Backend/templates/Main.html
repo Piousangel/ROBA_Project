@@ -6,23 +6,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Main.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <!-- <link type="text/css" rel="stylesheet" href="../css/design.css"/> css파일
-        불러올때 -->
-
 </head>
 
-<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+<body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'> <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
     <div id="wrap">
         <p id="state" class="font_50">로바는 지금 주문 가능한 상태 입니다 :)</p>
 
-        <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo" />
+        <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo" />        <!--ROBA 로고-->
 
-        <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation" />
+        <img src="/static/imgs/normal_line.gif" alt="line" id="line_Animation" /> 
 
-        <div class="order_confirm" id="order_confirm">
-            <img hidden="hidden" src="/static/imgs/ROBA_1_Main_button.png" alt="btn" class="img_relative" name="order" />
+        <div class="order_confirm" id="order_confirm">  <!-- 주문하기 안눌림, 눌림버튼 -->
+            <img hidden="hidden" src="/static/imgs/ROBA_1_Main_button.png" alt="btn" class="img_relative"
+                name="order" />
 
-            <img hidden="hidden" src="/static/imgs/ROBA_1_clicked.png" alt="btn_clicked" class="img_relative" name="order_clicked" />
+            <img hidden="hidden" src="/static/imgs/ROBA_1_clicked.png" alt="btn_clicked" class="img_relative"
+                name="order_clicked" />
 
         </div>
 

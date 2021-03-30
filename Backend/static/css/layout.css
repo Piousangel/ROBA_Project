@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* Font */
 @font-face {
     font-family: 'GongGothicLight';
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff") format('woff');
@@ -7,33 +8,25 @@
     font-style: normal;
 }
 
-
+/* html코드 전체 적용 */
 html *{
     position: absolute;
     padding: 0;
     margin: 0;
     border: 0;
 }
-
+/* 화면 크기, 색 */
 #wrap {
     width: 1920px;
     height: 1080px;
     background-color: rgb(246, 243, 238);
 }
-
+/* 이미지 hidden처리 시 사용 */
 .img_relative{
     top: 0;
     left: 0;
 }
-
-.menu_select {
-    background-image: url("/static/imgs/ROBA_2-1_newBG.png");
-    background-size: 630px 460px;
-    background-repeat: no-repeat;
-    width: 630px;
-    height: 460px;
-}
-
+/* z_index값을 통한 우선순위 선정 */
 .z_top{
     z-index: 10;
 }
@@ -41,7 +34,7 @@ html *{
 .z_back{
     z-index: 0;
 }
-
+/* Font Size별 분류 */
 .font_100{
     font-family: 'GongGothicLight' , sans-serif;
     font-size: 74pt;

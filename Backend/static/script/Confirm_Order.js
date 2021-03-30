@@ -8,6 +8,8 @@ var blender_1_value = parseInt(document.getElementById("text_blender_1_percent")
 var blender_2_value = parseInt(document.getElementById("text_blender_2_percent").innerText);
 
 function init() {
+    cnt_init();
+    countdown('/Order_Timeout');
 
     img_hide(back_btn);
     img_hide(btn);
@@ -22,9 +24,8 @@ function init() {
         tem[1].hidden = false;
         tem[0].hidden = true;
     }
-    cnt_init();
-    countdown('/Order_Timeout');
-
+    
+    /* back_btn_id=1, btn_id=2 */
     document.getElementById("back_btn_id").addEventListener("mousedown", function () { mouse_down("1") })
     document.getElementById("btn_id").addEventListener("mousedown", function () { mouse_down("2") })
     document.getElementById("back_btn_id").addEventListener("mouseup", function () { mouse_up("1") })

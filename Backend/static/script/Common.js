@@ -26,6 +26,7 @@ function sendPost(action, params) {
     form.submit();
 }
 
+/* hidden="hidden" 처리 */
 function img_hide(array) {
     for (var i = 0; i < array.length; i++) {
         array[i].hidden = true;
@@ -56,6 +57,7 @@ function postForm(action, value) {
 
 var cnt = 10;
 
+/* 주문 가능시간 조절 함수 */
 function cnt_init() {
     cnt = 30;
 }

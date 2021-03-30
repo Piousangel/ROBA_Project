@@ -9,6 +9,9 @@ var btn_temp = 0;
 var can_temp = 0;
 
 function init() {
+    cnt_init();
+    countdown('/Order_Timeout');
+
     img_hide(radio_hot);
     img_hide(radio_ice);
     img_hide(btn);
@@ -43,14 +46,12 @@ function init() {
 
     document.getElementById("radio_ice").addEventListener("mouseup", function () { mouse_up("Ice") })
     document.getElementById("radio_ice").addEventListener("mousedown", function () { mouse_down("Ice") })
-    document.getElementById("radio_ice").addEventListener("mouseleave", function () { ouse_out("Ice") })
+    document.getElementById("radio_ice").addEventListener("mouseleave", function () { mouse_out("Ice") })
 
     document.getElementById("btn_order").addEventListener("mousedown", function () { mouse_up("Btn") }) //추가
-    cnt_init();
-    countdown('/Order_Timeout');
 }
 
-function mouse_down(value) { //hot : 1, ice : 0
+function mouse_down(value) {   //Hot : 1, Ice : 0
     cnt = 10;
 
     if (value == "Hot") {

@@ -8,8 +8,7 @@
     width: 275px;
     height: 18px;
     top : -4px;
-    left: -2px;
-    
+    left: -2px; 
 }
 
 #thanks {
@@ -21,6 +20,7 @@
     left: 465px;               
 }
 
+/* 이 페이지만 들어가는 로바 로고 */
 #roba_Logo {
     top: 579px;
     left: 576px;
