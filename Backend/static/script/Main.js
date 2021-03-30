@@ -6,7 +6,7 @@ function init() {
 
     order_btn[0].hidden = false;
 
-    cnt_init();
+    cnt = 10;
     countdown('/Main');
 
     document

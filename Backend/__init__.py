@@ -11,14 +11,33 @@ UNIT = 0x1
 
 
 app = Flask(__name__)
+check_mask = [True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True]
+error_msg = ["현재 로바는 비상정지중입니다",
+             "현재 로바의 메인 AIR 이상입니다",
+             "현재 로바의 로봇이 이상있습니다",
+             "현재 로바의 캔뚜껑 상/하 이상입니다",
+             "현재 로바의 캔뚜껑 클램프 이상입니다",
+             "현재 로바의 ICE 축카드 이상입니다",
+             "현재 로바의 HOT 축카드 이상입니다",
+             "현재 로바의 ICE 공급 스태핑모터 이상입니다",
+             "현재 로바의 HOT 공급 스태핑 모터 이상입니다",
+             "현재 로바의 ICE 캔 소재 부족입니다",
+             "현재 로바의 HOT 캔 소재 부족입니다",
+             "현재 로바의 그라인더1 커피부족입니다",
+             "현재 로바의 그라인더2 커피부족입니다",
+             "현재 로바의 그라인더3 커피부족입니다",
+             "현재 로바의 캔뚜껑 부족입니다",
+             "Unexcepted Error! 관리자 연락바랍니다"]
 blender = ["0", "0", "0"]
 option = ['none']
 
 @app.route("/")
 @app.route("/Main", methods=["GET", "POST"])
 def main():
-    rs_return = run_sync_client_CanCheck()
-    if rs_return == True:
+    global rs_return 
+    rs_return = run_sync_client_Check()
+    print(rs_return)
+    if rs_return == check_mask:
         if request.method == 'POST':
             return redirect(url_for('menu_select_blending'))
         else:
@@ -38,7 +57,16 @@ def order_timeout():
 
 @app.route("/Can't_Order")
 def cant_order():
-    return render_template("Can't_Order.html")
+    render_params= {}
+    num = 0
+    for mask in rs_return:
+        if(mask == False):
+            render_params['error_message'] = error_msg[num]
+            print(num)
+            print(rs_return)
+        num = num + 1
+     
+    return render_template("Can't_Order.html", **render_params)
 
 
 @app.route("/Menu_Select_Blending", methods=["GET", "POST"])
@@ -100,9 +128,9 @@ def run_sync_client():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
     log.debug("***************Send Blending****************")
-    rq = client.write_registers(200, [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
+    rq = client.write_registers(int("0x200", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
     log.debug("***************Read Blending****************")
-    rr = client.read_holding_registers(200, 3, unit=0x00)
+    rr = client.read_holding_registers(int("0x200", 0), 3, unit=0x00)
     print("Bl_1 : " + str(rr.registers[0]) + " Bl_2 : " + str(rr.registers[1]) + " Bl_3 : " + str(rr.registers[2]))
 
     hot_selector = [1,0]
@@ -112,24 +140,24 @@ def run_sync_client():
         hot_selector = [0,1]
 
     log.debug("******************Send HOT*******************")
-    rq = client.write_coils(1005, hot_selector, unit=0x00)
+    rq = client.write_coils(int("0x1005", 0), hot_selector, unit=0x00)
+    print(rq)
     log.debug("******************Read HOT*******************")
-    rr = client.read_coils(1005, 2, unit=0x00)
+    rr = client.read_coils(int("0x1005", 0), 2, unit=0x00)
     print("Hot:" + str(rr.bits[0]) + " Ice: " + str(rr.bits[1]))
     log.debug("******************Send Start*******************")
-    rq = client.write_coils(1007, True, unit=0x00)
+    rq = client.write_coils(int("0x1007", 0), True, unit=0x00)
     log.debug("******************Read Start*******************")
-    rr = client.read_coils(1007, 1, unit=0x00)
+    rr = client.read_coils(int("0x1007", 0), 1, unit=0x00)
     if rr.bits[0] :
         print("Start Bit Send!")
     client.close()
 
 
-def run_sync_client_CanCheck():
+def run_sync_client_Check():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
-    rr = client.read_coils(1007, 1, unit=0x00) #임의의 코일(캔의 유무)
-    print(rr.bits[0])
-    CanChecker = rr.bits[0]
+    rr = client.read_coils(int("0x1800", 0), 15, unit=0x00) 
+    rr.bits[15] = True
     client.close()
-    return CanChecker
+    return rr.bits

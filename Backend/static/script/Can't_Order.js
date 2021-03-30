@@ -1,4 +1,4 @@
 window.onload = function () {
-    cnt_init();
+    cnt = 10
     countdown('/Main');
 }
