@@ -20,14 +20,14 @@ error_msg = ["현재 로바는 비상정지중입니다",
              "현재 로바의 ICE 축카드 이상입니다",
              "현재 로바의 HOT 축카드 이상입니다",
              "현재 로바의 ICE 공급 스태핑모터 이상입니다",
-             "현재 로바의 HOT 공급 스태핑 모터 이상입니다",
+             "현재 로바의 HOT 공급 스태핑모터 이상입니다",
              "현재 로바의 ICE 캔 소재 부족입니다",
              "현재 로바의 HOT 캔 소재 부족입니다",
              "현재 로바의 그라인더1 커피부족입니다",
              "현재 로바의 그라인더2 커피부족입니다",
              "현재 로바의 그라인더3 커피부족입니다",
              "현재 로바의 캔뚜껑 부족입니다",
-             "Unexcepted Error! 관리자 연락바랍니다"]
+             "커피가 취출중입니다. 잠시 기다려 주십시오."]
 blender = ["0", "0", "0"]
 option = ['none']
 
@@ -158,6 +158,7 @@ def run_sync_client_Check():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
     rr = client.read_coils(int("0x1800", 0), 15, unit=0x00) 
-    rr.bits[15] = True
+    able = client.read_coils(int("0x040A", 0), 1, unit=0x00)
+    rr.bits[15] = able[0]
     client.close()
     return rr.bits
