@@ -159,6 +159,6 @@ def run_sync_client_Check():
     client.connect()
     rr = client.read_coils(int("0x1800", 0), 15, unit=0x00) 
     able = client.read_coils(int("0x040A", 0), 1, unit=0x00)
-    rr.bits[15] = able[0]
+    rr.bits[15] = able.bits[0]
     client.close()
     return rr.bits
