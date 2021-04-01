@@ -10,16 +10,34 @@
 }
 
 #img_description_0 {
-    top: 259px;
-    width: 470px;
+    top: 259px;   
 }
 #img_description_1 {
-    top: 392px;
-    width: 420px;
+    top: 392px;    
 }
 #img_description_2 {
-    top: 525px;
-    width: 360px;
+    top: 525px;   
+}
+.coffee_sort, .coffee_description{
+    left: 156px;
+}
+#coffee_text_0{
+    top: 263px;
+}
+#coffee_text_1{
+    top: 395px;
+}
+#coffee_text_2{
+    top: 524px;
+}
+#coffee_description_0{
+    top: 316px;
+}
+#coffee_description_1{
+    top: 448px;
+}
+#coffee_description_2{
+    top: 577px;
 }
 /* 좌하단 추천 비율 */
 #text_recommend_ratio{

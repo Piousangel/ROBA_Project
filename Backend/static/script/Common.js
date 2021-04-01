@@ -62,11 +62,11 @@ function cnt_init() {
     cnt = 30;
 }
 
-function countdown(action) {
+/*function countdown(action) {
     if (cnt == 0) {
         sendGet(action);
     } else {
         setTimeout(countdown, 1000, action);
         cnt--;
     }
-}
+}*/
