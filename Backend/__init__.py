@@ -14,6 +14,7 @@ UNIT = 0x1
 with open('.\setting.json', 'r', encoding='UTF-8') as f:
     json_data = json.load(f)
 
+ip = json_data['modbus']['ip']
 port = json_data['modbus']['port']
 name_blend_0 = json_data['blend']['blender_0']
 name_blend_1 = json_data['blend']['blender_1']
@@ -146,7 +147,7 @@ def complete_order():
 
 
 def run_sync_client():
-    client = ModbusClient('127.0.0.1', port=2004)
+    client = ModbusClient(ip, port=port)
     client.connect()
     log.debug("***************Send Blending****************")
     rq = client.write_registers(int("0x0000", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
@@ -165,7 +166,7 @@ def run_sync_client():
 
 
 def run_sync_client_Check():
-    client = ModbusClient('127.0.0.1', port=2004)
+    client = ModbusClient(ip, port=port)
     client.connect()
     rr = client.read_discrete_inputs(int("0x0000", 0), 16, unit=0x00)
     client.close()
