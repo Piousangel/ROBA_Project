@@ -27,7 +27,7 @@ error_msg = ["현재 로바는 비상정지중입니다",
              "현재 로바의 그라인더2 커피부족입니다",
              "현재 로바의 그라인더3 커피부족입니다",
              "현재 로바의 캔뚜껑 부족입니다",
-             "커피가 취출중입니다. 잠시 기다려 주십시오."]
+             "커피가 취출중입니다. 잠시 기다려 주십시오"]
 blender = ["0", "0", "0"]
 option = ['none']
 
@@ -128,10 +128,7 @@ def run_sync_client():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
     log.debug("***************Send Blending****************")
-    rq = client.write_registers(int("0x200", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
-    log.debug("***************Read Blending****************")
-    rr = client.read_holding_registers(int("0x200", 0), 3, unit=0x00)
-    print("Bl_1 : " + str(rr.registers[0]) + " Bl_2 : " + str(rr.registers[1]) + " Bl_3 : " + str(rr.registers[2]))
+    rq = client.write_registers(int("0x0000", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
 
     hot_selector = [1,0]
     if option == '1':
@@ -140,15 +137,9 @@ def run_sync_client():
         hot_selector = [0,1]
 
     log.debug("******************Send HOT*******************")
-    rq = client.write_coils(int("0x1005", 0), hot_selector, unit=0x00)
-    print(rq)
-    log.debug("******************Read HOT*******************")
-    rr = client.read_coils(int("0x1005", 0), 2, unit=0x00)
-    print("Hot:" + str(rr.bits[0]) + " Ice: " + str(rr.bits[1]))
+    rq = client.write_coils(int("0x0000", 0), hot_selector, unit=0x00)
     log.debug("******************Send Start*******************")
-    rq = client.write_coils(int("0x1007", 0), True, unit=0x00)
-    log.debug("******************Read Start*******************")
-    rr = client.read_coils(int("0x1007", 0), 1, unit=0x00)
+    rq = client.write_coils(int("0x0002", 0), True, unit=0x00) 
     if rr.bits[0] :
         print("Start Bit Send!")
     client.close()
@@ -157,8 +148,6 @@ def run_sync_client():
 def run_sync_client_Check():
     client = ModbusClient('127.0.0.1', port=2004)
     client.connect()
-    rr = client.read_coils(int("0x1800", 0), 15, unit=0x00) 
-    able = client.read_coils(int("0x040A", 0), 1, unit=0x00)
-    rr.bits[15] = able.bits[0]
+    rr = client.read_discrete_inputs(int("0x0000", 0), 16, unit=0x00)
     client.close()
     return rr.bits
