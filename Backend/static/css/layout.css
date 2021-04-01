@@ -22,6 +22,11 @@ html *{
     height: 1080px;
     background-color: rgb(246, 243, 238);
 }
+#canvas {
+    width: 1920px;
+    height: 1080px;
+    background-color: rgb(246, 243, 238);
+}
 /* 이미지 hidden처리 시 사용 */
 .img_relative{
     top: 0;

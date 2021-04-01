@@ -11,13 +11,13 @@ function init() {
 
     document
         .getElementById("order_confirm")
-        .addEventListener("mousedown", function () {
+        .addEventListener("touchstart", function () {
             order_btn[0].hidden = true;
             order_btn[1].hidden = false;
         })
     document
         .getElementById("order_confirm")
-        .addEventListener("mouseup", function () {
+        .addEventListener("touchend", function () {
             postForm("/Main", "");
         })
     document

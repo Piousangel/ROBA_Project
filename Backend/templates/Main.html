@@ -9,7 +9,7 @@
 </head>
 
 <body onload="init();" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'> <!--시작시 init()실행 / 우클릭,드래그,선택 방지 -->
-    <div id="wrap">
+    <wrap id="wrap">
         <p id="state" class="font_50">로바는 지금 주문 가능한 상태 입니다 :)</p>
 
         <img src="/static/imgs/roba_Logo.svg" alt="logo" id="roba_Logo" />        <!--ROBA 로고-->
@@ -22,10 +22,8 @@
 
             <img hidden="hidden" src="/static/imgs/ROBA_1_clicked.png" alt="btn_clicked" class="img_relative"
                 name="order_clicked" />
-
         </div>
-
-    </div>
+    </wrap>
 
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/static/script/Common.js"></script>
