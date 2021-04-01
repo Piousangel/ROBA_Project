@@ -140,8 +140,6 @@ def run_sync_client():
     rq = client.write_coils(int("0x0000", 0), hot_selector, unit=0x00)
     log.debug("******************Send Start*******************")
     rq = client.write_coils(int("0x0002", 0), True, unit=0x00) 
-    if rr.bits[0] :
-        print("Start Bit Send!")
     client.close()
 
 
