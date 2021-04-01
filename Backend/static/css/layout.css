@@ -14,7 +14,7 @@ html *{
     padding: 0;
     margin: 0;
     border: 0;
-    /*cursor: none;  마우스 없애야함.*/   
+    cursor: none;  
 }
 /* 화면 크기, 색 */
 #wrap {
