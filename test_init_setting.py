@@ -67,7 +67,7 @@ def run_sync_client():
     #
     #    client = ModbusClient('localhost', retries=3, retry_on_empty=True)
     # ------------------------------------------------------------------------#
-    client = ModbusClient('localhost', port=2004)
+    client = ModbusClient('localhost', port=502)
     # from pymodbus.transaction import ModbusRtuFramer
     # client = ModbusClient('localhost', port=5020, framer=ModbusRtuFramer)
     # client = ModbusClient(method='binary', port='/dev/ptyp0', timeout=1)
@@ -84,7 +84,8 @@ def run_sync_client():
     # which defaults to `0x00`
     # ----------------------------------------------------------------------- #
     log.debug("Reading Coils")
-    rq = client.write_coil(1007, True, unit=0x00)
+    data = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True]
+    rq = client.write_coils(int("0x00000", 0), data, unit=0x00)
     client.close()
 
 

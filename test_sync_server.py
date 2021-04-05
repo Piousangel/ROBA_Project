@@ -113,7 +113,7 @@ def run_server():
     # run the server you want
     # ----------------------------------------------------------------------- #
     # Tcp:
-    StartTcpServer(context, identity=identity, address=("127.0.0.1", 500))
+    StartTcpServer(context, identity=identity, address=("127.0.0.1", 502))
     #
     # TCP with different framer
     # StartTcpServer(context, identity=identity,
