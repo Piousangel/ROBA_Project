@@ -24,10 +24,12 @@ sum_blend_1 = json_data['blend']['description_1']
 sum_blend_2 = json_data['blend']['description_2']
 
 
+client = ModbusClient(ip, port=port)
+client.connect()
 
 
 app = Flask(__name__)
-check_mask = [True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True]
+check_mask = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True]
 error_msg = ["현재 로바는 비상정지중입니다",
              "현재 로바의 메인 AIR 이상입니다",
              "현재 로바의 로봇이 이상있습니다",
@@ -74,14 +76,15 @@ def order_timeout():
 @app.route("/Can't_Order")
 def cant_order():
     render_params= {}
+    my_msg = ""
     num = 0
     for mask in rs_return:
         if(mask == False):
-            render_params['error_message'] = error_msg[num]
+            my_msg = error_msg[num]
             print(num)
             print(rs_return)
         num = num + 1
-     
+    render_params['error_message'] = my_msg
     return render_template("Can't_Order.html", **render_params)
 
 
@@ -128,6 +131,9 @@ def confirm_order():
         return redirect(url_for('complete_order'))
     else:
         render_params = {}
+        render_params['name_blend_0'] = name_blend_0
+        render_params['name_blend_1'] = name_blend_1
+        render_params['name_blend_2'] = name_blend_2
         render_params['blender_1'] = blender[0]
         render_params['blender_2'] = blender[1]
         render_params['blender_3'] = blender[2]
@@ -147,27 +153,26 @@ def complete_order():
 
 
 def run_sync_client():
-    client = ModbusClient(ip, port=port)
-    client.connect()
     log.debug("***************Send Blending****************")
-    rq = client.write_registers(int("0x0000", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
-
+    rq = client.write_registers(int("0x00000", 0), [int(blender[0]), int(blender[1]), int(blender[2])], unit=0x00)
+    rr = client.read_holding_registers(int("0x00000", 0), 3, unit=0x00)
+    #print(rr.registers)
     hot_selector = [1,0]
-    if option == '1':
-        hot_selector = [1,0]
+    if option[0] == '1':
+        hot_selector = [True,False]
     else:
-        hot_selector = [0,1]
+        hot_selector = [False,True]
 
     log.debug("******************Send HOT*******************")
-    rq = client.write_coils(int("0x0000", 0), hot_selector, unit=0x00)
+    print(hot_selector)
+    rq = client.write_coil(int("0x00020", 0), hot_selector[0], unit=0x00)
+    rr = client.write_coil(int("0x00021", 0), hot_selector[1], unit=0x00) 
+    
     log.debug("******************Send Start*******************")
-    rq = client.write_coils(int("0x0002", 0), True, unit=0x00) 
-    client.close()
-
+    rq = client.write_coil(int("0x00022", 0), True, unit=0x00) 
 
 def run_sync_client_Check():
-    client = ModbusClient(ip, port=port)
-    client.connect()
-    rr = client.read_discrete_inputs(int("0x0000", 0), 16, unit=0x00)
-    client.close()
+    rq = client.write_coil(int("0x00022", 0), False, unit=0x00)
+    print(client.read_coils(int("0x00022", 0), 1, unit=0x00).bits[0])
+    rr = client.read_coils(int("0x00000", 0), 16, unit=0x00)
     return rr.bits

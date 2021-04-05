@@ -1,6 +1,6 @@
 var line_gif = [window.document.loading_line, window.document.complete_line];
 function init(){
-    cnt = 5;
+    cnt = 3;
     countdown('/Main');
     setTimeout("changegif()", 1000);
 

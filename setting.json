@@ -1,0 +1,26 @@
+{
+
+	"modbus": {
+		
+		"ip": "192.168.2.1",
+
+		"port": "502"
+
+	},
+
+	"blend": {
+
+		"blender_0": "원두0",
+
+		"description_0": "원두 설명0",
+
+		"blender_1": "원두1",
+
+		"description_1": "원두 설명1",
+
+		"blender_2": "원두2",
+
+		"description_2": "원두 설명2"
+    }
+
+}
