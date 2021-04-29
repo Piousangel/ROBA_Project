@@ -25,11 +25,11 @@ sum_blend_2 = json_data['blend']['description_2']
 
 
 client = ModbusClient(ip, port=port)
-client.connect()
+
 
 
 app = Flask(__name__)
-check_mask = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True]
+check_mask = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False]
 error_msg = ["현재 로바는 비상정지중입니다",
              "현재 로바의 메인 AIR 이상입니다",
              "현재 로바의 로봇에 이상이 있습니다",
@@ -45,7 +45,8 @@ error_msg = ["현재 로바는 비상정지중입니다",
              "현재 로바의 그라인더2 커피 부족입니다",
              "현재 로바의 그라인더3 커피 부족입니다",
              "현재 로바의 캔뚜껑 부족입니다",
-             "커피가 추출/청소중입니다. 잠시 기다려 주십시오"]
+             "커피가 추출/청소중입니다. 잠시 기다려 주십시오",
+             "로봇 서버가 동작중이지 않습니다."]
 blender = ["0", "0", "0"]
 option = ['none']
 
@@ -54,8 +55,9 @@ option = ['none']
 def main():
     global rs_return 
     rs_return = run_sync_client_Check()
-    print(rs_return)
     if rs_return == check_mask:
+        print(rs_return)
+        print(check_mask)
         if request.method == 'POST':
             return redirect(url_for('menu_select_blending'))
         else:
@@ -77,7 +79,7 @@ def order_timeout():
 def cant_order():
     render_params= {}
     error_num = 0
-    for num in list(range(0,16)):
+    for num in list(range(0,17)):
         if(num == 15):
             if(rs_return[num] == False):  
                 error_num = num
@@ -160,17 +162,23 @@ def run_sync_client():
         hot_selector = [True,False]
     else:
         hot_selector = [False,True]
-
     log.debug("******************Send HOT*******************")
     print(hot_selector)
     rq = client.write_coil(int("0x00020", 0), hot_selector[0], unit=0x00)
     rr = client.write_coil(int("0x00021", 0), hot_selector[1], unit=0x00) 
-    
     log.debug("******************Send Start*******************")
-    rq = client.write_coil(int("0x00022", 0), True, unit=0x00) 
+    rq = client.write_coil(int("0x00022", 0), True, unit=0x00)
 
 def run_sync_client_Check():
-    rq = client.write_coil(int("0x00022", 0), False, unit=0x00)
-    print(client.read_coils(int("0x00022", 0), 1, unit=0x00).bits[0])
-    rr = client.read_coils(int("0x00000", 0), 16, unit=0x00)
-    return rr.bits
+    try:
+        client.connect()
+        rq = client.write_coil(int("0x00022", 0), False, unit=0x00)
+        print(client.read_coils(int("0x00022", 0), 1, unit=0x00).bits[0])
+        rr = client.read_coils(int("0x00000", 0), 16, unit=0x00)
+        bits = rr.bits[:]
+        bits.append(False)
+        return bits
+    except:
+        bits = check_mask[:]
+        bits[16] = True
+        return bits

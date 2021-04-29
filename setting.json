@@ -21,6 +21,10 @@
 		"blender_2": "원두2",
 
 		"description_2": "원두 설명2"
-    }
+    },
 
+	"modbus_test":{
+		"ip" : "127.0.0.1",
+		"port" : "500"
+	}
 }
